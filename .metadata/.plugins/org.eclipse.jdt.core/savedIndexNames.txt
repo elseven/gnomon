@@ -1,6 +1,2 @@
-INDEX VERSION 1.126+/home/justin/Documents/HCI/gnomon/.metadata/.plugins/org.eclipse.jdt.core
+INDEX VERSION 1.126+/Users/elliott/Desktop/Programming/gnomon/.metadata/.plugins/org.eclipse.jdt.core
 1270315800.index
-2362137505.index
-2949204979.index
-4042509749.index
-1851733820.index
