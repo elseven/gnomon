@@ -1,0 +1,4 @@
+DEFAULT_MOBILE_WEB_BROWSER_NAME=Default system web browser
+DEFAULT_MOBILE_WEB_BROWSER_USE_GLOBAL=false
+DEFAULT_MOBILE_WEB_PREVIEW_SERVER_NAME=Built-in server
+eclipse.preferences.version=1

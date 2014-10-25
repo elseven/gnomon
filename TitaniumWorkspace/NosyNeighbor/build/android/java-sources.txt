@@ -1,0 +1,7 @@
+"/Users/elliott/Desktop/Programming/gnomon/TitaniumWorkspace/NosyNeighbor/build/android/gen/android/support/v7/appcompat/R.java"
+"/Users/elliott/Desktop/Programming/gnomon/TitaniumWorkspace/NosyNeighbor/build/android/gen/ti/modules/titanium/ui/R.java"
+"/Users/elliott/Desktop/Programming/gnomon/TitaniumWorkspace/NosyNeighbor/build/android/gen/watch/gnomon/nosyNeighbor/ApplicationStylesheet.java"
+"/Users/elliott/Desktop/Programming/gnomon/TitaniumWorkspace/NosyNeighbor/build/android/gen/watch/gnomon/nosyNeighbor/NosyneighborActivity.java"
+"/Users/elliott/Desktop/Programming/gnomon/TitaniumWorkspace/NosyNeighbor/build/android/gen/watch/gnomon/nosyNeighbor/NosyneighborAppInfo.java"
+"/Users/elliott/Desktop/Programming/gnomon/TitaniumWorkspace/NosyNeighbor/build/android/gen/watch/gnomon/nosyNeighbor/NosyneighborApplication.java"
+"/Users/elliott/Desktop/Programming/gnomon/TitaniumWorkspace/NosyNeighbor/build/android/gen/watch/gnomon/nosyNeighbor/R.java"
