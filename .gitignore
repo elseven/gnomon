@@ -1,5 +1,11 @@
 .meta
+.metadata/*
+.meta/*
 .log
 .metadata
 .prefs
 .class
+.dat
+.jar
+.resources
+.png
