@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
@@ -50,6 +52,14 @@ public class PlaceholderFragment extends Fragment {
     	switch (position){
     	case 0:
     		rootView = inflater.inflate(R.layout.progress, container, false);
+    		Spinner spinner = (Spinner) rootView.findViewById(R.id.compareSpinner);
+    		// Create an ArrayAdapter using the string array and a default spinner layout
+    		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(),
+    		        R.array.compare_array, android.R.layout.simple_spinner_item);
+    		// Specify the layout to use when the list of choices appears
+    		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    		// Apply the adapter to the spinner
+    		spinner.setAdapter(adapter);
     		break;
     	case 1:
     		rootView = inflater.inflate(R.layout.home, container, false);

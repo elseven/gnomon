@@ -6,5 +6,13 @@
     <string name="title_section2">Home</string>
     <string name="title_section3">Saved</string>
     <string name="action_settings">Settings</string>
+    
+    <string-array name="compare_array">
+        <item>School</item>
+        <item>Community</item>
+        <item>Floor</item>
+        <item>Room</item>
+    </string-array>
+    
 
 </resources>
