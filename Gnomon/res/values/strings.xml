@@ -10,8 +10,14 @@
     <string-array name="compare_array">
         <item>School</item>
         <item>Community</item>
+        <item>Hall</item>
         <item>Floor</item>
         <item>Room</item>
+    </string-array>
+    
+    <string-array name="list_of_schools">
+        <item>University of Georgia</item>
+        <item>Georgia Tech</item>
     </string-array>
     
 
