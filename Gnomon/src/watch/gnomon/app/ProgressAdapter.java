@@ -1,6 +1,7 @@
 package watch.gnomon.app;
 
 import android.support.v4.app.FragmentActivity;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -52,46 +53,49 @@ public class ProgressAdapter {
 		
 		addNewSpinner(R.array.list_of_schools);
 		addNewSpinner(R.array.list_of_schools);
+		addNewSpinner(R.array.list_of_schools);
 		
 	}
 
 	private void addNewSpinner(int list_of_schools) { // Add new school spinner (Parent)
 		
+		textViewTemplate = (TextView) View.inflate(parentActivity, R.layout.text_view_template, null);
+		spinnerTemplate = (Spinner) View.inflate(parentActivity, R.layout.spinner_template, null);
+		
 		LinearLayout spinnerContainerToUse = null;
 		String title = null;
-		int spinnerResource;
+		int spinnerResource = 0;
 		
 		if (mainSpinnerCount < maxSpinnerCount) {
 			mainSpinnerCount++;
 			if (mainSpinnerCount == 1) {
 				spinnerContainerToUse = spinnerContainer1;
-				spinnerResource = R.id.spinnerContainer1;
+				spinnerResource = 1111;
 				title = "First School";
 			} else if (mainSpinnerCount == 2) {
 				spinnerContainerToUse = spinnerContainer2;
-				spinnerResource = R.id.spinnerContainer2;
+				spinnerResource = 2222;
 				title = "Second School";
 			} else if (mainSpinnerCount == 3) {
 				spinnerContainerToUse = spinnerContainer3;
-				spinnerResource = R.id.spinnerContainer3;
+				spinnerResource = 3333;
 				title = "Third School";
 			
 			}
 			
 			TextView newTextView = new TextView(parentActivity);
 			Spinner newSpinner = new Spinner(parentActivity);
-			newSpinner.setId(12345);
+			newSpinner.setId(spinnerResource);
 			
 			spinnerContainerToUse.addView(newTextView);
 			newTextView.setText(title);
+			newTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
 			spinnerContainerToUse.addView(newSpinner);
 			setSpinnerType(newSpinner.getId(), R.array.list_of_schools);
 			
 		}
 		
-		
-		
-		mainSpinnerCount++;
+	
 		
 		
 	}
