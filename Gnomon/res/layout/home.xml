@@ -19,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Hello world!" />
+        android:text="Home Fragment" />
 
 </RelativeLayout>

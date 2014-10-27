@@ -47,15 +47,17 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View rootView = null;
-        position = 0;
     	switch (position){
     	case 0:
-    		rootView = inflater.inflate(R.layout.fragment_main, container, false);
+    		rootView = inflater.inflate(R.layout.progress, container, false);
     		break;
     	case 1:
+    		rootView = inflater.inflate(R.layout.home, container, false);
     		break;
     	case 2:
+    		rootView = inflater.inflate(R.layout.saved, container, false);
     		break;
+    		
     		default:
     			Log.d("NOT A REAL PAGE", "Position: " + Integer.toString(MainActivity.currentPosition));
     	}
