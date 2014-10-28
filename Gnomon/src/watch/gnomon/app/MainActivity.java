@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -36,7 +37,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
      */
     ViewPager mViewPager;
 
-    public static int currentPosition = -1;
+    public static int currentPosition = 1;
     
     
     @Override
@@ -79,6 +80,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                             .setTabListener(this));
         }
         mViewPager.setCurrentItem(1);
+        
     }
 
 
@@ -95,7 +97,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		// automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.big_container) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -130,7 +132,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return new PlaceholderFragment(position);
+            return new PlaceholderFragment(position,getApplicationContext());
         }
 
         @Override

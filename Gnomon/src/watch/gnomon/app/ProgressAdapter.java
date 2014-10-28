@@ -121,8 +121,6 @@ public class ProgressAdapter {
 		Button buttonToUse;
 		int containerId = -1;
 		if (numOfButtons == 1) {
-			button1 = new Button(parentActivity);
-			buttonToUse = button1;
 			containerId = R.id.newCompareButton1Container;
 			buttonContainerToUse = buttonContainer1;
 			buttonResourceId = 1000;
@@ -139,13 +137,9 @@ public class ProgressAdapter {
 		
 		
 		Button newButton = new Button(parentActivity);
-		if(button1.equals(newButton)){
-			
-		}
+
 		buttonContainerToUse.addView(newButton);
-		if (numOfButtons == 2) {
-			buttonContainerToUse.removeView(newButton);
-		}
+	
 		newButton.setId(buttonResourceId);
 		
 	}

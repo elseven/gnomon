@@ -6,6 +6,11 @@
     <string name="title_section2">Home</string>
     <string name="title_section3">Saved</string>
     <string name="action_settings">Settings</string>
+    <string name="schoolName">University of Georgia</string>
+    <string name="community">Creswell Community</string>
+    <string name="building">Creswell</string>
+    <string name="floor">1st Floor</string>
+        <string name="room">Room 101</string>
     
     <string-array name="compare_array">
         <item>School</item>
