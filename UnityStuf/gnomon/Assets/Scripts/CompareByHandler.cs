@@ -9,7 +9,7 @@ public class CompareByHandler : MonoBehaviour
 		public string compareByMode = "School";
 		public CompareBySchool cbsPanel;
 		public CompareByCommunity cbcPanel;
-	
+		public static bool needRefresh = false;
 	
 		// Use this for initialization
 		void Start ()
@@ -23,7 +23,23 @@ public class CompareByHandler : MonoBehaviour
 	
 		}
 		
-		
+		void LateUpdate ()
+		{
+				if (needRefresh) {
+			
+			
+						switch (compareByMode) {
+						case "School":
+								cbsPanel.Refresh ();
+								break;
+				
+						case "Community":
+								cbcPanel.Refresh ();
+								break;
+						}
+						needRefresh = false;
+				}
+		}
 		
 		
 		public void AddButton ()

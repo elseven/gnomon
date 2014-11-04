@@ -21,7 +21,7 @@ public class Delete : MonoBehaviour
 		public void RunDelete ()
 		{
 				GameObject.Destroy (this.gameObject);
-				CompareBySchool.needRefresh = true;
+				CompareByHandler.needRefresh = true;
 				
 		}
 	

@@ -12,7 +12,7 @@ public class CompareBySchool : MonoBehaviour
 		private Vector3 leftOff = new Vector3 (0f, 590f, 0f);
 		private float space = 70f;
 	
-		public static bool needRefresh = false;
+		
 		private List<string> schools;
 		
 		
@@ -34,11 +34,7 @@ public class CompareBySchool : MonoBehaviour
 		
 		void LateUpdate ()
 		{
-				if (needRefresh) {
-			
-						Refresh ();
-						needRefresh = false;
-				}
+				
 		
 		
 		}
