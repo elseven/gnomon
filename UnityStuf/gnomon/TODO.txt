@@ -1,0 +1,16 @@
+schoolselect prefab should have a script for deleting itself with the delete button so that when spawned, already working
+
+
+•Delete button
+	•School
+	•School w/in community
+	•Community w/in community
+•Add school button
+	•Add school to "BySchool"
+	•Add school to "ByCommunity"
+	•...
+•Drop down changes panels for "Compare by"
+
+Questions:
+•When does search get cleared?
+	•When you leave tab? When you leave app?
