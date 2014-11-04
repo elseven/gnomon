@@ -1,70 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
-public class CompareBySchool : MonoBehaviour
+public class CompareByCommunity : MonoBehaviour
 {
 
-		
-
-		public GameObject SimpleSchoolContainer;
-		//public GameObject CompareSchoolPanel;
-		private Vector3 leftOff = new Vector3 (0f, 590f, 0f);
-		private float space = 70f;
-	
-		public static bool needRefresh = false;
-		private List<string> schools;
-		
-		
+		public GameObject communityContainer;
 		// Use this for initialization
 		void Start ()
 		{
-			
-		}
-		void Awake ()
-		{
-			
+	
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-				
+	
 		}
-		
-		void LateUpdate ()
-		{
-				if (needRefresh) {
-			
-						Refresh ();
-						needRefresh = false;
-				}
-		
-		
-		}
-		
+	
+	
 		public void Spawn ()
 		{
 		
-				Debug.Log ("SPAWNING");
+				Debug.Log ("SPAWNING community");
 		
-				
+		
 				//GameObject newContainer = GameObject.Instantiate (SimpleSchoolContainer) as GameObject;
 				//newContainer.transform.parent = CompareSchoolPanel.transform;
 				//newContainer.transform.localScale = new Vector3 (1f, 1f, 1f);
-				GameObject newContainer = NGUITools.AddChild (gameObject, SimpleSchoolContainer);
+				GameObject newContainer = NGUITools.AddChild (gameObject, communityContainer);
 				//newContainer.transform.localPosition = leftOff;
 				//leftOff += new Vector3 (0f, -space, 0f);
-			
-				
-				
+		
+		
 				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
-				gameObject.GetComponent<UIGrid> ().Reposition ();
+				gameObject.GetComponent<UITable> ().Reposition ();
 				gameObject.GetComponent<UIScrollView> ().InvalidateBounds ();
 				gameObject.GetComponent<UIScrollView> ().UpdateScrollbars ();
-				
-		
-				
+				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
 				/*float yPos = 0f;
 				yPos += space + height;
 				
@@ -72,20 +44,22 @@ public class CompareBySchool : MonoBehaviour
 				leftOff.y -= yPos;
 				
 				*/
-				
+		
 		}
-		
-		
+	
+	
 		public void Refresh ()
 		{
+		
 				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
-				gameObject.GetComponent<UIGrid> ().Reposition ();
+				gameObject.GetComponent<UITable> ().Reposition ();
 				gameObject.GetComponent<UIScrollView> ().InvalidateBounds ();
 				gameObject.GetComponent<UIScrollView> ().UpdateScrollbars ();	
+				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
 		}
-		
 		public void ResetPosition ()
 		{
 				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
 		}
+	
 }
