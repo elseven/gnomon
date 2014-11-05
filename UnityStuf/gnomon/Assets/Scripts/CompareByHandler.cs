@@ -7,9 +7,20 @@ public class CompareByHandler : MonoBehaviour
 
 	
 		public string compareByMode = "School";
-		public CompareBySchool cbsPanel;
-		public CompareByCommunity cbcPanel;
+		public CompareBySchool cbsScript;
+		public CompareByCommunity cbcScript;
 		public static bool needRefresh = false;
+		
+		
+		
+		
+		public GameObject cbsPanel;
+		public GameObject cbcPanel;
+		
+		
+		
+		
+		
 	
 		// Use this for initialization
 		void Start ()
@@ -30,11 +41,11 @@ public class CompareByHandler : MonoBehaviour
 			
 						switch (compareByMode) {
 						case "School":
-								cbsPanel.Refresh ();
+								cbsScript.Refresh ();
 								break;
 				
 						case "Community":
-								cbcPanel.Refresh ();
+								cbcScript.Refresh ();
 								break;
 						}
 						needRefresh = false;
@@ -47,11 +58,11 @@ public class CompareByHandler : MonoBehaviour
 		
 				switch (compareByMode) {
 				case "School":
-						cbsPanel.Spawn ();
+						cbsScript.Spawn ();
 						break;
 
 				case "Community":
-						cbcPanel.Spawn ();
+						cbcScript.Spawn ();
 						break;
 				}
 		
@@ -63,14 +74,31 @@ public class CompareByHandler : MonoBehaviour
 				compareByMode = mode;
 				switch (compareByMode) {
 				case "School":
-						cbsPanel.ResetPosition ();
+						HideAllComparePanels ();
+						cbsPanel.SetActive (true);		
+						cbsScript.ResetPosition ();
 						break;
 			
 				case "Community":
-						cbcPanel.ResetPosition ();
+						HideAllComparePanels ();
+						cbcPanel.SetActive (true);
+						cbcScript.ResetPosition ();
 						break;
 				}
 		}
+		
+		
+		private void HideAllComparePanels ()
+		{
+		
+				cbsPanel.SetActive (false);
+				cbcPanel.SetActive (false);
+		
+		}
+		
+		
+		
+		
 		
 		
 		
