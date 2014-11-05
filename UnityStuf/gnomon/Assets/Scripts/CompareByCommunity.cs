@@ -46,11 +46,15 @@ public class CompareByCommunity : MonoBehaviour
 	
 		public void Refresh ()
 		{
-				communityGrid = gameObject.GetComponentInChildren<UIGrid> ();
+		
+		
+				communityGrids = gameObject.GetComponentsInChildren<UIGrid> ();
 				communityTables = gameObject.GetComponentsInChildren<UITable> ();
 		
-		
-				communityGrid.Reposition ();
+				foreach (UIGrid communityGrid in communityGrids) {
+						communityGrid.Reposition ();
+				}
+			
 				foreach (UITable communityTable in communityTables) {
 						communityTable.Reposition ();
 				}
