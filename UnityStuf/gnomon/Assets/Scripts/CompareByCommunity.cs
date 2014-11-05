@@ -6,7 +6,7 @@ public class CompareByCommunity : MonoBehaviour
 {
 
 		public GameObject communityContainer;
-		public UIGrid communityGrid;
+		public UIGrid[] communityGrids;
 		public UITable[] communityTables;
 		// Use this for initialization
 		void Start ()
@@ -23,8 +23,8 @@ public class CompareByCommunity : MonoBehaviour
 		void Awake ()
 		{
 				
-				communityGrid = gameObject.GetComponentInChildren<UIGrid> ();
-				communityTables = gameObject.GetComponentsInChildren<UITable> ();
+				//communityGrids = gameObject.GetComponentsInChildren<UIGrid> ();
+				//communityTables = gameObject.GetComponentsInChildren<UITable> ();
 		
 		}
 	
@@ -54,14 +54,13 @@ public class CompareByCommunity : MonoBehaviour
 				foreach (UITable communityTable in communityTables) {
 						communityTable.Reposition ();
 				}
-				
+		
 				//GameObject allCom = GameObject.FindGameObjectsWithTag ("AllCommunities");
 				
 				
 				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
 				
-				//communityGrid.Reposition ();
-				//communityTable.Reposition ();
+
 				gameObject.GetComponent<UITable> ().Reposition ();
 				gameObject.GetComponent<UIScrollView> ().InvalidateBounds ();
 				gameObject.GetComponent<UIScrollView> ().UpdateScrollbars ();	
