@@ -1,3 +1,30 @@
+
+
+LEFT OFF:
+SCROLLING ON LEADERBOARD BY ITSELF?????????????????
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 schoolselect prefab should have a script for deleting itself with the delete button so that when spawned, already working
 
 
