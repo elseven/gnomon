@@ -60,7 +60,7 @@ public class CompareByCommunity : MonoBehaviour
 				
 				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
 				
-				communityGrid.Reposition ();
+				//communityGrid.Reposition ();
 				//communityTable.Reposition ();
 				gameObject.GetComponent<UITable> ().Reposition ();
 				gameObject.GetComponent<UIScrollView> ().InvalidateBounds ();
