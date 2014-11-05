@@ -1,15 +1,21 @@
 schoolselect prefab should have a script for deleting itself with the delete button so that when spawned, already working
 
 
+
+DELETE school should delete everything associated with it. not just the one dropdown...
+	Script should be attached to things to be deleted? not things with delete buttons?
+	Just attach delete scripts to entire block instead of dropdown thing?
+
+
 •Delete button
-	•School
 	•School w/in community
-	•Community w/in community
 •Add school button
-	•Add school to "BySchool"
 	•Add school to "ByCommunity"
 	•...
 •Drop down changes panels for "Compare by"
+
+
+
 
 Questions:
 •When does search get cleared?
