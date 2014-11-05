@@ -187,6 +187,7 @@
      <Compile Include="Assets\Scripts\Delete.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Scripts\School.cs" />
+     <Compile Include="Assets\Scripts\SchoolCommunityContainer.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.3.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />

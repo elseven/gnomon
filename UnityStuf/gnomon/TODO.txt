@@ -2,6 +2,16 @@ schoolselect prefab should have a script for deleting itself with the delete but
 
 
 
+
+
+
+
+
+Add School on com page makes overlap
+
+
+
+
 DELETE school should delete everything associated with it. not just the one dropdown...
 	Script should be attached to things to be deleted? not things with delete buttons?
 	Just attach delete scripts to entire block instead of dropdown thing?
@@ -20,3 +30,19 @@ DELETE school should delete everything associated with it. not just the one drop
 Questions:
 •When does search get cleared?
 	•When you leave tab? When you leave app?
+
+
+
+
+_________
+PAGES	
+	LOGIN PAGE
+		BAD LOGIN/GOOD LOGIN
+	GRAPHS
+		MAYBE HAVE TEXT SPECIFYING WHAT IS BEING COMPARED
+	LEADERBOARDS
+		SAVED AND DEFAULT STUFF
+	HOME
+STUFF
+	SAVE COMP. NEEDS TO UPDATE LEADERBOARDS
+
