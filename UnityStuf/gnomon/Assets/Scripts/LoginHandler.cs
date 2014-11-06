@@ -13,6 +13,8 @@ public class LoginHandler : MonoBehaviour
 		
 		public UILabel emailUI;
 		public UILabel passwordUI;
+		
+		public GameObject errorMsg;
 	
 	
 		// Use this for initialization
@@ -39,9 +41,11 @@ public class LoginHandler : MonoBehaviour
 		passwordUI.color = Color.black;*/
 		
 				if (CheckLogin ()) {
-						//TODO: LOAD SCENE
+						errorMsg.SetActive (false);
+						Application.LoadLevel (1);
+			
 				} else {
-						//TODO: ADD ERROR MESSAGE
+						errorMsg.SetActive (true);
 						emailUI.color = Color.red;
 						passwordUI.color = Color.red;
 				}

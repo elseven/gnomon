@@ -1,6 +1,6 @@
 
 FIRST DO THIS STUFF:
-	FINISH LOGIN
+	ADD DRAG THING SO SCROLLS ACTUALLY WORK
 	DO HOME
 ____________________________
 ____________________________
@@ -35,4 +35,11 @@ PAGES
 	HOME
 STUFF
 	SAVE COMP. NEEDS TO UPDATE LEADERBOARDS
+
+
+_______________
+AESTHETICS AND DETAILS:
+	
+	community dropdowns dont look good
+
 
