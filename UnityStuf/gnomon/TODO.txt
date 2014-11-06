@@ -1,41 +1,9 @@
 
-
-LEFT OFF:
-SCROLLING ON LEADERBOARD BY ITSELF?????????????????
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-schoolselect prefab should have a script for deleting itself with the delete button so that when spawned, already working
-
-
-
-
-
-
-
-
-Add School on com page makes overlap
-
+FIRST DO THIS STUFF:
+	FINISH LOGIN
+	DO HOME
+____________________________
+____________________________
 
 
 
@@ -46,11 +14,6 @@ DELETE school should delete everything associated with it. not just the one drop
 
 •Delete button
 	•School w/in community
-•Add school button
-	•Add school to "ByCommunity"
-	•...
-•Drop down changes panels for "Compare by"
-
 
 
 
