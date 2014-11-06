@@ -185,6 +185,7 @@
      <Compile Include="Assets\Scripts\CompareByHandler.cs" />
      <Compile Include="Assets\Scripts\CompareBySchool.cs" />
      <Compile Include="Assets\Scripts\Delete.cs" />
+     <Compile Include="Assets\Scripts\LoginHandler.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Scripts\School.cs" />
      <Compile Include="Assets\Scripts\SchoolCommunityContainer.cs" />
