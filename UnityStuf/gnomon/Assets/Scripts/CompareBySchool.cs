@@ -45,29 +45,14 @@ public class CompareBySchool : MonoBehaviour
 				Debug.Log ("SPAWNING");
 		
 				
-				//GameObject newContainer = GameObject.Instantiate (SimpleSchoolContainer) as GameObject;
-				//newContainer.transform.parent = CompareSchoolPanel.transform;
-				//newContainer.transform.localScale = new Vector3 (1f, 1f, 1f);
+	
 				GameObject newContainer = NGUITools.AddChild (gameObject, SimpleSchoolContainer);
-				//newContainer.transform.localPosition = leftOff;
-				//leftOff += new Vector3 (0f, -space, 0f);
-			
+		
 				
-				
-				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
-				gameObject.GetComponent<UIGrid> ().Reposition ();
-				gameObject.GetComponent<UIScrollView> ().InvalidateBounds ();
-				gameObject.GetComponent<UIScrollView> ().UpdateScrollbars ();
 				
 		
 				
-				/*float yPos = 0f;
-				yPos += space + height;
-				
-				//newContainer.transform.Translate (0f, yPos, 0f);
-				leftOff.y -= yPos;
-				
-				*/
+				Refresh ();
 				
 		}
 		

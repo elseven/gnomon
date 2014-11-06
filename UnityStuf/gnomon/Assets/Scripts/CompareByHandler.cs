@@ -95,18 +95,6 @@ public class CompareByHandler : MonoBehaviour
 				cbcPanel.SetActive (false);
 		
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		
 }

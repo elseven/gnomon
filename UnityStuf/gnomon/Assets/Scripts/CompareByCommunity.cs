@@ -47,6 +47,7 @@ public class CompareByCommunity : MonoBehaviour
 		public void Refresh ()
 		{
 		
+				gameObject.GetComponent<UITable> ().Reposition ();
 		
 				communityGrids = gameObject.GetComponentsInChildren<UIGrid> ();
 				communityTables = gameObject.GetComponentsInChildren<UITable> ();
@@ -54,21 +55,29 @@ public class CompareByCommunity : MonoBehaviour
 				foreach (UIGrid communityGrid in communityGrids) {
 						communityGrid.Reposition ();
 				}
-			
+		
 				foreach (UITable communityTable in communityTables) {
 						communityTable.Reposition ();
 				}
 		
 				//GameObject allCom = GameObject.FindGameObjectsWithTag ("AllCommunities");
-				
-				
+		
+		
 				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
-				
-
+		
+		
 				gameObject.GetComponent<UITable> ().Reposition ();
 				gameObject.GetComponent<UIScrollView> ().InvalidateBounds ();
 				gameObject.GetComponent<UIScrollView> ().UpdateScrollbars ();	
 				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
+		}
+		
+		
+		IEnumerator Refresh1 ()
+		{
+				yield return null;
+				
+		
 		}
 		public void ResetPosition ()
 		{
