@@ -19,6 +19,10 @@ public class Main : MonoBehaviour
 		public GameObject HomeContent;
 		public GameObject SavedContent;
 		
+		public UIPanel ComparePanel;
+		public UIPanel HomePanel;
+		public UIPanel SavedPanel;
+		
 		public GameObject GraphContent;
 		
 		
@@ -77,6 +81,7 @@ public class Main : MonoBehaviour
 	
 */
 
+
 				ImplSetTab (false, false, true);
 		}
 	
@@ -86,12 +91,22 @@ public class Main : MonoBehaviour
 		
 		public void ActivateGraphPage (string name)
 		{
-				//TODO: DO SOMETHING WITH NAME
 				if (name == null || name.Equals ("") || name.Equals ("World")) {
 						name = "Title place holder";
 				}
-				GraphTitle.text = name;
+				
+				
 			
+		
+				
+				
+				GraphTitle.text = name;
+				
+				
+				ComparePanel.alpha = 0f;
+				HomePanel.alpha = 0f;
+				SavedPanel.alpha = 0f;
+				
 				GraphContent.SetActive (true);
 		
 		}
@@ -109,7 +124,9 @@ public class Main : MonoBehaviour
 	
 		public void HideComp ()
 		{
-		
+				ComparePanel.alpha = 1f;
+				HomePanel.alpha = 1f;
+				SavedPanel.alpha = 1f;
 				GraphContent.SetActive (false);
 		
 		}
@@ -121,6 +138,7 @@ public class Main : MonoBehaviour
 		public void SaveComp (string name)
 		{
 				//TODO: save name
+				//TODO: FLASH SAVED!
 			
 		
 		
@@ -136,6 +154,10 @@ public class Main : MonoBehaviour
 		private void ImplSetTab (bool isCompare, bool isHome, bool isSaved)
 		{
 		
+		
+				ComparePanel.alpha = 1f;
+				HomePanel.alpha = 1f;
+				SavedPanel.alpha = 1f;
 				UILabel compareLabel = CompareTab.GetComponentInChildren<UILabel> ();
 				UILabel homeLabel = HomeTab.GetComponentInChildren<UILabel> ();
 				UILabel savedLabel = SavedTab.GetComponentInChildren<UILabel> ();
