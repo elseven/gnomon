@@ -202,7 +202,10 @@ public class Main : MonoBehaviour
 		
 				WeeklyOverlay.SetActive (isWeekly);
 				MonthlyOverlay.SetActive (!isWeekly);
-		
+				
+				
+				WeeklyContent.SetActive (isWeekly);
+				MonthlyContent.SetActive (!isWeekly);
 		
 		
 				//TODO: CHANGE CONTENT FOR WEEKLY/MONTHLY
@@ -213,7 +216,7 @@ public class Main : MonoBehaviour
 				if (isWeekly) {
 						weeklyLabel.color = selectedColor;
 				} else {
-						monthlyLabelch.color = selectedColor;
+						monthlyLabel.color = selectedColor;
 				}
 		
 		
