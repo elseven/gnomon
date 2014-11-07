@@ -45,6 +45,7 @@ public class Main : MonoBehaviour
 		void Start ()
 		{
 				ActivateTabHome ();
+				HideComp ();
 		}
 	
 		// Update is called once per frame
@@ -70,16 +71,7 @@ public class Main : MonoBehaviour
 	
 		public void ActivateTabSaved ()
 		{
-				/*
-				CompareTabOverlay.SetActive (false);
-				HomeTabOverlay.SetActive (false);
-				SavedTabOverlay.SetActive (true);
-				
-				CompareContent.SetActive (false);
-				HomeContent.SetActive (false);
-				SavedContent.SetActive (true);
-	
-*/
+
 
 
 				ImplSetTab (false, false, true);
@@ -87,7 +79,14 @@ public class Main : MonoBehaviour
 	
 	
 		
-		
+		public void ActivateWeekly ()
+		{
+				ImplWeeklyMonthlyTab (true);
+		}
+		public void ActivateMonthly ()
+		{
+				ImplWeeklyMonthlyTab (false);
+		}
 		
 		public void ActivateGraphPage (string name)
 		{
@@ -108,9 +107,12 @@ public class Main : MonoBehaviour
 				SavedPanel.alpha = 0f;
 				
 				GraphContent.SetActive (true);
+				ActivateWeekly ();
+		
 		
 		}
 		
+
 
 		public void AddToComp ()
 		{
@@ -146,7 +148,7 @@ public class Main : MonoBehaviour
 	
 	
 	
-	
+		
 	
 	
 	
@@ -186,6 +188,33 @@ public class Main : MonoBehaviour
 		}
 	
 	
+	
+		private void ImplWeeklyMonthlyTab (bool isWeekly)
+		{
+		
+		
+			
+				UILabel weeklyLabel = WeeklyTab.GetComponentInChildren<UILabel> ();
+				UILabel monthlyLabel = MonthlyTab.GetComponentInChildren<UILabel> ();
+		
+				WeeklyOverlay.SetActive (isWeekly);
+				MonthlyOverlay.SetActive (!isWeekly);
+		
+		
+		
+				//TODO: CHANGE CONTENT FOR WEEKLY/MONTHLY
+		
+				weeklyLabel.color = resetColor;
+				monthlyLabel.color = resetColor;
+		
+				if (isWeekly) {
+						weeklyLabel.color = selectedColor;
+				} else {
+						monthlyLabel.color = selectedColor;
+				}
+		
+		
+		}
 		
 		
 		
