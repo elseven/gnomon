@@ -43,6 +43,10 @@ public class Main : MonoBehaviour
 		public UILabel GraphTitle;
 	
 	
+	
+		public GameObject SavedPopup;
+	
+	
 		//public Mode currentMode = Mode.COMPARE;
 		// Use this for initialization
 		void Start ()
@@ -140,16 +144,26 @@ public class Main : MonoBehaviour
 	
 		
 	
-		public void SaveComp (string name)
+		public void SaveComp ()
 		{
 				//TODO: save name
-				//TODO: FLASH SAVED!
-			
+				
+				//FlashSaved ();
+				StartCoroutine ("FlashSaved");
 		
 		
 		}
 	
 	
+		IEnumerator FlashSaved ()
+		{
+				
+				SavedPopup.SetActive (true);
+				yield return new WaitForSeconds (2);
+				SavedPopup.SetActive (false);
+				yield return null;
+		
+		}
 	
 		
 	
