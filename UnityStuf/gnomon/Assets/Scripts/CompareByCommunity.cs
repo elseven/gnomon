@@ -63,7 +63,7 @@ public class CompareByCommunity : MonoBehaviour
 				//GameObject allCom = GameObject.FindGameObjectsWithTag ("AllCommunities");
 		
 		
-				gameObject.GetComponent<UIScrollView> ().ResetPosition ();
+				//gameObject.GetComponent<UIScrollView> ().ResetPosition ();
 		
 		
 				gameObject.GetComponent<UITable> ().Reposition ();
