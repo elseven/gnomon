@@ -31,7 +31,8 @@ public class SchoolCommunityContainer : MonoBehaviour
 	
 		public void DeleteSchool ()
 		{
-		
+				Destroy (gameObject);
+				CompareByHandler.needRefresh = true;
 			
 		}
 		

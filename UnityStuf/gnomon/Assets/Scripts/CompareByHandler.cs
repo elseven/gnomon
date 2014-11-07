@@ -63,6 +63,9 @@ public class CompareByHandler : MonoBehaviour
 
 				case "Community":
 						cbcScript.Spawn ();
+						HideAllComparePanels ();
+						cbcPanel.SetActive (true);
+						cbcScript.ResetPosition ();
 						break;
 				}
 		
