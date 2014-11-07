@@ -1,9 +1,10 @@
+pressing view comp passes:
+	What page you were on
+	name of comparison (competing teams)
 
-name of comparison (competing teams)
 
 
-Add to Comparison button same as clicking on compare tab
-Back hides panel
+
 
 
 
