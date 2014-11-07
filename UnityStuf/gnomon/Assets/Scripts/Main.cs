@@ -32,6 +32,9 @@ public class Main : MonoBehaviour
 		public GameObject WeeklyOverlay;
 		public GameObject MonthlyOverlay;
 		
+		public GameObject WeeklyContent;
+		public GameObject MonthlyContent;
+		
 		
 		
 		
@@ -210,7 +213,7 @@ public class Main : MonoBehaviour
 				if (isWeekly) {
 						weeklyLabel.color = selectedColor;
 				} else {
-						monthlyLabel.color = selectedColor;
+						monthlyLabelch.color = selectedColor;
 				}
 		
 		
