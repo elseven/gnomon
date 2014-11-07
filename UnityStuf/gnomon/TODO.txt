@@ -1,7 +1,32 @@
+pressing view comp passes:
+	What page you were on
+	name of comparison (competing teams)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 FIRST DO THIS STUFF:
 	ADD DRAG THING SO SCROLLS ACTUALLY WORK
-	DO HOME
 ____________________________
 ____________________________
 
