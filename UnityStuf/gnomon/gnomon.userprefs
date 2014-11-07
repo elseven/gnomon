@@ -1,23 +1,13 @@
 ﻿<Properties>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CompareByHandler.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CustomCompareContainer.cs">
     <Files>
       <File FileName="Assets/Scripts/Main.cs" Line="91" Column="35" />
-      <File FileName="Assets/Scripts/CompareByCommunity.cs" Line="78" Column="23" />
+      <File FileName="Assets/Scripts/CompareByCommunity.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CompareBySchool.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CompareByHandler.cs" Line="9" Column="42" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CompareByCommunity.cs">
-    <Files>
-      <File FileName="Assets/Scripts/CompareByCommunity.cs" Line="78" Column="23" />
-      <File FileName="Assets/Scripts/CompareBySchool.cs" Line="55" Column="16" />
-      <File FileName="Assets/Scripts/CompareByHandler.cs" Line="48" Column="30" />
-      <File FileName="Assets/Scripts/LoginHandler.cs" Line="45" Column="31" />
-      <File FileName="Assets/Scripts/Main.cs" Line="8" Column="74" />
->>>>>>> parent of 5ba4c17... getting there
-      <File FileName="Assets/Scripts/SchoolCommunityContainer.cs" Line="51" Column="28" />
+      <File FileName="Assets/Scripts/SchoolCommunityContainer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CustomCompareContainer.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
