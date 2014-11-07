@@ -18,7 +18,22 @@ public class Main : MonoBehaviour
 		public GameObject CompareContent;
 		public GameObject HomeContent;
 		public GameObject SavedContent;
+		
+		public GameObject GraphContent;
+		
+		
+		public GameObject WeeklyTab;
+		public GameObject MonthlyTab;
+		
+		public GameObject WeeklyOverlay;
+		public GameObject MonthlyOverlay;
+		
+		
+		
+		
+		//public string compName;
 	
+		public UILabel GraphTitle;
 	
 	
 		//public Mode currentMode = Mode.COMPARE;
@@ -42,15 +57,7 @@ public class Main : MonoBehaviour
 		
 		public void ActivateTabHome ()
 		{
-				/*
-CompareTabOverlay.SetActive (false);
-				HomeTabOverlay.SetActive (true);
-				SavedTabOverlay.SetActive (false);
-				
-				CompareContent.SetActive (false);
-				HomeContent.SetActive (true);
-				SavedContent.SetActive (false);
-*/
+
 				
 				ImplSetTab (false, true, false);
 		
@@ -72,6 +79,57 @@ CompareTabOverlay.SetActive (false);
 
 				ImplSetTab (false, false, true);
 		}
+	
+	
+		
+		
+		
+		public void ActivateGraphPage (string name)
+		{
+				//TODO: DO SOMETHING WITH NAME
+				if (name == null || name.Equals ("") || name.Equals ("World")) {
+						name = "Title place holder";
+				}
+				GraphTitle.text = name;
+			
+				GraphContent.SetActive (true);
+		
+		}
+		
+
+		public void AddToComp ()
+		{
+				HideComp ();
+				ActivateTabCompare ();
+		
+		
+		}
+	
+	
+	
+		public void HideComp ()
+		{
+		
+				GraphContent.SetActive (false);
+		
+		}
+	
+	
+	
+		
+	
+		public void SaveComp (string name)
+		{
+				//TODO: save name
+			
+		
+		
+		}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -105,6 +163,9 @@ CompareTabOverlay.SetActive (false);
 	
 		}
 	
+	
+		
+		
 		
 	
 	

@@ -185,6 +185,7 @@
      <Compile Include="Assets\Scripts\CompareByHandler.cs" />
      <Compile Include="Assets\Scripts\CompareBySchool.cs" />
      <Compile Include="Assets\Scripts\CustomCompareContainer.cs" />
+     <Compile Include="Assets\Scripts\CustomCompareTableHandler.cs" />
      <Compile Include="Assets\Scripts\Delete.cs" />
      <Compile Include="Assets\Scripts\LoginHandler.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
