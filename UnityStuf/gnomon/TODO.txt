@@ -1,6 +1,7 @@
-pressing view comp passes:
-	What page you were on
-	name of comparison (competing teams)
+THE DOCTOR:
+
+Change star
+Temp search maybe? then save
 
 
 
@@ -20,51 +21,31 @@ pressing view comp passes:
 
 
 
+_____________________________________________________________
+
+TODO:
+Find android color palette
+
+
+
+______________________________________________________________
+QUESTIONS:
+
+CREATE TEAM & CREATE MATCHUP on both TEAMS and LEADERBOARD?
+	NO! Instead when creating matchup, there is an option to select teams or create new team.
+
+TEAMS and LEADERBOARD pages too similar????
+
+
+get rid of star!
+
+quick comparisons?
+	compare button on the teams page ->graph
+	graph page has option to save
 
 
 
 
+_____________________________________________________________
 
-FIRST DO THIS STUFF:
-	ADD DRAG THING SO SCROLLS ACTUALLY WORK
-____________________________
-____________________________
-
-
-____________________________
-PAGES
-
-	IN GENERAL
-		MAKE SCROLLS SCROLL!
-		TAB OVERLAY IS DUMB
-	COMPARE
-		BY COMMUNITY
-			DELETE SCHOOL
-			community dropdowns dont look good
-			OVERLAPPING SCHOOLS
-	GRAPHS
-		MAYBE HAVE TEXT SPECIFYING WHAT IS BEING COMPARED
-		SAVE COMP. NEEDS TO UPDATE LEADERBOARDS
-		BACK BUTTON SHOULD WORK
-	LEADERBOARDS
-		HAVE SAVED COMP. LINK TO COMPARES
-		MAKE COMP TABLE ACTUALLY GRID STUFF (TABLE STUFF? IDK...)
-	HOME
-		(LINKS FROM STATS??)
-____________________________
-____________________________
-
-
-____________________________
-AESTHETICS AND DETAILS:
-	
-	community dropdowns dont look good
-____________________________
-____________________________
-
-
-____________________________
-
-Questions:
-•When does search get cleared?
-	•When you leave tab? When you leave app?
+IDEAS:
