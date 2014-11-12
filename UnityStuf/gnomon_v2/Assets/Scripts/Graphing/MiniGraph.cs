@@ -21,15 +21,32 @@ public class MiniGraph : MonoBehaviour
 				width = canvas.width;
 				height = canvas.height;
 				
-				
-				left = canvas.transform.position.x;
+				left = canvas.worldCorners [0].x;
+				//left = canvas.transform.position.x;
 				right = left + width;
 				
-				top = canvas.transform.position.y;
-				bottom = top + height;
+				//top = canvas.transform.position.y;
+				//bottom = top + height;
+		
+				bottom = canvas.worldCorners [0].y;
+				top = bottom + height;
+				
 				
 				
 				Vector2[] points = new Vector2[20];
+				
+				for (int i=0; i<points.Length; i++) {
+						float x = i * width / points.Length;
+						float y = Random.Range (top * 1.0f, bottom * 1.0f);
+						//float y = i * 4;
+						
+						x += left;
+						//y += top;
+						points [i] = new Vector2 (x, y);
+						Debug.Log ("X " + x + "  Y " + y);
+			
+				}
+				
 				
 				
 				
