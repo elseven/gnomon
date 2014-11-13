@@ -27,6 +27,7 @@ public class MiniGraph : MonoBehaviour
 				
 				canvas1 = gameObject.GetComponent<UISprite> ();
 		
+				/*
 				width = canvas1.width;
 				height = canvas1.height;
 				
@@ -37,7 +38,26 @@ public class MiniGraph : MonoBehaviour
 				
 				bottom = 390f;
 				top = bottom + height;
+				*/
 				
+				width = canvas1.width;
+				height = canvas1.height;
+				
+				left = canvas1.transform.localPosition.x;
+				right = left + width;
+				
+				top = canvas1.transform.localPosition.y;
+				bottom = top - height;
+				
+			
+				Debug.LogWarning ("left " + left + "  top  " + top + "  width  " + width + "  height  " + height);
+				
+				Vector2 testV = new Vector2 (left, top);
+				testV = ConvertPoint (testV);
+				left = testV.x;
+				top = testV.y;
+				Debug.LogWarning ("NEW: " + "left " + left + "  top  " + top + "  width  " + width + "  height  " + height);
+		
 				
 				
 				Vector2[] points = new Vector2[20];
@@ -46,7 +66,7 @@ public class MiniGraph : MonoBehaviour
 						float x = left + i * width / points.Length;
 						float y = Random.Range (bottom, top);
 						points [i] = new Vector2 (x, y);
-						points [i] = ConvertPoint (points [i]);
+						//points [i] = ConvertPoint (points [i]);
 						//Debug.Log ("X " + x + "  Y " + y);
 			
 				}
@@ -76,6 +96,12 @@ public class MiniGraph : MonoBehaviour
 		Vector2 ConvertPoint (Vector2 point)
 		{
 		
+				Vector3 tempPoint = new Vector3 (point.x, point.y, 0f);
+				tempPoint = cam.ViewportToWorldPoint (tempPoint);
+				//tempPoint = NGUICam.ViewportToWorldPoint (tempPoint);
+				//tempPoint = cam.WorldToViewportPoint (tempPoint);
+				point.x = tempPoint.x;
+				point.y = tempPoint.y;
 			
 				return point;
 		}
