@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Vectrosity;
+
+
 public class MiniGraph : MonoBehaviour
 {
 
@@ -12,40 +14,47 @@ public class MiniGraph : MonoBehaviour
 		float width;
 		float height;
 
-		UISprite canvas;
+		UISprite canvas1;
+		VectorLine vl;
+		
 		// Use this for initialization
 		void Start ()
 		{
-				canvas = gameObject.GetComponent<UISprite> ();
-		
-				width = canvas.width;
-				height = canvas.height;
 				
-				left = canvas.worldCorners [0].x;
-				//left = canvas.transform.position.x;
+				canvas1 = gameObject.GetComponent<UISprite> ();
+				//VectorLine.SetCamera (Camera.main);
+				//VectorLine.SetCamera (this);
+				width = canvas1.width;
+				height = canvas1.height;
+				
+				//left = canvas1.worldCorners [0].x;
+				left = canvas1.transform.position.x;
 				right = left + width;
 				
-				//top = canvas.transform.position.y;
+				//top = canvas1.transform.position.y;
 				//bottom = top + height;
 		
-				bottom = canvas.worldCorners [0].y;
+				bottom = canvas1.worldCorners [0].y;
 				top = bottom + height;
 				
 				
 				
-				Vector2[] points = new Vector2[20];
+				Vector3[] points = new Vector3[20];
 				
 				for (int i=0; i<points.Length; i++) {
-						float x = i * width / points.Length;
-						float y = Random.Range (top * 1.0f, bottom * 1.0f);
-						//float y = i * 4;
-						
-						x += left;
-						//y += top;
-						points [i] = new Vector2 (x, y);
+						float x = left + i * 4;
+						float y = i;
+						points [i] = new Vector3 (x, y, 0f);
 						Debug.Log ("X " + x + "  Y " + y);
 			
 				}
+				VectorLine.SetCamera (Camera.main);
+				Camera cam = VectorLine.GetCamera ();
+				cam.transform.position = gameObject.transform.position;
+				
+				
+				
+				//VectorLine.MakeLine ("asdf", points,Color.green);
 				
 				
 				

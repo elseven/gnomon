@@ -164,11 +164,11 @@
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\NGUI\Examples\Resources\Localization.txt" />
- <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
  <Reference Include="Vectrosity">
  <HintPath>/Users/elliott/Desktop/Programming/gnomon/UnityStuf/gnomon_v2/Assets/third_party/Vectrosity/Vectrosity.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

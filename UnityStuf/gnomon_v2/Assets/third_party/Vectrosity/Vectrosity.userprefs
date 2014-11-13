@@ -1,8 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Default" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
+        <State selected="True" />
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
       </Pad>
     </Pads>
