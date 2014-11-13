@@ -16,42 +16,47 @@ public class MiniGraph : MonoBehaviour
 
 		UISprite canvas1;
 		VectorLine vl;
-		
+		Camera cam;
+		public Camera NGUICam;
 		// Use this for initialization
 		void Start ()
 		{
+		
+				VectorLine.SetCamera (Camera.main);
+				cam = VectorLine.GetCamera ();
 				
 				canvas1 = gameObject.GetComponent<UISprite> ();
-				//VectorLine.SetCamera (Camera.main);
-				//VectorLine.SetCamera (this);
+		
 				width = canvas1.width;
 				height = canvas1.height;
 				
-				//left = canvas1.worldCorners [0].x;
-				left = canvas1.transform.position.x;
-				right = left + width;
-				
-				//top = canvas1.transform.position.y;
-				//bottom = top + height;
+				left = 25f;
 		
-				bottom = canvas1.worldCorners [0].y;
+				right = left + width;
+		
+				
+				bottom = 390f;
 				top = bottom + height;
 				
 				
 				
-				Vector3[] points = new Vector3[20];
+				Vector2[] points = new Vector2[20];
 				
 				for (int i=0; i<points.Length; i++) {
-						float x = left + i * 4;
-						float y = i;
-						points [i] = new Vector3 (x, y, 0f);
-						Debug.Log ("X " + x + "  Y " + y);
+						float x = left + i * width / points.Length;
+						float y = Random.Range (bottom, top);
+						points [i] = new Vector2 (x, y);
+						points [i] = ConvertPoint (points [i]);
+						//Debug.Log ("X " + x + "  Y " + y);
 			
 				}
-				VectorLine.SetCamera (Camera.main);
-				Camera cam = VectorLine.GetCamera ();
-				cam.transform.position = gameObject.transform.position;
-				
+			
+				//left = cam.WorldToScreenPoint (new Vector3 (left, 0, 0)).x;
+				//top = cam.WorldToScreenPoint (new Vector3 (0, top, 0)).y;
+				//cam.rect = new Rect (0, 0, 1, height / width);
+			
+				//cam.transform.position = gameObject.transform.position;
+		
 				
 				
 				//VectorLine.MakeLine ("asdf", points,Color.green);
@@ -67,4 +72,13 @@ public class MiniGraph : MonoBehaviour
 		{
 	
 		}
+		
+		Vector2 ConvertPoint (Vector2 point)
+		{
+		
+			
+				return point;
+		}
+		
+		
 }
