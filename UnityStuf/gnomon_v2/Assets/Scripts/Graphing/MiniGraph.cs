@@ -44,12 +44,24 @@ public class MiniGraph : MonoBehaviour
 				height = canvas1.height;
 				
 				Debug.Log ("position " + gameObject.transform.position);
-				Vector2 temp = NGUICam.ScreenToWorldPoint (canvas1.transform.position);
-				temp = cam.WorldToScreenPoint (temp);
-				left = temp.x;
-				top = temp.y;
-				float tmp = left + Screen.width / 2.0f;
-				Debug.Log ("tmpcheck? " + tmp);
+				//	Debug.Log ("position1 " + canvas1.transform.position);
+				//	Debug.Log ("localposition " + gameObject.transform.localPosition);
+				//	Debug.Log ("localposition1 " + canvas1.transform.localPosition);
+				//Debug.Log ("worldcorners " + canvas1.worldCorners);
+				//Debug.Log ("localcorners " + canvas1.localCorners);
+				
+				//Center
+				Vector2 centerPoint = NGUICam.WorldToScreenPoint (canvas1.transform.position);
+				Debug.LogWarning ("CenterP?? " + centerPoint);
+				//temp = cam.WorldToScreenPoint (temp);
+				
+				
+				//Center
+				left = centerPoint.x - width / 2.0f;
+				bottom = centerPoint.y - height / 2.0f;
+				
+				//float tmp = left + Screen.width / 2.0f;
+				//Debug.Log ("tmpcheck? " + tmp);
 				
 				//BOTTOM OF LINE IS IN MIDDLE OF GRAPH
 				//top = Screen.height / 2.0f + canvas1.transform.localPosition.y - height;
@@ -62,10 +74,9 @@ public class MiniGraph : MonoBehaviour
 				//top = Screen.height / 2.0f + canvas1.transform.localPosition.y - 1.5 * height;
 				
 				
-				tmp = top;
-				Debug.Log ("tmpcheck2? " + tmp);
+		
 				right = left + width;
-				bottom = top + height;
+				top = bottom + height;
 				/*
 				top = canvas1.worldCorners [1].y * Screen.height;
 				bottom = canvas1.worldCorners [0].y * Screen.height;
