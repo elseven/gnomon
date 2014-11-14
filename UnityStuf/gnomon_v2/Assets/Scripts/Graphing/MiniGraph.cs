@@ -27,92 +27,33 @@ public class MiniGraph : MonoBehaviour
 				//cam.transform.position = new Vector3 (0f, 0f, 0f);
 				canvas1 = gameObject.GetComponent<UISprite> ();
 		
-				/*
-				width = canvas1.width;
-				height = canvas1.height;
-				
-				left = 25f;
 		
-				right = left + width;
-		
-				
-				bottom = 390f;
-				top = bottom + height;
-				*/
 				
 				width = canvas1.width;
 				height = canvas1.height;
 				
-				Debug.Log ("position " + gameObject.transform.position);
-				//	Debug.Log ("position1 " + canvas1.transform.position);
-				//	Debug.Log ("localposition " + gameObject.transform.localPosition);
-				//	Debug.Log ("localposition1 " + canvas1.transform.localPosition);
-				//Debug.Log ("worldcorners " + canvas1.worldCorners);
-				//Debug.Log ("localcorners " + canvas1.localCorners);
 				
-				//Center
-				Vector2 centerPoint = NGUICam.WorldToScreenPoint (canvas1.transform.position);
-				Debug.LogWarning ("CenterP?? " + centerPoint);
-				//temp = cam.WorldToScreenPoint (temp);
-				
-				
-				//Center
-				left = centerPoint.x - width / 2.0f;
-				bottom = centerPoint.y - height / 2.0f;
-				
-				//float tmp = left + Screen.width / 2.0f;
-				//Debug.Log ("tmpcheck? " + tmp);
-				
-				//BOTTOM OF LINE IS IN MIDDLE OF GRAPH
-				//top = Screen.height / 2.0f + canvas1.transform.localPosition.y - height;
-				
-				//LINE TOO HIGH
-				//top = Screen.height / 2.0f + canvas1.transform.localPosition.y;
-				
-				
-				//WORKS FOR TOP GRAPH ONLY
-				//top = Screen.height / 2.0f + canvas1.transform.localPosition.y - 1.5 * height;
-				
-				
-		
+				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
+				left = bottomLeft.x;
+				bottom = bottomLeft.y;
 				right = left + width;
 				top = bottom + height;
-				/*
-				top = canvas1.worldCorners [1].y * Screen.height;
-				bottom = canvas1.worldCorners [0].y * Screen.height;
-				*/
 				Debug.LogWarning ("left " + left + "  top  " + top + "  width  " + width + "  height  " + height);
 				Debug.LogWarning ("right " + right + "  bottom  " + bottom);
 			
-				//Debug.LogWarning ("NEW: " + "left " + left + "  top  " + top + "  width  " + width + "  height  " + height);
-		
-				
-				
-				Vector2[] points = new Vector2[40];
+			
+			
+				//FIXME: GET ACTUAL DATA INSTEAD OF RANDOM
+				Vector2[] points = new Vector2[50];
 				
 				for (int i=0; i<points.Length; i++) {
-						float x = left + i * width / points.Length;
-						float y = bottom + i * height / points.Length;
-						points [i] = new Vector2 (x, y);
-						
-				
-						points [i] = ConvertPoint (points [i]);
-						//Debug.Log ("X " + x + "  Y " + y);
-			
+						points [i].x = 10f;
+						points [i].y = Random.Range (0f, height);
 				}
-			
-				//left = cam.WorldToScreenPoint (new Vector3 (left, 0, 0)).x;
-				//top = cam.WorldToScreenPoint (new Vector3 (0, top, 0)).y;
-				//cam.rect = new Rect (0, 0, 1, height / width);
-			
-				//cam.transform.position = gameObject.transform.position;
-		
 				
-				
-				//VectorLine.MakeLine ("asdf", points,Color.green);
-				
-				
-				
+				points = Tools.MoveToOrigin (points, bottom, left, width, height);
+
+	
 				
 				VectorLine.SetLine (Color.green, points);
 		}
@@ -128,13 +69,10 @@ public class MiniGraph : MonoBehaviour
 		
 				Vector3 tempPoint = new Vector3 (point.x, point.y, 0f);
 	
-				//tempPoint = NGUICam.ViewportToWorldPoint (tempPoint);
-				//Debug.LogError ("world point  " + tempPoint.x + "  " + tempPoint.y);
-				//tempPoint = cam.WorldToViewportPoint (tempPoint);
+
 				point.x = tempPoint.x;
 				point.y = tempPoint.y;
-				//point.x -= cam.rect.width / 2;
-				//point.y -= cam.rect.height / 2;
+		
 			
 				return point;
 		}

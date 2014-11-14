@@ -181,6 +181,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Scripts\Graphing\MiniGraph.cs" />
+     <Compile Include="Assets\Scripts\Graphing\Tools.cs" />
      <Compile Include="Assets\Scripts\Model\Building.cs" />
      <Compile Include="Assets\Scripts\Model\Floor.cs" />
      <Compile Include="Assets\Scripts\Model\School.cs" />
