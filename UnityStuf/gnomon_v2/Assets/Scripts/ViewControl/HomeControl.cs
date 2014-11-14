@@ -4,7 +4,7 @@ using System.Collections;
 public class HomeControl : MonoBehaviour
 {
 
-		//FIXME: MINI GRAPHS! AND MAKE THE BUTTONS OPEN A GRAPHS PAGE.
+		//FIXME: AND MAKE THE BUTTONS OPEN A GRAPHS PAGE.
 		
 
 
