@@ -47,13 +47,8 @@ public class MiniGraph : MonoBehaviour
 			
 				//FIXME: GET ACTUAL DATA INSTEAD OF RANDOM
 				Vector2[] points = new Vector2[30];
-				
-				for (int i=0; i<points.Length; i++) {
-						points [i].x = 10f;
-						//points [i].y = Random.Range (0f, height);
-						points [i].y = (Main.world.GetEnergyRange ("The University of Georgia", i, i) [0]) / 100f;
-						
-				}
+				School school = Main.world.GetSchoolByName ("The University of Georgia");
+				points = Main.world.GetEnergyPointsRange (school, 0, 30);
 				
 				points = Tools.MoveToOrigin (points, bottom, left, width, height);
 
@@ -68,18 +63,7 @@ public class MiniGraph : MonoBehaviour
 	
 		}
 		
-		Vector2 ConvertPoint (Vector2 point)
-		{
-		
-				Vector3 tempPoint = new Vector3 (point.x, point.y, 0f);
 	
-
-				point.x = tempPoint.x;
-				point.y = tempPoint.y;
-		
-			
-				return point;
-		}
 		
 		
 }

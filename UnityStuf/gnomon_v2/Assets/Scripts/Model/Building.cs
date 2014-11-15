@@ -8,8 +8,8 @@ public class Building
 	#region fields
 		private string name;
 		private List<Room> rooms = new List<Room> ();
-		private int minRoomCount = 3;
-		private int maxRoomCount = 30;
+		private int minRoomCount = 1;
+		private int maxRoomCount = 5;
 		
 
 		private int minHundredsPlace = 1;
@@ -50,7 +50,23 @@ public class Building
 						Room room = new Room (roomNumber);
 						rooms.Add (room);
 						
+						
 				}
+				
+				
+				string debugstring = this.name + "  ";
+				
+				for (int j=0; j<rooms.Count; j++) {
+						Room temproom = rooms [j];
+						debugstring += "\nRoom number " + temproom.Number + " : " 
+								+ temproom.GetEnergyAtDay (0) + " "
+								+ temproom.GetEnergyAtDay (1) + " "
+								+ temproom.GetEnergyAtDay (2) + " "
+								+ temproom.GetEnergyAtDay (3) + " ";
+				}	
+				
+				Debug.Log (debugstring);
+		
 				
 	
 		}
@@ -59,13 +75,53 @@ public class Building
 		{
 		
 				int hundredsPlace = Random.Range (minHundredsPlace, maxHundredsPlace);
-				int tensPlace = Random.Range (0, 9);
-				int onesPlace = Random.Range (0, 9);
+				int tensPlace = Random.Range (0, 6);
+				int onesPlace = Random.Range (0, 10);
 				int roomNumber = 100 * hundredsPlace + 10 * tensPlace + onesPlace;
 				
 				return roomNumber;
 		}
 	
+		
+			
+	
+		public float GetEnergyAtDay (int dayIndex)
+		{
+				if (dayIndex >= 365 || dayIndex < 0) {
+						Debug.LogError ("NOT A REAL DAY: " + dayIndex);
+						return -1;
+				} else {
+						float energyTotal = 0;
+						foreach (Room r in rooms) {
+								energyTotal += r.GetEnergyAtDay (dayIndex);
+						}
+			
+						return energyTotal;
+				}
+		
+		
+		}
+	
+		public float[] GetEnergyRange (int begin, int end)
+		{
+				if (end < begin) {
+						Debug.LogError ("BAD RANGE!!!!");
+						return null;
+				}
+		
+		
+				float[] energyValues = new float[end + 1 - begin];
+				for (int i=0; i<energyValues.Length; i++) {
+						energyValues [i] += GetEnergyAtDay (i);
+				}
+		
+				return energyValues;
+		
+		}
+	
+	
+	
+		/*
 		public float[] GetEnergyRange (int begin, int end)
 		{
 				if (end < begin) {
@@ -80,7 +136,7 @@ public class Building
 				foreach (Room r in rooms) {
 		
 						for (int i=0; i<energyValues.Length; i++) {
-								energyValues [i] = r.GetEnergyAtDay (i);
+								energyValues [i] += r.GetEnergyAtDay (i);
 			
 						}
 				}
@@ -91,6 +147,7 @@ public class Building
 		
 		}
 	
+*/
 
 
 }

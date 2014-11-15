@@ -9,9 +9,9 @@ public class Room
 	#region fields
 		private int number;
 		private float[] energyByDay = new float[365];
-		private int minEnergy = 3000;
-		private int maxEnergy = 4000;
-		private int energyTrend = 15;
+		private float minEnergy = 3f;
+		private float maxEnergy = 4f;
+		private float energyTrend = .015f;
 	#endregion
 	
 	#region members
@@ -32,7 +32,9 @@ public class Room
 	
 		public Room (int number)
 		{
+				this.Number = number;
 				PopulateEnergyByDay ();
+				
 		}
 		
 		
@@ -42,9 +44,11 @@ public class Room
 		
 		
 				for (int i=0; i<energyByDay.Length; i++) {
-						energyByDay [i] = 1.0f * Random.Range (minEnergy, maxEnergy) - energyTrend * i;
-						Debug.Log (energyByDay [i]);
+						energyByDay [i] = Random.Range (minEnergy, maxEnergy) - energyTrend * i;
+						
 				}
+				
+			
 		
 		}
 	
@@ -71,7 +75,7 @@ public class Room
 				
 				float[] energyValues = new float[end + 1 - begin];
 				for (int i=0; i<energyValues.Length; i++) {
-						energyValues [i] = GetEnergyAtDay (i);
+						energyValues [i] += GetEnergyAtDay (i);
 				}
 				
 				return energyValues;

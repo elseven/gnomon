@@ -9,7 +9,10 @@ public class Main : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
+		
+				Random.seed = 123;
 				world = new World ();
+				
 		}
 	
 		// Update is called once per frame

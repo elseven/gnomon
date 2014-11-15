@@ -41,7 +41,24 @@ public class School
 		}
 		
 		
+	
+		public float GetEnergyAtDay (int dayIndex)
+		{
+				if (dayIndex >= 365 || dayIndex < 0) {
+						Debug.LogError ("NOT A REAL DAY: " + dayIndex);
+						return -1;
+				} else {
+						float energyTotal = 0;
+						foreach (Building b in buildings) {
+								energyTotal += b.GetEnergyAtDay (dayIndex);
+						}
+			
+						return energyTotal;
+				}
 		
+		
+		}
+	
 		public float[] GetEnergyRange (int begin, int end)
 		{
 				if (end < begin) {
@@ -51,21 +68,14 @@ public class School
 		
 		
 				float[] energyValues = new float[end + 1 - begin];
-		
-		
-				foreach (Building b in buildings) {
-			
-						for (int i=0; i<energyValues.Length; i++) {
-								energyValues [i] = b.GetEnergyRange (i, i) [0];
-						}
+				for (int i=0; i<energyValues.Length; i++) {
+						energyValues [i] += GetEnergyAtDay (i);
 				}
-		
-		
 		
 				return energyValues;
 		
 		}
-
 	
-
+	
+	
 }
