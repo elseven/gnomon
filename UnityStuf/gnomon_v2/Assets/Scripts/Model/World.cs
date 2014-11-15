@@ -51,8 +51,8 @@ public class World
 	
 		
 		
-		
-		public Vector2[] GetEnergyPointsRange (School school, int begin, int end)
+		/*
+		public Vector2[] GetEnergyPointsRange (int begin, int end)
 		{
 				
 				Vector2[] points = new Vector2[end + 1 - begin];
@@ -60,7 +60,6 @@ public class World
 				for (int i=0; i<points.Length; i++) {
 						float y = GetEnergyAtDay (school, i);
 						points [i] = new Vector2 (0f, y);
-			
 				}
 				
 				return points;
@@ -80,7 +79,7 @@ public class World
 				
 				return school.GetEnergyRange (begin, end);
 		}
-		
+		*/
 		
 		public School GetSchoolByName (string schoolName)
 		{
@@ -93,5 +92,23 @@ public class World
 			
 				Debug.LogError ("NO SUCH SCHOOL");
 				return null;
+		}
+		
+		public Building GetBuildingByNames (string schoolName, string buildingName)
+		{
+				School s = GetSchoolByName (schoolName);
+				Building building = s.GetBuildingByName (buildingName);
+			
+				return building;
+		}
+		
+		public Room GetRoomByNames (string schoolName, string buildingName, int roomIndex)
+		{
+				Building building = GetBuildingByNames (schoolName, buildingName);
+				Room room = building.GetRoomAt (roomIndex);
+				
+				return room;
+	
+	
 		}
 }

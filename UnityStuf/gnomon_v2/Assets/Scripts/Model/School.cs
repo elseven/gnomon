@@ -41,6 +41,29 @@ public class School
 		}
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		public Vector2[] GetEnergyPointsRange (int begin, int end)
+		{
+		
+				Vector2[] points = new Vector2[end + 1 - begin];
+		
+				for (int i=0; i<points.Length; i++) {
+						float y = this.GetEnergyAtDay (i);
+						points [i] = new Vector2 (0f, y);
+				}
+		
+				return points;
+		}
+	
+	
+	
+	
 	
 		public float GetEnergyAtDay (int dayIndex)
 		{
@@ -74,6 +97,19 @@ public class School
 		
 				return energyValues;
 		
+		}
+		
+		public Building GetBuildingByName (string buildingName)
+		{
+		
+				foreach (Building b in buildings) {
+						if (b.Name.Equals (buildingName)) {
+								return b;
+						}
+				}
+		
+				Debug.LogError ("NO SUCH BUILDING");
+				return null;
 		}
 	
 	

@@ -1,11 +1,97 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class Tools
 {
 
 
+		public static Vector2[] Normalize (Vector2[] points, float graphTop, float max, float min)
+		{
+				
+				
+				//shift down to min
+				max -= min;
+				
+				
+				for (int i=0; i<points.Length; i++) {
+				
+				
+						//shift down
+						points [i].y -= min;
+						//scale so values are btwn 0 and 1
+						points [i].y /= max;
+						//values btwn 0 and graphTop
+						points [i].y *= graphTop;
+				}
+				
+				
+				return points;
+				
+			
+	
+	
+		}
+		
+		
+		public static float SingleMax (Vector2[] points)
+		{
+				float max = float.MinValue;
+		
+				foreach (Vector2 v in points) {
+						if (v.y > max) {
+								max = v.y;
+						}
+					
+				}
+				return max;
 
+		}
+		public static float SingleMin (Vector2[] points)
+		{
+				
+				float min = float.MaxValue;
+				foreach (Vector2 v in points) {
+				
+						if (v.y < min) {
+								min = v.y;
+						}
+				}
+				return min;
+		
+		}
+		
+		
+		public static float SuperMax (List<Vector2[]> pointsList)
+		{
+				float max = float.MinValue;
+				foreach (Vector2[] points in pointsList) {
+						float tempMax = SingleMax (points);
+						if (tempMax > max) {
+								max = tempMax;
+						}
+				}
+				
+				return max;
+		
+		}
+		
+		public static float SuperMin (List<Vector2[]> pointsList)
+		{
+				float min = float.MaxValue;
+				foreach (Vector2[] points in pointsList) {
+						float tempMin = SingleMin (points);
+						if (tempMin < min) {
+								min = tempMin;
+						}
+				}
+		
+				return min;
+		
+		}
+		
+		
+		
+		
 		public static Vector2[] MoveToOrigin (Vector2[] points, float bottom, float left, float width, float height)
 		{
 		

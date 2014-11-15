@@ -71,6 +71,14 @@ public class Building
 	
 		}
 		
+		
+		public Room GetRoomAt (int index)
+		{
+				return this.rooms [index];
+		}
+		
+		
+		
 		private int GenerateRoomNumber ()
 		{
 		
@@ -84,6 +92,21 @@ public class Building
 	
 		
 			
+			
+			
+			
+		public Vector2[] GetEnergyPointsRange (int begin, int end)
+		{
+		
+				Vector2[] points = new Vector2[end + 1 - begin];
+		
+				for (int i=0; i<points.Length; i++) {
+						float y = this.GetEnergyAtDay (i);
+						points [i] = new Vector2 (0f, y);
+				}
+		
+				return points;
+		}
 	
 		public float GetEnergyAtDay (int dayIndex)
 		{

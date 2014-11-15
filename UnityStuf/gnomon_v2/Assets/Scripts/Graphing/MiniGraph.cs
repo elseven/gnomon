@@ -6,7 +6,15 @@ using Vectrosity;
 public class MiniGraph : MonoBehaviour
 {
 
-
+		public enum MiniMode
+		{
+				SCHOOL,
+				BUILDING,
+				ROOM
+		
+		}
+		
+		public MiniMode SelectedMiniMode;
 		float left;
 		float right;
 		float top;
@@ -18,6 +26,9 @@ public class MiniGraph : MonoBehaviour
 		VectorLine vl;
 		Camera cam;
 		public Camera NGUICam;
+		public string HardcodedSchoolName;
+		public string HardcodedBuildingName;
+		
 	
 		// Use this for initialization
 		void Start ()
@@ -47,8 +58,28 @@ public class MiniGraph : MonoBehaviour
 			
 				//FIXME: GET ACTUAL DATA INSTEAD OF RANDOM
 				Vector2[] points = new Vector2[30];
-				School school = Main.world.GetSchoolByName ("The University of Georgia");
-				points = Main.world.GetEnergyPointsRange (school, 0, 30);
+				
+				switch (SelectedMiniMode) {
+				case MiniMode.SCHOOL:
+						School school = Main.world.GetSchoolByName (HardcodedSchoolName);
+			
+						points = school.GetEnergyPointsRange (0, 30);
+						break;
+				case MiniMode.BUILDING:
+						Building building = Main.world.GetBuildingByNames (HardcodedSchoolName, HardcodedBuildingName);
+						points = building.GetEnergyPointsRange (0, 30);
+						break;
+						
+				case MiniMode.ROOM:
+						Room room = Main.world.GetRoomByNames (HardcodedSchoolName, HardcodedBuildingName, 0);
+						points = room.GetEnergyPointsRange (0, 30);
+						break;
+						
+				}
+				
+				float min = Tools.SingleMin (points);
+				float max = Tools.SingleMax (points);
+				points = Tools.Normalize (points, height, max, min);
 				
 				points = Tools.MoveToOrigin (points, bottom, left, width, height);
 
