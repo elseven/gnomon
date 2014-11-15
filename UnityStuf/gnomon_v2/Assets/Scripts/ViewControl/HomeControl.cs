@@ -12,6 +12,8 @@ public class HomeControl : MonoBehaviour
 		public GameObject BuildingOverlay;
 		public GameObject RoomOverlay;
 		
+		
+		
 		// Use this for initialization
 		void Start ()
 		{
@@ -36,22 +38,24 @@ public class HomeControl : MonoBehaviour
 		{
 				StartCoroutine ("ActivateSchoolOverlay");
 				
-				//FIXME: NOT IMPL
-				//DISPLAY GRAPH PAGE
+				//FIXME: DISPLAY GRAPH PAGE FOR SCHOOL
+				
 		}
 	
 	
 		public void ViewBuildingGraph ()
 		{
-				//FIXME: NOT IMPL
-				//FIXME: NOT LINKED
+				StartCoroutine ("ActivateBuildingOverlay");
+				//FIXME: DISPLAY GRAPH PAGE FOR BUILDING
 		}
 	
 	
 		public void ViewRoomGraph ()
 		{
-				//FIXME: NOT IMPL
+				StartCoroutine ("ActivateRoomOverlay");
 				//FIXME: NOT LINKED
+				//FIXME: DISPLAY GRAPH PAGE FOR BUILDING
+		
 		}
 
 		
@@ -61,7 +65,22 @@ public class HomeControl : MonoBehaviour
 		{
 				SchoolOverlay.SetActive (true);
 				yield return new WaitForSeconds (.3f);
-				SchoolOverlay.SetActive (true);
+				SchoolOverlay.SetActive (false);	
+		}
+		
+		IEnumerator ActivateBuildingOverlay ()
+		{
+				BuildingOverlay.SetActive (true);
+				yield return new WaitForSeconds (.3f);
+				BuildingOverlay.SetActive (false);	
+		}
+		
+		
+		IEnumerator ActivateRoomOverlay ()
+		{
+				RoomOverlay.SetActive (true);
+				yield return new WaitForSeconds (.3f);
+				RoomOverlay.SetActive (false);	
 		}
 
 
