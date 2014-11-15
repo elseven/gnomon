@@ -4,6 +4,8 @@ using System.Collections;
 public class HomeControl : MonoBehaviour
 {
 
+
+		//FIXME: CONSIDER MOVING TO MAIN INSTEAD? SINCE GRAPH PAGE WILL BE ACCESSABLE FROM ELSEWHERE?
 		//FIXME: AND MAKE THE BUTTONS OPEN A GRAPHS PAGE.
 		
 
