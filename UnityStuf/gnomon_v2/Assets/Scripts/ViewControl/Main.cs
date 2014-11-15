@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Main : MonoBehaviour {
+public class Main : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
+
+		public static World world;
+		// Use this for initialization
+		void Start ()
+		{
+				world = new World ();
+		}
 	
-	}
+		// Update is called once per frame
+		void Update ()
+		{
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+		}
 }

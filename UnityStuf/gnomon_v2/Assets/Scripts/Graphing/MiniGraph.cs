@@ -18,12 +18,14 @@ public class MiniGraph : MonoBehaviour
 		VectorLine vl;
 		Camera cam;
 		public Camera NGUICam;
+	
 		// Use this for initialization
 		void Start ()
 		{
 		
 				VectorLine.SetCamera (Camera.main);
 				cam = VectorLine.GetCamera ();
+				
 				//cam.transform.position = new Vector3 (0f, 0f, 0f);
 				canvas1 = gameObject.GetComponent<UISprite> ();
 		
@@ -38,17 +40,19 @@ public class MiniGraph : MonoBehaviour
 				bottom = bottomLeft.y;
 				right = left + width;
 				top = bottom + height;
-				Debug.LogWarning ("left " + left + "  top  " + top + "  width  " + width + "  height  " + height);
-				Debug.LogWarning ("right " + right + "  bottom  " + bottom);
+				//Debug.LogWarning ("left " + left + "  top  " + top + "  width  " + width + "  height  " + height);
+				//Debug.LogWarning ("right " + right + "  bottom  " + bottom);
 			
 			
 			
 				//FIXME: GET ACTUAL DATA INSTEAD OF RANDOM
-				Vector2[] points = new Vector2[50];
+				Vector2[] points = new Vector2[30];
 				
 				for (int i=0; i<points.Length; i++) {
 						points [i].x = 10f;
-						points [i].y = Random.Range (0f, height);
+						//points [i].y = Random.Range (0f, height);
+						points [i].y = (Main.world.GetEnergyRange ("The University of Georgia", i, i) [0]) / 100f;
+						
 				}
 				
 				points = Tools.MoveToOrigin (points, bottom, left, width, height);
