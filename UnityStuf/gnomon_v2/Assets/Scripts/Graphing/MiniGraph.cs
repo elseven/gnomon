@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Vectrosity;
 
 
@@ -21,13 +22,19 @@ public class MiniGraph : MonoBehaviour
 		float bottom;
 		float width;
 		float height;
+		public GameObject Overlay;
+		public GraphControl graphControl;
+		
 
 		UISprite canvas1;
-		VectorLine vl;
+		
 		Camera cam;
 		public Camera NGUICam;
 		public string HardcodedSchoolName;
 		public string HardcodedBuildingName;
+		public Vector2[] points;
+		public Vector2[] rawPoints;
+		public Main main;
 		
 	
 		// Use this for initialization
@@ -51,41 +58,35 @@ public class MiniGraph : MonoBehaviour
 				bottom = bottomLeft.y;
 				right = left + width;
 				top = bottom + height;
-				//Debug.LogWarning ("left " + left + "  top  " + top + "  width  " + width + "  height  " + height);
-				//Debug.LogWarning ("right " + right + "  bottom  " + bottom);
 			
 			
-			
-				//FIXME: GET ACTUAL DATA INSTEAD OF RANDOM
-				Vector2[] points = new Vector2[30];
+				points = new Vector2[30];
 				
 				switch (SelectedMiniMode) {
 				case MiniMode.SCHOOL:
 						School school = Main.world.GetSchoolByName (HardcodedSchoolName);
-			
-						points = school.GetEnergyPointsRange (0, 30);
+						rawPoints = school.GetEnergyPointsRange (0, 30);
 						break;
 				case MiniMode.BUILDING:
 						Building building = Main.world.GetBuildingByNames (HardcodedSchoolName, HardcodedBuildingName);
-						points = building.GetEnergyPointsRange (0, 30);
+						rawPoints = building.GetEnergyPointsRange (0, 30);
 						break;
 						
 				case MiniMode.ROOM:
 						Room room = Main.world.GetRoomByNames (HardcodedSchoolName, HardcodedBuildingName, 0);
-						points = room.GetEnergyPointsRange (0, 30);
-						break;
-						
+						rawPoints = room.GetEnergyPointsRange (0, 30);
+						break;		
 				}
 				
-				float min = Tools.SingleMin (points);
-				float max = Tools.SingleMax (points);
-				points = Tools.Normalize (points, height, max, min);
+				float min = Tools.SingleMin (rawPoints);
+				float max = Tools.SingleMax (rawPoints);
+				points = Tools.Normalize (rawPoints, height, max, min);
 				
-				points = Tools.MoveToOrigin (points, bottom, left, width, height);
+				points = Tools.MoveToOrigin (rawPoints, bottom, left, width, height);
 
 	
 				
-				VectorLine.SetLine (Color.green, points);
+				main.vectorLines.Add (VectorLine.SetLine (Color.green, points));
 		}
 	
 		// Update is called once per frame
@@ -93,6 +94,32 @@ public class MiniGraph : MonoBehaviour
 		{
 	
 		}
+		
+		
+		//ON PRESS
+		public void Highlight ()
+		{
+				Overlay.SetActive (true);
+		
+		}
+		
+		//ON RELEASE
+		public void ViewGraph ()
+		{
+				
+				Overlay.SetActive (false);
+				List<Vector2[]> pointsList = new List<Vector2[]> ();
+				pointsList.Add (rawPoints);
+				graphControl.SetPointsList (pointsList);
+				main.ClearVectorLines ();
+				graphControl.ShowGraphPanel ();
+				
+		
+		}
+		
+
+		
+		
 		
 	
 		

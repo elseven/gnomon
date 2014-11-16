@@ -10,9 +10,8 @@ public class TabControl : MonoBehaviour
 		public GameObject MatchesTab;
 	
 	
-		public GameObject HomePanel;
-		public GameObject TeamsPanel;
-		public GameObject MatchesPanel;
+
+
 	
 	
 
@@ -34,37 +33,33 @@ public class TabControl : MonoBehaviour
 		
 		void Awake ()
 		{
-				ActivateHome ();
+				
 		
 		}
 		
 		
 		
-		public void ActivateHome ()
+		
+		//FIXME: IMPL TAB SWITCHING
+		
+		public void ActivateHomeTab ()
 		{
-				HomePanel.SetActive (true);
-				TeamsPanel.SetActive (false);
-				MatchesPanel.SetActive (false);
-			
+				
 		}
 		
 		
 		
 		
-		public void ActivateTeams ()
+		public void ActivateTeamsTab ()
 		{
-				HomePanel.SetActive (false);
-				TeamsPanel.SetActive (true);
-				MatchesPanel.SetActive (false);
+				
 		
 		}
 		
 		
-		public void ActivateMatches ()
+		public void ActivateMatchesTab ()
 		{
-				HomePanel.SetActive (false);
-				TeamsPanel.SetActive (false);
-				MatchesPanel.SetActive (true);
+				
 		}
 		
 		

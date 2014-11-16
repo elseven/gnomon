@@ -37,6 +37,12 @@ public class Building
 				
 				int roomCount = Random.Range (minRoomCount, maxRoomCount);
 				List<int> existingRoomNumbers = new List<int> ();
+				
+				if (name.Equals ("Creswell Hall")) {
+						existingRoomNumbers.Add (101);
+						Room room101 = new Room (101);
+						rooms.Add (room101);
+				}
 				for (int i=0; i<roomCount; i++) {
 						
 						int roomNumber = -1;
