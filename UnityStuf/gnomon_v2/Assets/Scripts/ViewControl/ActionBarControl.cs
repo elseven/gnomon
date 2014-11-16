@@ -7,14 +7,10 @@ public class ActionBarControl : MonoBehaviour
 
 	
 		
-		public BackMode SelectedBackMode = BackMode.HOME;
-	
 		
-		public GameObject HomePanel;
-		public GameObject TeamsPanel;
-		public GameObject MatchesPanel;
-		public GameObject GraphPanel;
-		public GameObject TopPanel;
+	
+		public Main main;
+
 		
 		
 		// Use this for initialization
@@ -33,31 +29,24 @@ public class ActionBarControl : MonoBehaviour
 		public void Back ()
 		{
 				
+				main.ClearVectorLines ();
 				//FIXME: BACK NOT CALLED
-				switch (SelectedBackMode) {
+				switch (main.SelectedBackMode) {
 				case BackMode.HOME:
-						//FIXME: BACK HOME NOT IMPLEMENTED
+						main.ActivateHome ();
 						break;
 				case BackMode.TEAMS:
-						//FIXME: BACK TEAMS NOT IMPLEMENTED
+						main.ActivateTeams ();
 						break;
 				case BackMode.MATCHES:
-						//FIXME: BACK MATCHES NOT IMPLEMENTED
+						main.ActivateMatches ();
 						break;
 		
 				}
 		}
 		
 		
-		//FIXME: SET BACK MODE NOT BEING CALLED
-		public void SetBackMode (BackMode mode)
-		{
-		
-				SelectedBackMode = mode;
-				
-				
-				
-		}
+
 		
 		
 }

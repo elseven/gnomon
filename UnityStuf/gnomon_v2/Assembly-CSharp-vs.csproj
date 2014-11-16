@@ -180,6 +180,8 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\Scripts\Graphing\ColorPicker.cs" />
+     <Compile Include="Assets\Scripts\Graphing\ColorWrapper.cs" />
      <Compile Include="Assets\Scripts\Graphing\MiniGraph.cs" />
      <Compile Include="Assets\Scripts\Graphing\Tools.cs" />
      <Compile Include="Assets\Scripts\Model\Building.cs" />

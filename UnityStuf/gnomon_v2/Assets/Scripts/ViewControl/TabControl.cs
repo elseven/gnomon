@@ -40,11 +40,11 @@ public class TabControl : MonoBehaviour
 		
 		
 		
-		//FIXME: IMPL TAB SWITCHING
 		
 		public void ActivateHomeTab ()
 		{
-				
+				//FIXME: IMPL TAB SWITCHING
+			
 		}
 		
 		
@@ -53,12 +53,16 @@ public class TabControl : MonoBehaviour
 		public void ActivateTeamsTab ()
 		{
 				
+				//FIXME: IMPL TAB SWITCHING
+		
 		
 		}
 		
 		
 		public void ActivateMatchesTab ()
 		{
+		
+				//FIXME: IMPL TAB SWITCHING
 				
 		}
 		

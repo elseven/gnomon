@@ -14,12 +14,12 @@ public class GraphControl : MonoBehaviour
 		float width;
 		float height;
 		public UISprite canvas1;
+		public UILabel GraphTitle;
 		Camera cam;
 		public Camera NGUICam;
 		
 	
 		public Main main;
-		List<VectorLine> lineList = new List<VectorLine> ();
 	
 		// Use this for initialization
 		void Start ()
@@ -77,7 +77,7 @@ public class GraphControl : MonoBehaviour
 						pointsList [i] = Tools.Normalize (pointsList [i], height, max, min);
 						pointsList [i] = Tools.MoveToOrigin (pointsList [i], bottom, left, width, height);
 						//VectorLine.SetLine (Color.Lerp (Color.red, Color.blue, (i + 0.0f) / pointsList.Count), pointsList [i]);
-						lineList.Add (VectorLine.SetLine (Color.red, pointsList [i]));
+						main.vectorLines.Add (VectorLine.SetLine (Color.red, pointsList [i]));
 				}
 				
 		

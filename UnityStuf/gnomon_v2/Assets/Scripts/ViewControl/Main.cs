@@ -15,12 +15,16 @@ public class Main : MonoBehaviour
 		public GameObject TopPanel;
 		public GameObject ActionPanel;
 		public List<VectorLine> vectorLines = new List<VectorLine> ();
+		public BackMode SelectedBackMode = BackMode.HOME;
+		public MiniGraph SchoolMiniGraph;
+		public MiniGraph BuildingMiniGraph;
+		public MiniGraph RoomMiniGraph;
 		
 		
 		// Use this for initialization
 		void Start ()
 		{
-		
+				
 				Random.seed = 123;
 				
 				//world = new World ();
@@ -50,13 +54,36 @@ public class Main : MonoBehaviour
 				vectorLines.Clear ();
 		}
 		
-		//FIXME: MAKE SURE APPROPRIATE ADDITIONAL PANELS ARE SET ACTIVE TOO
+		
+		
+		//FIXME: SET BACK MODE NOT BEING CALLED
+		public void SetBackMode (BackMode mode)
+		{
+				SelectedBackMode = mode;	
+		}
+		
+		
+		
+		
+		
+		public void InitMiniGraphs ()
+		{
+				SchoolMiniGraph.Init ();
+				BuildingMiniGraph.Init ();
+				RoomMiniGraph.Init ();
+		}
+		
+		
 		
 		public void ActivateHome ()
 		{
+		
+				ClearVectorLines ();
 				DeactivateAllPanels ();
+				
 				HomePanel.SetActive (true);
 				TopPanel.SetActive (true);
+				InitMiniGraphs ();
 				//FIXME: MAKE SURE APPROPRIATE ADDITIONAL PANELS ARE SET ACTIVE TOO
 
 		
@@ -67,22 +94,26 @@ public class Main : MonoBehaviour
 	
 		public void ActivateTeams ()
 		{
-		
+				ClearVectorLines ();
 				DeactivateAllPanels ();
 				TeamsPanel.SetActive (true);
+				TopPanel.SetActive (true);
 				//FIXME: MAKE SURE APPROPRIATE ADDITIONAL PANELS ARE SET ACTIVE TOO
 		}
 	
 	
 		public void ActivateMatches ()
 		{
+				ClearVectorLines ();
 				DeactivateAllPanels ();
 				MatchesPanel.SetActive (true);
+				TopPanel.SetActive (true);
 				//FIXME: MAKE SURE APPROPRIATE ADDITIONAL PANELS ARE SET ACTIVE TOO
 		}
 		
 		public void ActivateGraph ()
 		{
+				ClearVectorLines ();
 				DeactivateAllPanels ();
 				GraphPanel.SetActive (true);
 				ActionPanel.SetActive (true);
@@ -90,6 +121,11 @@ public class Main : MonoBehaviour
 	
 		
 		
+	
+	
+	
+	
+	
 	
 		public void DeactivateAllPanels ()
 		{

@@ -1,19 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Graphing/Tools.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Graphing/ColorWrapper.cs">
     <Files>
-      <File FileName="Assets/Scripts/ViewControl/ActionBarControl.cs" Line="8" Column="2" />
-      <File FileName="Assets/Scripts/ViewControl/Enums/BackMode.cs" Line="11" Column="1" />
-      <File FileName="Assets/Scripts/Graphing/MiniGraph.cs" Line="9" Column="1" />
-      <File FileName="Assets/Scripts/Graphing/Tools.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Graphing/ColorPicker.cs" Line="6" Column="1" />
+      <File FileName="Assets/Scripts/Graphing/ColorWrapper.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
+            <Node name="NGUI" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Internal" expanded="True" />
+              </Node>
+            </Node>
             <Node name="Scripts" expanded="True">
               <Node name="Graphing" expanded="True">
-                <Node name="Tools.cs" selected="True" />
+                <Node name="ColorPicker.cs" selected="True" />
               </Node>
               <Node name="Model" expanded="True" />
               <Node name="ViewControl" expanded="True">

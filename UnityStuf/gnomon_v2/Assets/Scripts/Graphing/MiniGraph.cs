@@ -40,28 +40,39 @@ public class MiniGraph : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
+				Init ();
+		}
+	
+		// Update is called once per frame
+		void Update ()
+		{
+	
+		}
+		
+		public void Init ()
+		{
 		
 				VectorLine.SetCamera (Camera.main);
 				cam = VectorLine.GetCamera ();
-				
+		
 				//cam.transform.position = new Vector3 (0f, 0f, 0f);
 				canvas1 = gameObject.GetComponent<UISprite> ();
 		
 		
-				
+		
 				width = canvas1.width;
 				height = canvas1.height;
-				
-				
+		
+		
 				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
 				left = bottomLeft.x;
 				bottom = bottomLeft.y;
 				right = left + width;
 				top = bottom + height;
-			
-			
+		
+		
 				points = new Vector2[30];
-				
+		
 				switch (SelectedMiniMode) {
 				case MiniMode.SCHOOL:
 						School school = Main.world.GetSchoolByName (HardcodedSchoolName);
@@ -71,28 +82,22 @@ public class MiniGraph : MonoBehaviour
 						Building building = Main.world.GetBuildingByNames (HardcodedSchoolName, HardcodedBuildingName);
 						rawPoints = building.GetEnergyPointsRange (0, 30);
 						break;
-						
+			
 				case MiniMode.ROOM:
 						Room room = Main.world.GetRoomByNames (HardcodedSchoolName, HardcodedBuildingName, 0);
 						rawPoints = room.GetEnergyPointsRange (0, 30);
 						break;		
 				}
-				
+		
 				float min = Tools.SingleMin (rawPoints);
 				float max = Tools.SingleMax (rawPoints);
 				points = Tools.Normalize (rawPoints, height, max, min);
-				
+		
 				points = Tools.MoveToOrigin (rawPoints, bottom, left, width, height);
-
-	
-				
+		
+		
+		
 				main.vectorLines.Add (VectorLine.SetLine (Color.green, points));
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-	
 		}
 		
 		
@@ -112,6 +117,7 @@ public class MiniGraph : MonoBehaviour
 				pointsList.Add (rawPoints);
 				graphControl.SetPointsList (pointsList);
 				main.ClearVectorLines ();
+				main.SetBackMode (BackMode.HOME);
 				graphControl.ShowGraphPanel ();
 				
 		

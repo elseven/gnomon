@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 public class Tools
 {
-
-
+		public static ColorPicker cp = new ColorPicker ();
+		
+		#region Vector stuff
 		public static Vector2[] Normalize (Vector2[] points, float graphTop, float max, float min)
 		{
 				
@@ -128,6 +129,25 @@ public class Tools
 		}
 		
 
+		#endregion
+		
+		public static string MakeTitle (List<string> rawTitles)
+		{
+				string formatted = "";
+				for (int i=0; i<rawTitles.Count; i++) {
+						
+						formatted += FormatName (rawTitles [i], i);
+				}
+				return formatted;
+		}
+		public static string FormatName (string raw, int index)
+		{
+				ColorWrapper cw = cp.GetColorWrapperAt (index);
+				string formatted = cw.BBColorName + raw + "   ";
+				
+				return formatted;
+		
+		}
 
 
 }
