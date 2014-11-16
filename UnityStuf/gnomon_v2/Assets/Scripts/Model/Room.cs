@@ -12,9 +12,11 @@ public class Room
 		private float minEnergy = 3f;
 		private float maxEnergy = 5f;
 		private float energyTrend = .01f;
+		private string buildingName;
+		private string schoolName;
 	#endregion
 	
-	#region members
+	#region properties
 		public int Number {
 				get {
 						return number;
@@ -23,16 +25,35 @@ public class Room
 						number = value;
 				}
 		}
-		
+
+		public string BuildingName {
+				get {
+						return buildingName;
+				}
+				set {
+						buildingName = value;
+				}
+		}		
 	
 	
+
+		public string SchoolName {
+				get {
+						return schoolName;
+				}
+				set {
+						schoolName = value;
+				}
+		}
 	#endregion
 	
 	
 	
-		public Room (int number)
+		public Room (int number, string schoolName, string buildingName)
 		{
 				this.Number = number;
+				this.SchoolName = schoolName;
+				this.BuildingName = buildingName;
 				PopulateEnergyByDay ();
 				
 		}

@@ -7,6 +7,7 @@ public class Building
 
 	#region fields
 		private string name;
+		private string schoolName;
 		private List<Room> rooms = new List<Room> ();
 		private int minRoomCount = 1;
 		private int maxRoomCount = 5;
@@ -18,7 +19,7 @@ public class Building
 		
 	#endregion
 	
-	#region members
+	#region properties
 		public string Name {
 				get {
 						return name;
@@ -27,20 +28,30 @@ public class Building
 						name = value;
 				}
 		}
+
+		public string SchoolName {
+				get {
+						return schoolName;
+				}
+				set {
+						schoolName = value;
+				}
+		}
 	
 	#endregion
 	
 	
-		public Building (string name)
+		public Building (string name, string schoolName)
 		{
 				this.Name = name;
+				this.SchoolName = schoolName;
 				
 				int roomCount = Random.Range (minRoomCount, maxRoomCount);
 				List<int> existingRoomNumbers = new List<int> ();
 				
 				if (name.Equals ("Creswell Hall")) {
 						existingRoomNumbers.Add (101);
-						Room room101 = new Room (101);
+						Room room101 = new Room (101, schoolName, name);
 						rooms.Add (room101);
 				}
 				for (int i=0; i<roomCount; i++) {
@@ -53,7 +64,7 @@ public class Building
 						
 						
 						existingRoomNumbers.Add (roomNumber);
-						Room room = new Room (roomNumber);
+						Room room = new Room (roomNumber, schoolName, name);
 						rooms.Add (room);
 						
 						

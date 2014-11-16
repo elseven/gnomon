@@ -185,8 +185,10 @@
      <Compile Include="Assets\Scripts\Graphing\MiniGraph.cs" />
      <Compile Include="Assets\Scripts\Graphing\Tools.cs" />
      <Compile Include="Assets\Scripts\Model\Building.cs" />
+     <Compile Include="Assets\Scripts\Model\Match.cs" />
      <Compile Include="Assets\Scripts\Model\Room.cs" />
      <Compile Include="Assets\Scripts\Model\School.cs" />
+     <Compile Include="Assets\Scripts\Model\Team.cs" />
      <Compile Include="Assets\Scripts\Model\World.cs" />
      <Compile Include="Assets\Scripts\ViewControl\ActionBarControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\Enums\BackMode.cs" />

@@ -7,7 +7,7 @@ public class ColorPicker
 
 		public ColorPicker ()
 		{
-				ColorArray [0] = new ColorWrapper (new Color (0f, .1f, 0f));
+				ColorArray [0] = new ColorWrapper (new Color (0f, .3f, 0f));
 				ColorArray [1] = new ColorWrapper (new Color (0f, 0f, 1f));
 				ColorArray [2] = new ColorWrapper (new Color (0f, .3f, 0.3f));
 				ColorArray [3] = new ColorWrapper (new Color (0f, .6f, 0.8f));

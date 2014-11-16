@@ -17,8 +17,8 @@ public class MiniGraph : MonoBehaviour
 		
 		public MiniMode SelectedMiniMode;
 		float left;
-		float right;
-		float top;
+		//float right;
+		//float top;
 		float bottom;
 		float width;
 		float height;
@@ -67,8 +67,8 @@ public class MiniGraph : MonoBehaviour
 				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
 				left = bottomLeft.x;
 				bottom = bottomLeft.y;
-				right = left + width;
-				top = bottom + height;
+				//right = left + width;
+				//top = bottom + height;
 		
 		
 				points = new Vector2[30];
@@ -113,9 +113,26 @@ public class MiniGraph : MonoBehaviour
 		{
 				
 				Overlay.SetActive (false);
-				List<Vector2[]> pointsList = new List<Vector2[]> ();
-				pointsList.Add (rawPoints);
-				graphControl.SetPointsList (pointsList);
+				//List<Vector2[]> pointsList = new List<Vector2[]> ();
+				//pointsList.Add (rawPoints);
+				//graphControl.SetPointsList (title, pointsList);
+		
+				
+				string title = "";
+				switch (SelectedMiniMode) {
+				case MiniMode.SCHOOL:
+						title = HardcodedSchoolName;
+						break;
+				case MiniMode.BUILDING:
+						title = HardcodedBuildingName + "(" + HardcodedSchoolName + ")";
+						break;
+				case MiniMode.ROOM:
+						title = "Room #101, " + HardcodedBuildingName + " (" + HardcodedSchoolName + ")";
+						break;
+				}
+				
+				graphControl.ClearList ();
+				graphControl.AddToPointsList (title, rawPoints);
 				main.ClearVectorLines ();
 				main.SetBackMode (BackMode.HOME);
 				graphControl.ShowGraphPanel ();

@@ -7,6 +7,7 @@ public class World
 
 		private List<School> schools = new List<School> ();
 		
+		private List<Team> teams = new List<Team> ();
 		
 
 
@@ -49,37 +50,7 @@ public class World
 		}
 	
 	
-		
-		
-		/*
-		public Vector2[] GetEnergyPointsRange (int begin, int end)
-		{
-				
-				Vector2[] points = new Vector2[end + 1 - begin];
-				
-				for (int i=0; i<points.Length; i++) {
-						float y = GetEnergyAtDay (school, i);
-						points [i] = new Vector2 (0f, y);
-				}
-				
-				return points;
-		}
-		
-		
-		
-		
-		public float GetEnergyAtDay (School school, int dayIndex)
-		{		
-				
-				return school.GetEnergyAtDay (dayIndex);
-		}
 	
-		public float[] GetEnergyRange (School school, int begin, int end)
-		{		
-				
-				return school.GetEnergyRange (begin, end);
-		}
-		*/
 		
 		public School GetSchoolByName (string schoolName)
 		{

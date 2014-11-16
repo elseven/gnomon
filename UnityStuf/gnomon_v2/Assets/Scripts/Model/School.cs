@@ -10,7 +10,7 @@ public class School
 		private List<Building> buildings = new List<Building> ();
 		#endregion
 
-		#region members
+		#region properties
 		public string Name {
 				get {
 						return name;
@@ -35,7 +35,7 @@ public class School
 		{
 				this.Name = name;
 				foreach (string bn in buildingNames) {
-						Building building = new Building (bn);
+						Building building = new Building (bn, name);
 						this.buildings.Add (building);
 				}
 		}

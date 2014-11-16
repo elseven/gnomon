@@ -7,9 +7,11 @@ public class GraphControl : MonoBehaviour
 
 
 		public List<Vector2[]> pointsList = new List<Vector2[]> ();
+		public List<string> titlesList = new List<string> ();
+		public string combinedTitle;
 		float left;
-		float right;
-		float top;
+		//float right;
+		//float top;
 		float bottom;
 		float width;
 		float height;
@@ -49,15 +51,34 @@ public class GraphControl : MonoBehaviour
 				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
 				left = bottomLeft.x;
 				bottom = bottomLeft.y;
-				right = left + width;
-				top = bottom + height;
+				//	right = left + width;
+				//	top = bottom + height;
 				
 		}
 		
 		
-		public void SetPointsList (List<Vector2[]> newPointsList)
+		
+		public void ClearList ()
+		{
+				pointsList.Clear ();
+				titlesList.Clear ();
+		
+		}
+		public void AddToPointsList (string title, Vector2[] points)
+		{
+				titlesList.Add (title);
+				pointsList.Add (points);
+			
+		
+		
+		}
+		
+		
+		
+		public void SetPointsList (List<string> titles, List<Vector2[]> newPointsList)
 		{
 				pointsList = newPointsList;
+				titlesList = titles;
 				foreach (Vector2[] va in pointsList) {
 						foreach (Vector2 v in va) {
 								Debug.Log (v.y);
@@ -69,18 +90,25 @@ public class GraphControl : MonoBehaviour
 		public void ShowGraphPanel ()
 		{
 				Init ();
+				
 				main.ActivateGraph ();
-				Debug.Log ("??bottom left width height : " + bottom + " " + left + " " + width + " " + height);
+		
+				combinedTitle = Tools.MakeTitle (titlesList);
+				GraphTitle.text = combinedTitle;
+				
+				
 				float min = Tools.SuperMin (pointsList);
 				float max = Tools.SuperMax (pointsList);
+				
+				
 				for (int i=0; i<pointsList.Count; i++) {
 						pointsList [i] = Tools.Normalize (pointsList [i], height, max, min);
 						pointsList [i] = Tools.MoveToOrigin (pointsList [i], bottom, left, width, height);
-						//VectorLine.SetLine (Color.Lerp (Color.red, Color.blue, (i + 0.0f) / pointsList.Count), pointsList [i]);
-						main.vectorLines.Add (VectorLine.SetLine (Color.red, pointsList [i]));
+						main.vectorLines.Add (VectorLine.SetLine (Tools.cp.GetColorWrapperAt (i).ColorValue, pointsList [i]));
 				}
 				
-		
+				
+				
 		
 		
 				
