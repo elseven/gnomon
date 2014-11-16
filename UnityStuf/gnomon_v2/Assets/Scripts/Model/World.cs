@@ -9,6 +9,8 @@ public class World
 		
 		private List<Team> teams = new List<Team> ();
 		
+		private List<Match> matches = new List<Match> ();
+		
 
 
 	
@@ -44,6 +46,9 @@ public class World
 				//ADD SCHOOLS
 				schools.Add (gt);
 				schools.Add (uga);
+				
+				//URGENT: CREATE TEAMS AND MATCHES
+				
 				
 				
 	

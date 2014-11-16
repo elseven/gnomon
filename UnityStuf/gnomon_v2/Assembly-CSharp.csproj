@@ -196,6 +196,7 @@
      <Compile Include="Assets\Scripts\ViewControl\HomeControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\Main.cs" />
      <Compile Include="Assets\Scripts\ViewControl\MatchControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\MiniTeamControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\SharedVariables.cs" />
      <Compile Include="Assets\Scripts\ViewControl\TabControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\TeamControl.cs" />

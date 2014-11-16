@@ -1,3 +1,33 @@
+TODO:
+
+	TEAMS
+		VIEW GRAPH
+			[similar to minigraph]
+		CREATE
+		EDIT
+		DELETE
+		COPY
+		
+	MATCHES
+		VIEW GRAPH
+		CREATE
+		EDIT
+		DELETE
+		COPY
+
+
+
+
+
+
+
+
+
+
+______________________________________________________________
+
+
+
 THE DOCTOR:
 
 Change star
@@ -7,34 +37,8 @@ Temp search maybe? then save
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_____________________________________________________________
-
-TODO:
-Find android color palette
-
-
-
 ______________________________________________________________
 QUESTIONS:
-
-CREATE TEAM & CREATE MATCHUP on both TEAMS and LEADERBOARD?
-	NO! Instead when creating matchup, there is an option to select teams or create new team.
-
-TEAMS and LEADERBOARD pages too similar????
 
 
 get rid of star!
@@ -42,10 +46,6 @@ get rid of star!
 quick comparisons?
 	compare button on the teams page ->graph
 	graph page has option to save
-
-
-
-
 _____________________________________________________________
 
 IDEAS:

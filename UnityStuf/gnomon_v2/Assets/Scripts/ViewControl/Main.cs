@@ -20,6 +20,7 @@ public class Main : MonoBehaviour
 		public MiniGraph BuildingMiniGraph;
 		public MiniGraph RoomMiniGraph;
 		
+		public UIScrollView TeamsScrollView;
 		
 		// Use this for initialization
 		void Start ()
@@ -98,9 +99,17 @@ public class Main : MonoBehaviour
 				DeactivateAllPanels ();
 				TeamsPanel.SetActive (true);
 				TopPanel.SetActive (true);
+				
+				StartCoroutine ("FixTeamsScroll");
 				//FIXME: MAKE SURE APPROPRIATE ADDITIONAL PANELS ARE SET ACTIVE TOO
 		}
 	
+	
+		IEnumerator FixTeamsScroll ()
+		{
+				yield return new WaitForSeconds (.1f);
+				TeamsScrollView.ResetPosition ();
+		}
 	
 		public void ActivateMatches ()
 		{
