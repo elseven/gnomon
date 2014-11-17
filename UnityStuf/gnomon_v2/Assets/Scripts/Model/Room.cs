@@ -14,6 +14,7 @@ public class Room
 		private float energyTrend = .01f;
 		private string buildingName;
 		private string schoolName;
+		private bool isPublished;
 	#endregion
 	
 	#region properties
@@ -45,15 +46,26 @@ public class Room
 						schoolName = value;
 				}
 		}
+
+		public bool IsPublished {
+				get {
+						return isPublished;
+				}
+				set {
+						isPublished = value;
+				}
+		}
+
 	#endregion
 	
 	
 	
-		public Room (int number, string schoolName, string buildingName)
+		public Room (int number, string schoolName, string buildingName, bool isPublished)
 		{
 				this.Number = number;
 				this.SchoolName = schoolName;
 				this.BuildingName = buildingName;
+				this.IsPublished = isPublished;
 				PopulateEnergyByDay ();
 				
 		}
