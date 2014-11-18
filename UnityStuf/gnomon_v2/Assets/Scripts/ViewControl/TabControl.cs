@@ -9,12 +9,12 @@ public class TabControl : MonoBehaviour
 		public GameObject TeamsTab;
 		public GameObject MatchesTab;
 	
-	
+		public GameObject HomeSelector;
+		public GameObject TeamsSelector;
+		public GameObject MatchesSelector;
 
 
 	
-	
-
 
 
 
@@ -22,6 +22,7 @@ public class TabControl : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
+				ActivateHomeTab ();
 	
 		}
 	
@@ -44,7 +45,9 @@ public class TabControl : MonoBehaviour
 		public void ActivateHomeTab ()
 		{
 				//FIXME: IMPL TAB SWITCHING
-			
+				DisableAllSelectors ();
+				HomeSelector.SetActive (true);
+		
 		}
 		
 		
@@ -54,6 +57,8 @@ public class TabControl : MonoBehaviour
 		{
 				
 				//FIXME: IMPL TAB SWITCHING
+				DisableAllSelectors ();
+				TeamsSelector.SetActive (true);
 		
 		
 		}
@@ -63,11 +68,21 @@ public class TabControl : MonoBehaviour
 		{
 		
 				//FIXME: IMPL TAB SWITCHING
+				DisableAllSelectors ();
+				MatchesSelector.SetActive (true);
 				
 		}
 		
 		
 		
+		
+		private void DisableAllSelectors ()
+		{
+				HomeSelector.SetActive (false);
+				TeamsSelector.SetActive (false);
+				MatchesSelector.SetActive (false);
+		
+		}
 		
 		
 }

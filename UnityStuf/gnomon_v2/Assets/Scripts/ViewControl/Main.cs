@@ -21,6 +21,7 @@ public class Main : MonoBehaviour
 		public MiniGraph RoomMiniGraph;
 		
 		public UIScrollView TeamsScrollView;
+		public UITable TeamsTable;
 		
 		// Use this for initialization
 		void Start ()
@@ -97,18 +98,25 @@ public class Main : MonoBehaviour
 		{
 				ClearVectorLines ();
 				DeactivateAllPanels ();
-				TeamsPanel.SetActive (true);
 				TopPanel.SetActive (true);
 				
+				
+				
 				StartCoroutine ("FixTeamsScroll");
-				//FIXME: MAKE SURE APPROPRIATE ADDITIONAL PANELS ARE SET ACTIVE TOO
 		}
 	
 	
 		IEnumerator FixTeamsScroll ()
 		{
-				yield return new WaitForSeconds (.1f);
+		
+				//URGENT: NEED TO MAKE SURE TABLE STARTS OUT AT TOP EVEN WITH ONLY ONE ITEM IN GRID
+				yield return null;
 				TeamsScrollView.ResetPosition ();
+				yield return null;
+				TeamsTable.Reposition ();
+				yield return null;
+				TeamsPanel.SetActive (true);
+				
 		}
 	
 		public void ActivateMatches ()

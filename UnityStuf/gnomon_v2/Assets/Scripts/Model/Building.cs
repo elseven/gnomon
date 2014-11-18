@@ -43,43 +43,31 @@ public class Building
 		{
 				this.Name = name;
 				this.SchoolName = schoolName;
-				
+				GenerateRooms ();
+		}
+		
+		
+		private void GenerateRooms ()
+		{
+		
 				for (int hundrends=1; hundrends<=maxHundredsPlace; hundrends++) {
 						for (int tens=0; tens<=maxTensPlace; tens++) {
 								for (int ones=0; ones<=maxOnesPlace; ones++) {
-								
+					
 										bool isPublished = ((Random.Range (0, 10) % 10) == 0);
 										int roomNumber = hundrends * 100 + tens * 10 + ones;
 										Room room = new Room (roomNumber, schoolName, name, isPublished);
 										rooms.Add (room);
 								}
-					
-					
-			
+				
+				
+				
 						}
-						
-						
-						
+			
+			
+			
 				}
-				
-				
-				/*	string debugstring = this.name + "  ";
-				
-				for (int j=0; j<rooms.Count; j++) {
-						Room temproom = rooms [j];
-						debugstring += "\nRoom number " + temproom.Number + " : " 
-								+ temproom.GetEnergyAtDay (0) + " "
-								+ temproom.GetEnergyAtDay (1) + " "
-								+ temproom.GetEnergyAtDay (2) + " "
-								+ temproom.GetEnergyAtDay (3) + " ";
-				}	
-				
-				Debug.Log (debugstring);*/
-		
-				
-	
 		}
-		
 		
 		public Room GetRoomAt (int index)
 		{
