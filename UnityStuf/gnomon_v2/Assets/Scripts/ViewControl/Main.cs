@@ -3,6 +3,10 @@ using System.Collections;
 using  System.Collections.Generic;
 using Vectrosity;
 
+
+/**
+* Has a World.cs. Part of the view/control
+*/
 public class Main : MonoBehaviour
 {
 
@@ -108,13 +112,14 @@ public class Main : MonoBehaviour
 		IEnumerator FixTeamsScroll ()
 		{
 		
-				//URGENT: NEED TO MAKE SURE TABLE STARTS OUT AT TOP EVEN WITH ONLY ONE ITEM IN GRID
+				//URGENT: NEED TO MAKE SURE TABLE STARTS OUT AT TOP AFTER ADDING ITEMS
+				TeamsPanel.SetActive (true);
 				yield return null;
 				TeamsScrollView.ResetPosition ();
 				yield return null;
 				TeamsTable.Reposition ();
-				yield return null;
-				TeamsPanel.SetActive (true);
+				
+				
 				
 		}
 	
@@ -124,7 +129,6 @@ public class Main : MonoBehaviour
 				DeactivateAllPanels ();
 				MatchesPanel.SetActive (true);
 				TopPanel.SetActive (true);
-				//FIXME: MAKE SURE APPROPRIATE ADDITIONAL PANELS ARE SET ACTIVE TOO
 		}
 		
 		public void ActivateGraph ()

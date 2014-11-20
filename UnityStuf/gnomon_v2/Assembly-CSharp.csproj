@@ -189,6 +189,7 @@
      <Compile Include="Assets\Scripts\Model\Room.cs" />
      <Compile Include="Assets\Scripts\Model\School.cs" />
      <Compile Include="Assets\Scripts\Model\Team.cs" />
+     <Compile Include="Assets\Scripts\Model\User.cs" />
      <Compile Include="Assets\Scripts\Model\World.cs" />
      <Compile Include="Assets\Scripts\ViewControl\ActionBarControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\Enums\BackMode.cs" />

@@ -37,6 +37,7 @@ public class TeamControl : MonoBehaviour
 				this.SelectedTeam = selected;
 				PopupHeader.text = SelectedTeam.Name;
 				
+				TeamOverflowPopup.SetActive (true);
 	
 		}
 	
@@ -44,8 +45,27 @@ public class TeamControl : MonoBehaviour
 	
 		public void HideOverflow ()
 		{
-				this.SelectedTeam = null;
 				
+				this.SelectedTeam = null;
+				TeamOverflowPopup.SetActive (false);
+		}
+		
+		
+		public void EditTeam ()
+		{
+				//URGENT: IMPL EDIT TEAM
+		
+		}
+		
+		public void CopyTeam ()
+		{
+				//URGENT: IMPL COPY TEAM
+		}
+		
+		public void DeleteTeam ()
+		{
+				//URGENT: IMPL DELETE TEAM
+		
 		}
 	
 	

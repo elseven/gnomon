@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
+/**
+*HOLDS ALL THE DATA. PART OF MODEL
+*/
 public class World
 {
 
@@ -48,6 +52,7 @@ public class World
 				schools.Add (uga);
 				
 				//URGENT: CREATE TEAMS AND MATCHES
+				//URGENT: CREATE USER AND LINK TO WHATS DISPLAYED
 				
 				
 				

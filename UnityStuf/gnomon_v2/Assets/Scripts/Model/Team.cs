@@ -57,6 +57,14 @@ public class Team
 		#endregion
 
 
+		public Team ()
+		{
+				this.Name = "Default Name";
+			
+		
+		
+		}
+
 
 
 

@@ -10,7 +10,9 @@ public class MiniTeamControl : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-	
+				if (AttachedTeam == null) {
+						AttachedTeam = new Team ();
+				}
 		}
 	
 		// Update is called once per frame
