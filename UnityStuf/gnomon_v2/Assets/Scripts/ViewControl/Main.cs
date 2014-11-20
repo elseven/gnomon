@@ -28,6 +28,7 @@ public class Main : MonoBehaviour
 		{
 				
 				Random.seed = 123;
+				ActivateHome ();
 				
 				//world = new World ();
 				
@@ -41,7 +42,7 @@ public class Main : MonoBehaviour
 		
 		void Awake ()
 		{
-				ActivateHome ();
+				//ActivateHome ();
 		}
 		
 		
@@ -99,8 +100,6 @@ public class Main : MonoBehaviour
 				ClearVectorLines ();
 				DeactivateAllPanels ();
 				TopPanel.SetActive (true);
-				
-				
 				
 				StartCoroutine ("FixTeamsScroll");
 		}

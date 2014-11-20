@@ -1,3 +1,32 @@
+Pass entire team not just name to popup
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+graphs not stretching to fit 
+
+
+
+
+
+
+
+__________________________________
+
+
+
+
+
 TODO:
 
 	TEAMS

@@ -41,7 +41,6 @@ public class ActionBarControl : MonoBehaviour
 				case BackMode.MATCHES:
 						main.ActivateMatches ();
 						break;
-		
 				}
 		}
 		

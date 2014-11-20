@@ -59,9 +59,12 @@ public class MiniGraph : MonoBehaviour
 				canvas1 = gameObject.GetComponent<UISprite> ();
 		
 		
-		
+				
 				width = canvas1.width;
 				height = canvas1.height;
+				
+				
+				
 		
 		
 				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
