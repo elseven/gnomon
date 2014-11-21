@@ -11,11 +11,11 @@ public class World
 
 		private List<School> schools = new List<School> ();
 		
-		private List<Team> teams = new List<Team> ();
+		//private List<Team> teams = new List<Team> ();
 		
-		private List<Match> matches = new List<Match> ();
+		//private List<Match> matches = new List<Match> ();
 		
-
+		public User TheUser;
 
 	
 		public World ()
@@ -51,7 +51,57 @@ public class World
 				schools.Add (gt);
 				schools.Add (uga);
 				
-				//URGENT: CREATE TEAMS AND MATCHES
+				#region Team1
+				Team t1 = new Team ();
+				
+				//SCHOOLS LIST
+				t1.SchoolList = new List<School> ();
+				t1.SchoolList.Add (gt);
+				
+				//BUILDING LIST
+				t1.BuildingList = new List<Building> ();
+				Building b1 = uga.Buildings [0];
+				Building b2 = uga.Buildings [1];
+				t1.BuildingList.Add (b1);
+				t1.BuildingList.Add (b2);
+				
+				//ROOM LIST
+				t1.RoomList = new List<Room> ();
+				#endregion
+			
+			
+			
+				#region Team2
+				Team t2 = new Team ();
+		
+				//SCHOOLS LIST
+				t2.SchoolList = new List<School> ();
+				t2.SchoolList.Add (uga);
+		
+				//BUILDING LIST
+				t2.BuildingList = new List<Building> ();
+		
+				//ROOM LIST
+				t2.RoomList = new List<Room> ();
+				Room r1 = uga.Buildings [0].GetRoomAt (0);
+				t2.RoomList.Add (r1);
+				
+				#endregion
+		
+				List<Team> myTeams = new List<Team> ();
+				myTeams.Add (t1);
+				myTeams.Add (t2);
+				
+				
+				List<Match> myMatches = new List<Match> ();
+				Match m1 = new Match ("Awesome match", myTeams);
+				myMatches.Add (m1);
+				
+		
+		
+		
+		
+				TheUser = new User (myTeams, myMatches);
 				//URGENT: CREATE USER AND LINK TO WHATS DISPLAYED
 				
 				

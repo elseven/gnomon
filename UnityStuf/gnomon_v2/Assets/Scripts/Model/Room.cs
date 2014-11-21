@@ -71,6 +71,11 @@ public class Room
 		}
 		
 		
+		public string GetFullName ()
+		{
+				return "Room #" + this.Number + "   " + this.BuildingName + "   (" + this.SchoolName + ")";
+		}
+		
 		
 		private void PopulateEnergyByDay ()
 		{

@@ -64,7 +64,36 @@ public class Team
 		
 		
 		}
-
+		
+		
+		public int GetLineCount ()
+		{
+				return SchoolList.Count + BuildingList.Count + RoomList.Count;
+		}
+		
+		public string GetLineAt (int index)
+		{
+				List<string> names = new List<string> ();
+				foreach (School s in SchoolList) {
+						names.Add (s.Name);
+				}
+				
+				foreach (Building b in BuildingList) {
+						names.Add (b.GetFullName ());
+				}
+				
+				foreach (Room r in RoomList) {
+						names.Add (r.GetFullName ());
+				}
+				
+				
+				if (index < names.Count) {
+						return names [index];
+				} else {
+						Debug.LogError ("TEAM LINE OUT OF BOUNDS :(");
+						return "OH NOOO!";
+				}
+		}
 
 
 

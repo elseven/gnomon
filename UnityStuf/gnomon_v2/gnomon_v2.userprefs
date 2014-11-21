@@ -1,14 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ViewControl/TeamControl.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Model/User.cs">
     <Files>
       <File FileName="Assets/Scripts/Graphing/Tools.cs" Line="119" Column="46" />
-      <File FileName="Assets/Scripts/Model/World.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ViewControl/Main.cs" Line="103" Column="5" />
+      <File FileName="Assets/Scripts/Model/World.cs" Line="54" Column="39" />
+      <File FileName="Assets/Scripts/ViewControl/Main.cs" Line="133" Column="1" />
       <File FileName="Assets/Scripts/Model/Team.cs" Line="63" Column="4" />
       <File FileName="Assets/Scripts/ViewControl/TeamControl.cs" Line="67" Column="31" />
-      <File FileName="Assets/Scripts/ViewControl/MiniTeamControl.cs" Line="14" Column="34" />
-      <File FileName="Assets/Scripts/ViewControl/TabControl.cs" Line="68" Column="1" />
+      <File FileName="Assets/Scripts/ViewControl/MiniTeamControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ViewControl/TabControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Model/User.cs" Line="8" Column="72" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,10 +22,10 @@
             </Node>
             <Node name="Scripts" expanded="True">
               <Node name="Graphing" expanded="True" />
-              <Node name="Model" expanded="True" />
-              <Node name="ViewControl" expanded="True">
-                <Node name="TeamControl.cs" selected="True" />
+              <Node name="Model" expanded="True">
+                <Node name="User.cs" selected="True" />
               </Node>
+              <Node name="ViewControl" expanded="True" />
             </Node>
           </Node>
           <Node name="Assembly-CSharp-Editor" expanded="True">

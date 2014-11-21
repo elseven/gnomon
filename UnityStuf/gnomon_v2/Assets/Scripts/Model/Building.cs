@@ -45,7 +45,10 @@ public class Building
 				this.SchoolName = schoolName;
 				GenerateRooms ();
 		}
-		
+		public string GetFullName ()
+		{
+				return this.Name + "   (" + this.SchoolName + ")";
+		}
 		
 		private void GenerateRooms ()
 		{

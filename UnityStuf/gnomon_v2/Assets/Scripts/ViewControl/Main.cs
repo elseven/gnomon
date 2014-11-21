@@ -23,15 +23,25 @@ public class Main : MonoBehaviour
 		public MiniGraph SchoolMiniGraph;
 		public MiniGraph BuildingMiniGraph;
 		public MiniGraph RoomMiniGraph;
+		private TeamControl teamControl;
+		
 		
 		public UIScrollView TeamsScrollView;
 		public UITable TeamsTable;
+		
+		
+
+		
+		
+		
+		
 		
 		// Use this for initialization
 		void Start ()
 		{
 				
 				Random.seed = 123;
+				teamControl = TeamsPanel.GetComponent<TeamControl> ();		
 				ActivateHome ();
 				
 				//world = new World ();
@@ -113,6 +123,7 @@ public class Main : MonoBehaviour
 		{
 		
 				//URGENT: NEED TO MAKE SURE TABLE STARTS OUT AT TOP AFTER ADDING ITEMS
+				teamControl.RefreshGrid ();
 				TeamsPanel.SetActive (true);
 				yield return null;
 				TeamsScrollView.ResetPosition ();
