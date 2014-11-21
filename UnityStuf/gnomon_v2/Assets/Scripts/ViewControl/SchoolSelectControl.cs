@@ -7,8 +7,8 @@ public class SchoolSelectControl : MonoBehaviour
 
 		
 		private School school;
-		[HideInInspector]
-		public bool
+		public UILabel TeamNameLabel;
+		private bool
 				isSelected = false;
 		public GameObject OnSprite;
 		public GameObject OffSprite;
@@ -21,7 +21,7 @@ public class SchoolSelectControl : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				
+				Refresh ();
 		}
 	
 		// Update is called once per frame
@@ -36,6 +36,7 @@ public class SchoolSelectControl : MonoBehaviour
 				GameObject uiRoot = GameObject.FindGameObjectWithTag ("UIRoot");
 				Main main = uiRoot.GetComponent<Main> ();
 				teamControl = main.teamControl;
+				
 		}
 		
 		public void AttachSchool (School s)
@@ -43,6 +44,7 @@ public class SchoolSelectControl : MonoBehaviour
 				//this.school = new School (s);
 				this.school = s;
 				isSelected = teamControl.SelectedTeam.SchoolList.Contains (this.school);
+				SchoolNameLabel.text = school.Name;
 				Refresh ();
 		}
 	
