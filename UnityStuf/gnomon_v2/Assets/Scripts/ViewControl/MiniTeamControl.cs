@@ -28,6 +28,7 @@ public class MiniTeamControl : MonoBehaviour
 		{
 				this.AttachedTeam = team;
 				ResetValues ();
+				
 		}
 		
 		public void ResetValues ()

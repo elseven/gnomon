@@ -18,7 +18,7 @@ public class TeamControl : MonoBehaviour
 		
 		public GameObject MiniTeamParent;
 		
-		
+		public GameObject ScrollArea;
 	
 	
 	
@@ -70,10 +70,23 @@ public class TeamControl : MonoBehaviour
 		{
 				User user = Main.world.TheUser;
 				
+				TeamGrid.cellWidth = ScrollArea.GetComponent<UIPanel> ().width;
+				Transform parentT = MiniTeamParent.transform;
+				
+				
+				//TODO: FIX THIS DELETE CHILDREN THING
+				while (parentT.childCount>0) {
+						Destroy (parentT.GetChild (0));
+				}
+				
+				
 				for (int i=0; i<user.myTeams.Count; i++) {
 						GameObject mini = NGUITools.AddChild (MiniTeamParent, PrefabMiniTeam);
 						mini.GetComponent<MiniTeamControl> ().SetAttachedTeam (user.myTeams [i]);
+						//TODO: ANCHOR SO THAT FITS IN GRID
 				}
+				
+				TeamGrid.Reposition ();
 				
 		
 		}

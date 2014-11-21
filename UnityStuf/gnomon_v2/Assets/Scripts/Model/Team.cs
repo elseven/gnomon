@@ -90,8 +90,7 @@ public class Team
 				if (index < names.Count) {
 						return names [index];
 				} else {
-						Debug.LogError ("TEAM LINE OUT OF BOUNDS :(");
-						return "OH NOOO!";
+						return "";
 				}
 		}
 
