@@ -19,6 +19,11 @@ public class TeamControl : MonoBehaviour
 		public GameObject MiniTeamParent;
 		
 		public GameObject ScrollArea;
+		
+		public UIInput TeamNameTextField;
+		public UILabel SchoolListLabel;
+		public UILabel BuildingListLabel;
+		public UILabel RoomListLabel;
 	
 	
 	
@@ -73,8 +78,7 @@ public class TeamControl : MonoBehaviour
 				TeamGrid.cellWidth = ScrollArea.GetComponent<UIPanel> ().width - 20f;
 				Transform parentT = MiniTeamParent.transform;
 				
-				
-				//TODO: FIX THIS DELETE CHILDREN THING
+			
 				while (parentT.childCount>0) {
 						NGUITools.Destroy (parentT.GetChild (0).gameObject);
 				}
@@ -88,7 +92,7 @@ public class TeamControl : MonoBehaviour
 						miniWidget.leftAnchor.target = ScrollArea.transform;
 						miniWidget.rightAnchor.target = ScrollArea.transform;
 
-						//TODO: ANCHOR SO THAT FITS IN GRID
+						
 				}
 				
 				//TeamGrid.Reposition ();
@@ -105,6 +109,7 @@ public class TeamControl : MonoBehaviour
 		{
 				//URGENT: IMPL EDIT TEAM
 				HideOverflow ();
+				InitValues ();
 				TeamEditTopPanel.SetActive (true);
 				TeamEditPanelBody.SetActive (true);
 		}
@@ -112,8 +117,12 @@ public class TeamControl : MonoBehaviour
 		public void CopyTeam ()
 		{
 				//URGENT: IMPL COPY TEAM
+				HideOverflow ();
+				InitValuesCopy ();
+				TeamEditTopPanel.SetActive (true);
+				TeamEditPanelBody.SetActive (true);
 		}
-		
+	
 		public void DeleteTeam ()
 		{
 				//URGENT: IMPL DELETE TEAM
@@ -122,6 +131,16 @@ public class TeamControl : MonoBehaviour
 		#endregion
 
 	
+	
+		private void InitValues ()
+		{
+				//TODO: INIT VALUES
+		}
+		
+		private void InitValuesCopy ()
+		{
+				//TODO: INIT VALUES WITH NAME CHANGED TO "NAME_COPY"			
+		}
 		
 				
 	

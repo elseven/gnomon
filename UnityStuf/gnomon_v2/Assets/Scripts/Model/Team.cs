@@ -60,11 +60,13 @@ public class Team
 		public Team ()
 		{
 				this.Name = "Default Name";
-			
-		
-		
+
 		}
 		
+		public Team (string name)
+		{
+				this.Name = name;
+		}		
 		
 		public int GetLineCount ()
 		{

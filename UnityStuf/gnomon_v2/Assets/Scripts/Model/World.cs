@@ -52,7 +52,7 @@ public class World
 				schools.Add (uga);
 				
 				#region Team1
-				Team t1 = new Team ();
+				Team t1 = new Team ("GT and some UGA");
 				
 				//SCHOOLS LIST
 				t1.SchoolList = new List<School> ();
@@ -72,7 +72,7 @@ public class World
 			
 			
 				#region Team2
-				Team t2 = new Team ();
+				Team t2 = new Team ("UGA and a room");
 		
 				//SCHOOLS LIST
 				t2.SchoolList = new List<School> ();
