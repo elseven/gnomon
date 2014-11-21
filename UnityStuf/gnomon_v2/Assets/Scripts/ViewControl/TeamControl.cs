@@ -84,12 +84,10 @@ public class TeamControl : MonoBehaviour
 						GameObject mini = NGUITools.AddChild (MiniTeamParent, PrefabMiniTeam);
 						mini.GetComponent<MiniTeamControl> ().SetAttachedTeam (user.myTeams [i]);
 						UIWidget miniWidget = mini.GetComponent<UIWidget> ();
-						//miniWidget.transform.
-						//Vector2 leftSide = new Vector2 (ScrollArea.GetComponent<UIWidget> ().transform);
+
 						miniWidget.leftAnchor.target = ScrollArea.transform;
 						miniWidget.rightAnchor.target = ScrollArea.transform;
-						//miniWidget.anc
-						//miniWidget.leftAnchor.SetHorizontal (leftSide, 5f);
+
 						//TODO: ANCHOR SO THAT FITS IN GRID
 				}
 				

@@ -4,15 +4,21 @@ using System.Collections;
 public class MiniTeamControl : MonoBehaviour
 {
 		public Team AttachedTeam;
-		public TeamControl Control;
+		
 		public UILabel TeamNameLabel;
 		public UILabel Line1Label;
 		public UILabel Line2Label;
 		public UILabel Line3Label;
+		private TeamControl teamControl;
+	
 		// Use this for initialization
 		void Start ()
 		{
+		
+				GameObject teamGO = GameObject.FindGameObjectWithTag ("TeamsPanel");
+				teamControl = teamGO.GetComponent<TeamControl> ();
 				if (AttachedTeam == null) {
+						Debug.LogError ("why is this null??");
 						AttachedTeam = new Team ();
 				}
 				
@@ -60,7 +66,7 @@ public class MiniTeamControl : MonoBehaviour
 		public void ShowOverflowPopup ()
 		{
 			
-				Control.ShowOverflow (AttachedTeam);
+				teamControl.ShowOverflow (AttachedTeam);
 			
 		
 	
