@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 public class TeamControl : MonoBehaviour
 {
 
@@ -283,6 +284,7 @@ public class TeamControl : MonoBehaviour
 				backupTeam = new Team (SelectedTeam);
 				InitValues ();
 				HideEditPanels ();
+				
 			
 			
 		}
@@ -324,6 +326,8 @@ public class TeamControl : MonoBehaviour
 		
 		public void ShowEditSchool ()
 		{
+				MethodBase methodBase = MethodBase.GetCurrentMethod ();
+				Debug.LogWarning (methodBase.Name);
 				TeamEditCAB.SetActive (true);
 				EditSchoolPanel.SetActive (true);
 				//TODO: IMPL
@@ -331,6 +335,8 @@ public class TeamControl : MonoBehaviour
 		
 		public void ShowEditBuilding ()
 		{
+				MethodBase methodBase = MethodBase.GetCurrentMethod ();
+				Debug.LogWarning (methodBase.Name);
 				TeamEditCAB.SetActive (true);
 				EditBuildingPanel.SetActive (true);
 				//TODO: IMPL
@@ -338,6 +344,8 @@ public class TeamControl : MonoBehaviour
 	
 		public void ShowEditRooms ()
 		{
+				MethodBase methodBase = MethodBase.GetCurrentMethod ();
+				Debug.LogWarning (methodBase.Name);
 		
 				TeamEditCAB.SetActive (true);
 				EditRoomPanel.SetActive (true);

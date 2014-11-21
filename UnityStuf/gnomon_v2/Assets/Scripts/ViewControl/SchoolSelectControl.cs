@@ -33,8 +33,9 @@ public class SchoolSelectControl : MonoBehaviour
 		
 		void Awake ()
 		{
-				GameObject teamGO = GameObject.FindGameObjectWithTag ("TeamsPanel");
-				teamControl = teamGO.GetComponent<TeamControl> ();
+				GameObject uiRoot = GameObject.FindGameObjectWithTag ("UIRoot");
+				Main main = uiRoot.GetComponent<Main> ();
+				teamControl = main.teamControl;
 		}
 		
 		public void AttachSchool (School s)

@@ -23,7 +23,7 @@ public class Main : MonoBehaviour
 		public MiniGraph SchoolMiniGraph;
 		public MiniGraph BuildingMiniGraph;
 		public MiniGraph RoomMiniGraph;
-		private TeamControl teamControl;
+		public TeamControl teamControl;
 		
 		
 		public UIScrollView TeamsScrollView;
@@ -41,7 +41,7 @@ public class Main : MonoBehaviour
 		{
 				
 				Random.seed = 123;
-				teamControl = TeamsPanel.GetComponent<TeamControl> ();	
+				//teamControl = TeamsPanel.GetComponent<TeamControl> ();	
 				teamControl.HideEditPanels ();
 				teamControl.HideDetailPanels ();	
 				//ActivateHome ();
