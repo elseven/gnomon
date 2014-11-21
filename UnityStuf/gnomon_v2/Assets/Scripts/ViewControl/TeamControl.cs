@@ -70,23 +70,30 @@ public class TeamControl : MonoBehaviour
 		{
 				User user = Main.world.TheUser;
 				
-				TeamGrid.cellWidth = ScrollArea.GetComponent<UIPanel> ().width;
+				TeamGrid.cellWidth = ScrollArea.GetComponent<UIPanel> ().width - 20f;
 				Transform parentT = MiniTeamParent.transform;
 				
 				
 				//TODO: FIX THIS DELETE CHILDREN THING
 				while (parentT.childCount>0) {
-						Destroy (parentT.GetChild (0));
+						NGUITools.Destroy (parentT.GetChild (0).gameObject);
 				}
 				
 				
 				for (int i=0; i<user.myTeams.Count; i++) {
 						GameObject mini = NGUITools.AddChild (MiniTeamParent, PrefabMiniTeam);
 						mini.GetComponent<MiniTeamControl> ().SetAttachedTeam (user.myTeams [i]);
+						UIWidget miniWidget = mini.GetComponent<UIWidget> ();
+						//miniWidget.transform.
+						//Vector2 leftSide = new Vector2 (ScrollArea.GetComponent<UIWidget> ().transform);
+						miniWidget.leftAnchor.target = ScrollArea.transform;
+						miniWidget.rightAnchor.target = ScrollArea.transform;
+						//miniWidget.anc
+						//miniWidget.leftAnchor.SetHorizontal (leftSide, 5f);
 						//TODO: ANCHOR SO THAT FITS IN GRID
 				}
 				
-				TeamGrid.Reposition ();
+				//TeamGrid.Reposition ();
 				
 		
 		}
