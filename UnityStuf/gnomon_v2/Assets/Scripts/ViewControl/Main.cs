@@ -41,7 +41,9 @@ public class Main : MonoBehaviour
 		{
 				
 				Random.seed = 123;
-				teamControl = TeamsPanel.GetComponent<TeamControl> ();		
+				teamControl = TeamsPanel.GetComponent<TeamControl> ();	
+				teamControl.HideEditPanels ();
+				teamControl.HideDetailPanels ();	
 				//ActivateHome ();
 				
 				//world = new World ();

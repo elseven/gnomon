@@ -47,8 +47,9 @@ public class TeamControl : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				HideEditPanels ();
 				
+
+		
 		}
 	
 		// Update is called once per frame
@@ -57,6 +58,14 @@ public class TeamControl : MonoBehaviour
 	
 		}
 	
+
+
+
+
+
+		//TODO: SELECTING TEXT FIELD SHOULD SHOW CAB!
+
+
 
 		public void ShowOverflow (Team selected)
 		{
@@ -311,5 +320,27 @@ public class TeamControl : MonoBehaviour
 				//TODO: IMPL
 				HideEditPanels ();
 				HideDetailPanels ();
+		}
+		
+		public void ShowEditSchool ()
+		{
+				TeamEditCAB.SetActive (true);
+				EditSchoolPanel.SetActive (true);
+				//TODO: IMPL
+		}
+		
+		public void ShowEditBuilding ()
+		{
+				TeamEditCAB.SetActive (true);
+				EditBuildingPanel.SetActive (true);
+				//TODO: IMPL
+		}
+	
+		public void ShowEditRooms ()
+		{
+		
+				TeamEditCAB.SetActive (true);
+				EditRoomPanel.SetActive (true);
+				//TODO: IMPL
 		}
 }

@@ -36,13 +36,20 @@ public class School
 				this.Name = name;
 				foreach (string bn in buildingNames) {
 						Building building = new Building (bn, name);
-						this.buildings.Add (building);
+						this.Buildings.Add (building);
 				}
 		}
 		
 		
 		
-		
+		public School (School other)
+		{
+				this.Name = other.Name;
+				foreach (Building b in other.Buildings) {
+						Building building = new Building (b.Name, this.Name);
+						this.Buildings.Add (building);
+				}
+		}
 		
 		
 		
