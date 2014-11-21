@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class Room
+using System;
+public class Room : IComparable<Room>
 {
 
 
@@ -69,7 +69,22 @@ public class Room
 				PopulateEnergyByDay ();
 				
 		}
+
+		#region IComparable implementation
+		public int CompareTo (Room other)
+		{
 		
+				int schoolOrder = string.Compare (this.SchoolName, other.SchoolName);
+				int buildingOrder = string.Compare (this.BuildingName, other.BuildingName);
+				int roomOrder = this.Number.CompareTo (other.Number);
+				
+				int compResult = schoolOrder * 100 + buildingOrder * 10 + roomOrder;
+				Debug.LogWarning ("comp " + this.GetFullName () + "  " + other.GetFullName () + " =>" + compResult);
+				
+				return compResult;
+				
+		}
+		#endregion		
 		
 		public string GetFullName ()
 		{
@@ -82,7 +97,8 @@ public class Room
 		
 		
 				for (int i=0; i<energyByDay.Length; i++) {
-						energyByDay [i] = Random.Range (minEnergy, maxEnergy) - energyTrend * i;
+					
+						energyByDay [i] = UnityEngine.Random.Range (minEnergy, maxEnergy) - energyTrend * i;
 						
 				}
 				

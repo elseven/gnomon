@@ -68,6 +68,20 @@ public class Team
 				this.Name = name;
 		}		
 		
+		public Team (Team other)
+		{
+				this.Name = other.Name;
+				foreach (School s in other.SchoolList) {
+						this.SchoolList.Add (s);
+				}
+				foreach (Building b in other.BuildingList) {
+						this.BuildingList.Add (b);
+				}
+				foreach (Room r in other.RoomList) {
+						this.RoomList.Add (r);
+				}
+		}
+		
 		public int GetLineCount ()
 		{
 				return SchoolList.Count + BuildingList.Count + RoomList.Count;

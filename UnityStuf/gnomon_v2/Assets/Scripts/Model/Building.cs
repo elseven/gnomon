@@ -64,11 +64,7 @@ public class Building
 								}
 				
 				
-				
 						}
-			
-			
-			
 				}
 		}
 		
@@ -145,34 +141,7 @@ public class Building
 		}
 	
 	
-	
-		/*
-		public float[] GetEnergyRange (int begin, int end)
-		{
-				if (end < begin) {
-						Debug.LogError ("BAD RANGE!!!!");
-						return null;
-				}
-		
-		
-				float[] energyValues = new float[end + 1 - begin];
-				
-				
-				foreach (Room r in rooms) {
-		
-						for (int i=0; i<energyValues.Length; i++) {
-								energyValues [i] += r.GetEnergyAtDay (i);
-			
-						}
-				}
-				 
-				
-		
-				return energyValues;
-		
-		}
-	
-*/
+
 
 
 }

@@ -7,7 +7,9 @@ public class TeamControl : MonoBehaviour
 
 		public GameObject TeamOverflowPopup;
 		public UILabel PopupHeader;
+		private Team backupTeam;
 		private Team selectedTeam;
+		private Team copyTeam;
 	
 		
 		public GameObject TeamEditTopPanel;
@@ -24,6 +26,7 @@ public class TeamControl : MonoBehaviour
 		public UILabel SchoolListLabel;
 		public UILabel BuildingListLabel;
 		public UILabel RoomListLabel;
+		
 	
 	
 		public Team SelectedTeam {
@@ -50,7 +53,12 @@ public class TeamControl : MonoBehaviour
 
 		public void ShowOverflow (Team selected)
 		{
-				this.SelectedTeam = selected;
+		
+				//actual reference
+				this.backupTeam = selected;
+				
+				//deep copy
+				this.SelectedTeam = new Team (selected);
 				PopupHeader.text = SelectedTeam.Name;
 				
 				TeamOverflowPopup.SetActive (true);
@@ -127,7 +135,7 @@ public class TeamControl : MonoBehaviour
 	
 		private void InitValues ()
 		{
-				TeamNameTextField.defaultText = SelectedTeam.Name;
+				TeamNameTextField.label.text = SelectedTeam.Name;
 				SchoolListLabel.text = InitSchoolLabel ();
 				BuildingListLabel.text = InitBuildingLabel ();
 				RoomListLabel.text = InitRoomLabel ();
@@ -137,9 +145,12 @@ public class TeamControl : MonoBehaviour
 		
 		private void InitValuesCopy ()
 		{
-				//TODO: INIT VALUES WITH NAME CHANGED TO "NAME_COPY"			
-		}
+				copyTeam = new Team (SelectedTeam);
+				SelectedTeam = copyTeam;
+				InitValues ();
 		
+		}
+	
 		
 		private string InitSchoolLabel ()
 		{
@@ -219,11 +230,46 @@ public class TeamControl : MonoBehaviour
 		private string InitRoomLabel ()
 		{
 		
-				//TODO:DO ROOM THING
+			
+				
 				string label = "";
-				label = "im a room!!!!";
+		
+				SelectedTeam.RoomList.Sort ();
+				
+				string currentSchool = "";
+				string currentBuilding = "";
+				foreach (Room r in SelectedTeam.RoomList) {
+						if (!currentSchool.Equals (r.SchoolName)) {
+								currentSchool = r.SchoolName;
+								currentBuilding = r.BuildingName;
+								label += "\n" + currentSchool + "\n";
+								label += "   " + currentBuilding + "\n";
+						} else if (!currentBuilding.Equals (r.BuildingName)) {
+								currentBuilding = r.BuildingName;
+								label += "   " + currentBuilding + "\n";
+						}
+								
+					
+						
+						label += "      #" + r.Number;
+				}
+				
+				
 		
 				return label;
+		}
+		
+		
+		public void DoneTeam ()
+		{
+		
+				//URGENT: IMPL DONETEAM
+			
+		}
+		
+		public void CancelTeam ()
+		{
+				//URGENT: IMPL CANCELTEAM
 		}
 	
 	
