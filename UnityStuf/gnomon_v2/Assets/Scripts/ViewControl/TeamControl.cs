@@ -26,7 +26,6 @@ public class TeamControl : MonoBehaviour
 		public UILabel RoomListLabel;
 	
 	
-	
 		public Team SelectedTeam {
 				get {
 						return selectedTeam;
@@ -48,7 +47,7 @@ public class TeamControl : MonoBehaviour
 	
 		}
 	
-	
+
 		public void ShowOverflow (Team selected)
 		{
 				this.SelectedTeam = selected;
@@ -58,18 +57,12 @@ public class TeamControl : MonoBehaviour
 	
 		}
 	
-	
-	
 		public void HideOverflow ()
 		{
 				
 				
 				TeamOverflowPopup.SetActive (false);
 		}
-		
-		
-		
-		
 		
 		public void RefreshGrid ()
 		{
@@ -134,14 +127,104 @@ public class TeamControl : MonoBehaviour
 	
 		private void InitValues ()
 		{
-				//TODO: INIT VALUES
+				TeamNameTextField.defaultText = SelectedTeam.Name;
+				SchoolListLabel.text = InitSchoolLabel ();
+				BuildingListLabel.text = InitBuildingLabel ();
+				RoomListLabel.text = InitRoomLabel ();
 		}
+		
+		
 		
 		private void InitValuesCopy ()
 		{
 				//TODO: INIT VALUES WITH NAME CHANGED TO "NAME_COPY"			
 		}
 		
+		
+		private string InitSchoolLabel ()
+		{
+				string label = "";
+				for (int i=0; i<SelectedTeam.SchoolList.Count; i++) {
+						School tempSchool = SelectedTeam.SchoolList [i];
+						
+						label += tempSchool.Name;
+						
+						//ADD NEW LINE FOR ALL BUT LAST LINE
+						if (i < SelectedTeam.SchoolList.Count - 1) {
+								label += "\n";
+						}
+				}
 				
+				if (label.Length == 0) {
+						label = "[ffffff0e]" + "(no schools/universities)";
+				}
+				
+				return label;
+		}
+		
+		private string InitBuildingLabel ()
+		{
+				string label = "";
+				
+				Dictionary<string,List<string>> buildingDict = new Dictionary<string, List<string>> ();
+				List<string> keyList = new List<string> ();
+				
+				for (int i=0; i<SelectedTeam.BuildingList.Count; i++) {
+						Building tempB = SelectedTeam.BuildingList [i];
+						if (buildingDict.ContainsKey (tempB.SchoolName)) {
+								buildingDict [tempB.SchoolName].Add (tempB.Name);
+						} else {
+								List<string> val = new List<string> ();
+								val.Add (tempB.Name);
+								buildingDict.Add (tempB.SchoolName, val);
+								keyList.Add (tempB.SchoolName);
+						}
+						
+				}
+				
+				//Sort buildings within school
+				foreach (KeyValuePair<string,List<string>> kvp in buildingDict) {
+						kvp.Value.Sort ();
+				}
+				keyList.Sort ();
+				
+				
+				
+				/*
+				*
+				* SCHOOL1 NAME
+				*    BUILDING1 NAME
+				*    BUILDING2 NAME
+				*    BUILDING3 NAME
+				*
+				* SCHOOL2 NAME
+				*    BUILDING1 NAME
+				*/
+				foreach (string key in keyList) {
+						label += "\n" + key + "\n";
+						List<string> values = buildingDict [key];
+						foreach (string val in values) {
+									
+								label += "    " + val + "\n";
+									
+						}
+						
+				}
+				
+				
+				
+				return label;
+		}
+		
+		private string InitRoomLabel ()
+		{
+		
+				//TODO:DO ROOM THING
+				string label = "";
+				label = "im a room!!!!";
+		
+				return label;
+		}
+	
 	
 }
