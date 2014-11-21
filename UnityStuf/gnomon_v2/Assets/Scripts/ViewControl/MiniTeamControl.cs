@@ -27,6 +27,7 @@ public class MiniTeamControl : MonoBehaviour
 		public void SetAttachedTeam (Team team)
 		{
 				this.AttachedTeam = team;
+				ResetValues ();
 		}
 		
 		public void ResetValues ()
@@ -39,10 +40,13 @@ public class MiniTeamControl : MonoBehaviour
 				} else if (AttachedTeam.GetLineCount () > 3) {
 						Line1Label.text = AttachedTeam.GetLineAt (0);
 						Line2Label.text = AttachedTeam.GetLineAt (1);
-						Line3Label.text = AttachedTeam.GetLineAt (2);
+						Line3Label.text = AttachedTeam.GetLineAt (2) + "  ... ";
 				} else {
+						Line1Label.text = AttachedTeam.GetLineAt (0);
+						Line2Label.text = AttachedTeam.GetLineAt (1);
+						Line3Label.text = AttachedTeam.GetLineAt (2);
 				}
-			
+		
 			
 		}
 	

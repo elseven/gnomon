@@ -13,7 +13,7 @@ public class TeamControl : MonoBehaviour
 		public GameObject TeamEditTopPanel;
 		public GameObject TeamEditPanelBody;
 		
-		
+		public UIGrid TeamGrid;
 		public GameObject PrefabMiniTeam;
 		
 		public GameObject MiniTeamParent;
@@ -69,6 +69,11 @@ public class TeamControl : MonoBehaviour
 		public void RefreshGrid ()
 		{
 				User user = Main.world.TheUser;
+				
+				for (int i=0; i<user.myTeams.Count; i++) {
+						GameObject mini = NGUITools.AddChild (MiniTeamParent, PrefabMiniTeam);
+						mini.GetComponent<MiniTeamControl> ().SetAttachedTeam (user.myTeams [i]);
+				}
 				
 		
 		}
