@@ -42,7 +42,7 @@ public class Main : MonoBehaviour
 				
 				Random.seed = 123;
 				teamControl = TeamsPanel.GetComponent<TeamControl> ();		
-				ActivateHome ();
+				//ActivateHome ();
 				
 				//world = new World ();
 				
@@ -56,7 +56,7 @@ public class Main : MonoBehaviour
 		
 		void Awake ()
 		{
-				//ActivateHome ();
+				ActivateHome ();
 		}
 		
 		
@@ -97,11 +97,11 @@ public class Main : MonoBehaviour
 		
 				ClearVectorLines ();
 				DeactivateAllPanels ();
-				
+				InitMiniGraphs ();
 				HomePanel.SetActive (true);
 				TopPanel.SetActive (true);
-				InitMiniGraphs ();
-				//FIXME: MAKE SURE APPROPRIATE ADDITIONAL PANELS ARE SET ACTIVE TOO
+				
+				
 
 		
 		}

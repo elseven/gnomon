@@ -12,7 +12,9 @@ public class TeamControl : MonoBehaviour
 		private Team copyTeam;
 	
 		
-		public GameObject TeamEditTopPanel;
+		public GameObject TeamEditTop;
+		public GameObject TeamEditCAB;
+	
 		public GameObject TeamEditPanelBody;
 		
 		public UIGrid TeamGrid;
@@ -26,6 +28,10 @@ public class TeamControl : MonoBehaviour
 		public UILabel SchoolListLabel;
 		public UILabel BuildingListLabel;
 		public UILabel RoomListLabel;
+		
+		public GameObject EditSchoolPanel;
+		public GameObject EditBuildingPanel;
+		public GameObject EditRoomPanel;
 		
 	
 	
@@ -41,7 +47,8 @@ public class TeamControl : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-	
+				HideEditPanels ();
+				
 		}
 	
 		// Update is called once per frame
@@ -111,7 +118,7 @@ public class TeamControl : MonoBehaviour
 				//URGENT: IMPL EDIT TEAM
 				HideOverflow ();
 				InitValues ();
-				TeamEditTopPanel.SetActive (true);
+				TeamEditTop.SetActive (true);
 				TeamEditPanelBody.SetActive (true);
 		}
 		
@@ -120,7 +127,7 @@ public class TeamControl : MonoBehaviour
 				//URGENT: IMPL COPY TEAM
 				HideOverflow ();
 				InitValuesCopy ();
-				TeamEditTopPanel.SetActive (true);
+				TeamEditTop.SetActive (true);
 				TeamEditPanelBody.SetActive (true);
 		}
 	
@@ -132,7 +139,7 @@ public class TeamControl : MonoBehaviour
 		#endregion
 
 	
-	
+		#region init stuff
 		private void InitValues ()
 		{
 				TeamNameTextField.label.text = SelectedTeam.Name;
@@ -264,13 +271,45 @@ public class TeamControl : MonoBehaviour
 		{
 		
 				//URGENT: IMPL DONETEAM
+				backupTeam = new Team (SelectedTeam);
+				InitValues ();
+				HideEditPanels ();
+			
 			
 		}
+		
+		#endregion
+		
 		
 		public void CancelTeam ()
 		{
 				//URGENT: IMPL CANCELTEAM
+				InitValues ();
+				HideEditPanels ();
 		}
 	
 	
+	
+		public void HideEditPanels ()
+		{
+				EditSchoolPanel.SetActive (false);
+				EditBuildingPanel.SetActive (false);
+				EditRoomPanel.SetActive (false);	
+				TeamEditCAB.SetActive (false);
+				//URGENT: POPUP SAVED/CANCELED
+		}
+		public void HideDetailPanels ()
+		{
+				TeamEditTop.SetActive (false);
+				TeamEditPanelBody.SetActive (false);
+			
+		}
+		
+		public void BackToTeams ()
+		{
+				//TODO: ATTACH
+				//TODO: IMPL
+				HideEditPanels ();
+				HideDetailPanels ();
+		}
 }
