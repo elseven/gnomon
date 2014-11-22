@@ -24,19 +24,7 @@ public class SchoolEditControl : MonoBehaviour
 		public User theUser;
 	
 		private List<School> schools = new List<School> ();
-		// Use this for initialization
-		void Start ()
-		{
-		
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-	
-		}
-		
-		
+
 		private void SetAttachedTeam (Team team)
 		{
 				this.theTeam = team;

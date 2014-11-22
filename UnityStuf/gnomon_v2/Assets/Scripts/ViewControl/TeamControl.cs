@@ -47,7 +47,8 @@ public class TeamControl : MonoBehaviour
 		
 		
 		public SchoolEditControl schoolEditControl;
-		
+		public BuildingEditControl buildingEditControl;
+		//public RoomEditControl roomEditControl;
 	
 	
 		public Team SelectedTeam {
@@ -58,23 +59,6 @@ public class TeamControl : MonoBehaviour
 						selectedTeam = value;
 				}
 		}
-
-		// Use this for initialization
-		void Start ()
-		{
-				
-
-		
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-	
-		}
-	
-
-
 
 
 
@@ -396,8 +380,7 @@ public class TeamControl : MonoBehaviour
 				Debug.LogWarning (methodBase.Name);
 				ActiveTEM = TeamEditMode.SCHOOL;
 				HideDetailPanels ();
-				//TeamEditCAB.SetActive (true);
-				//EditSchoolPanel.SetActive (true);
+
 				schoolEditControl.Init (SelectedTeam);
 				
 				//TODO: IMPL
@@ -408,8 +391,10 @@ public class TeamControl : MonoBehaviour
 				MethodBase methodBase = MethodBase.GetCurrentMethod ();
 				Debug.LogWarning (methodBase.Name);
 				ActiveTEM = TeamEditMode.BUILDING;
-				TeamEditCAB.SetActive (true);
-				EditBuildingPanel.SetActive (true);
+				HideDetailPanels ();
+				
+				//LEFTOFF
+				//buildingEditControl.Init (SelectedTeam);
 				//TODO: IMPL
 		}
 	
