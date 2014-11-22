@@ -75,6 +75,9 @@ public class BuildingEditControl : MonoBehaviour
 	
 		IEnumerator FixScroll ()
 		{
+		
+		
+				UpdateGridList ();
 				RefreshGrids ();
 		
 				ShowEditPanels ();
@@ -89,16 +92,34 @@ public class BuildingEditControl : MonoBehaviour
 				//EBGrid.Reposition ();
 		
 		}
+		
+		public void UpdateGridList ()
+		{
+			
+				
+				UIGrid[] gridArray = AllSchoolsTable.GetComponentsInChildren<UIGrid> ();
+				EBGrids.Clear ();
+				foreach (UIGrid grid in gridArray) {
+						EBGrids.Add (grid);
+				}
+				
+		}
 	
 		public void RefreshGrids ()
 		{
 		
-				/*
+				
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
+				float width = EBScrollArea.GetComponent<UIPanel> ().width - 20f;
+				foreach (UIGrid grid in EBGrids) {
 		
-				EBGrid.cellWidth = EBScrollArea.GetComponent<UIPanel> ().width - 20f;
-		
+						grid.cellWidth = width;
+				}
+				
+				
+				
+				/*
 				Transform parent = ParentSSC.transform;
 				while (parent.childCount>0) {
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
