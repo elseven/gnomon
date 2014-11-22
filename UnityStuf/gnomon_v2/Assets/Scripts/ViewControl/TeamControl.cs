@@ -5,12 +5,22 @@ using System.Reflection;
 public class TeamControl : MonoBehaviour
 {
 
-
+		public enum TeamEditMode
+		{
+				EMPTY,
+				SCHOOL,
+				BUILDING,
+				ROOM,
+				NAME
+		}
+		
+		private TeamEditMode ActiveTEM = TeamEditMode.EMPTY;
 		public GameObject TeamOverflowPopup;
 		public UILabel PopupHeader;
 		private Team backupTeam;
 		private Team selectedTeam;
 		private Team copyTeam;
+
 
 	
 		
@@ -298,6 +308,9 @@ public class TeamControl : MonoBehaviour
 		{
 		
 				//URGENT: IMPL DONETEAM
+				//TODO: UPDATE TEAM HERE!!!
+				
+				UpdateTeam ();
 				
 				InitValues ();
 				HideEditPanels ();
@@ -307,6 +320,31 @@ public class TeamControl : MonoBehaviour
 				//URGENT: IMPL CANCELTEAM
 				InitValues ();
 				HideEditPanels ();
+		}
+		
+		private void UpdateTeam ()
+		{
+		
+				switch (ActiveTEM) {
+				case TeamEditMode.EMPTY:
+						Debug.LogError ("WHY IS THIS EMPTY???");
+						break;
+				case TeamEditMode.SCHOOL:
+						SelectedTeam = schoolEditControl.GetUpdatedTeam ();
+						break;
+				case TeamEditMode.BUILDING:
+				//URGENT: NOT IMPL
+						Debug.LogError ("NOT IMPLEMENTED");
+						break;
+				case TeamEditMode.ROOM:
+				//URGENT: NOT IMPL
+						Debug.LogError ("NOT IMPLEMENTED");
+						break;
+				case TeamEditMode.NAME:
+				//URGENT: NOT IMPL
+						Debug.LogError ("NOT IMPLEMENTED");
+						break;
+				}
 		}
 	
 	
@@ -338,8 +376,10 @@ public class TeamControl : MonoBehaviour
 	
 		public void ShowEditSchool ()
 		{
+				
 				MethodBase methodBase = MethodBase.GetCurrentMethod ();
 				Debug.LogWarning (methodBase.Name);
+				ActiveTEM = TeamEditMode.SCHOOL;
 				HideDetailPanels ();
 				//TeamEditCAB.SetActive (true);
 				//EditSchoolPanel.SetActive (true);
@@ -352,6 +392,7 @@ public class TeamControl : MonoBehaviour
 		{
 				MethodBase methodBase = MethodBase.GetCurrentMethod ();
 				Debug.LogWarning (methodBase.Name);
+				ActiveTEM = TeamEditMode.BUILDING;
 				TeamEditCAB.SetActive (true);
 				EditBuildingPanel.SetActive (true);
 				//TODO: IMPL
@@ -361,7 +402,7 @@ public class TeamControl : MonoBehaviour
 		{
 				MethodBase methodBase = MethodBase.GetCurrentMethod ();
 				Debug.LogWarning (methodBase.Name);
-		
+				ActiveTEM = TeamEditMode.ROOM;
 				TeamEditCAB.SetActive (true);
 				EditRoomPanel.SetActive (true);
 				//TODO: IMPL
