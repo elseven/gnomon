@@ -1,31 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/**
-* This goes on the school switch containers
-*/
-public class SchoolSelectControl : MonoBehaviour
+public class BuildingSelectControl : MonoBehaviour
 {
 
-
-		
-		public School AttachedSchool;
-		public UILabel SchoolNameLabel;
+		public Building AttachedBuilding;
+		public UILabel BuildingNameLabel;
 		private bool isSelected = false;
 		public GameObject OnSprite;
 		public GameObject OffSprite;
-		
+	
 		public GameObject OnLabel;
 		public GameObject OffLabel;
-		
+	
 		public Team theTeam;
-
+		public School theSchool;
+	
+	
 		public bool IsSelected {
 				get {
 						return isSelected;
 				}
 		}
-		
+	
 		// Use this for initialization
 		void Start ()
 		{
@@ -35,17 +32,17 @@ public class SchoolSelectControl : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-	
-		}
-
 		
-		public void SetAttachedSchool (Team team, School s)
+		}
+	
+	
+		public void SetAttachedBuilding (Team team, School s, Building b)
 		{
 				//this.school = new School (s);
 				this.theTeam = team;
-				this.AttachedSchool = s;
-				isSelected = theTeam.SchoolList.Contains (this.AttachedSchool);
-				SchoolNameLabel.text = AttachedSchool.Name;
+				this.theSchool = s;
+				isSelected = theSchool.Buildings.Contains (this.AttachedBuilding);
+				BuildingNameLabel.text = AttachedBuilding.Name;
 				Refresh ();
 		}
 	
@@ -64,10 +61,6 @@ public class SchoolSelectControl : MonoBehaviour
 		
 				OffLabel.SetActive (!isSelected);
 		}
-	
-	
-	
-	
 	
 	
 }
