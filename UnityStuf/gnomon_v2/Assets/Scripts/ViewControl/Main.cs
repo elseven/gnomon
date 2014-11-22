@@ -4,6 +4,7 @@ using  System.Collections.Generic;
 using Vectrosity;
 
 
+
 /**
 * Has a World.cs. Part of the view/control
 */
@@ -21,7 +22,10 @@ public class Main : MonoBehaviour
 				matchTabNeedsActive = false;
 	
 	
+	
 		public static World world = new World ();
+		
+		public GameObject HidePanel;
 		
 		public GameObject HomePanel;
 		public GameObject TeamsPanel;
@@ -41,7 +45,7 @@ public class Main : MonoBehaviour
 		public UITable TeamsTable;
 		
 
-		
+		#region MONO
 		// Use this for initialization
 		void Start ()
 		{
@@ -73,7 +77,7 @@ public class Main : MonoBehaviour
 				ActivateHome ();
 		}
 		
-		
+		#endregion
 
 
 		public void ClearVectorLines ()
@@ -106,60 +110,23 @@ public class Main : MonoBehaviour
 		
 		
 		
+		#region Activate TABS	
 		public void ActivateHome ()
 		{
-		
-				ClearVectorLines ();
-				DeactivateAllPanels ();
-				InitMiniGraphs ();
-				HomePanel.SetActive (true);
-				TopPanel.SetActive (true);
-				homeTabNeedsActive = false;
-				
-
-		
+				StartCoroutine ("ImplActivateHome");
 		}
-	
-	
-	
 		
 		public void ActivateTeams ()
-		{
-				ClearVectorLines ();
-				DeactivateAllPanels ();
-				TopPanel.SetActive (true);
-				
-				StartCoroutine ("FixTeamsScroll");
-		}
-	
-	
-	
-		//TODO: DO SOMETHING SIMILAR FOR EDIT SCHOOL PANEL
-		IEnumerator FixTeamsScroll ()
-		{
-		
-				//URGENT: NEED TO MAKE SURE TABLE STARTS OUT AT TOP AFTER ADDING ITEMS
-				teamControl.RefreshGrid ();
-				TeamsPanel.SetActive (true);
-				yield return null;
-				TeamsScrollView.ResetPosition ();
-				yield return null;
-				TeamsTable.Reposition ();
-				teamControl.TeamGrid.Reposition ();
-				teamTabNeedsActive = false;
-				
-				
-				
+		{		
+				StartCoroutine ("ImplActivateTeams");
 		}
 	
 		public void ActivateMatches ()
 		{
-				ClearVectorLines ();
-				DeactivateAllPanels ();
-				MatchesPanel.SetActive (true);
-				TopPanel.SetActive (true);
-				matchTabNeedsActive = false;
+				StartCoroutine ("ImplActivateMatches");		
 		}
+		
+		#endregion
 		
 		public void ActivateGraph ()
 		{
@@ -169,14 +136,7 @@ public class Main : MonoBehaviour
 				ActionPanel.SetActive (true);
 		}
 	
-		
-		
-	
-	
-	
-	
-	
-	
+
 		public void DeactivateAllPanels ()
 		{
 				HomePanel.SetActive (false);
@@ -187,7 +147,70 @@ public class Main : MonoBehaviour
 				ActionPanel.SetActive (false);
 		}
 		
+
+		#region COROUTINES
+		
+		IEnumerator ImplActivateTeams ()
+		{
+		
+				//CHECK: NEED TO MAKE SURE TABLE STARTS OUT AT TOP AFTER ADDING ITEMS
+				ClearVectorLines ();
+				DeactivateAllPanels ();
+				TopPanel.SetActive (true);
+				HidePanel.SetActive (true);
+				teamControl.RefreshGrid ();
+				TeamsPanel.SetActive (true);
+				
+				yield return null;
+				TeamsScrollView.ResetPosition ();
+				
+				yield return null;
+				TeamsTable.Reposition ();
+				teamControl.TeamGrid.Reposition ();
+				
+				yield return null;
+				HidePanel.SetActive (false);
+				teamTabNeedsActive = false;
 		
 		
 		
+		}
+		IEnumerator ImplActivateHome ()
+		{
+		
+				HidePanel.SetActive (true);
+				ClearVectorLines ();
+				DeactivateAllPanels ();
+				InitMiniGraphs ();
+				HomePanel.SetActive (true);
+				TopPanel.SetActive (true);
+				
+				yield return null;
+				HidePanel.SetActive (false);
+				homeTabNeedsActive = false;
+				
+				
+		}		
+		
+		IEnumerator ImplActivateMatches ()
+		{
+		
+				//URGENT: ACTUALLY IMPL THIS
+				
+				
+				HidePanel.SetActive (true);
+				
+				ClearVectorLines ();
+				DeactivateAllPanels ();
+				MatchesPanel.SetActive (true);
+				TopPanel.SetActive (true);
+				
+				yield return null;
+				HidePanel.SetActive (false);
+				matchTabNeedsActive = false;
+		}
+		
+		#endregion
+	
+	
 }
