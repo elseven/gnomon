@@ -299,21 +299,14 @@ public class TeamControl : MonoBehaviour
 		
 		
 		
-		public Team GetUpdatedTeam ()
-		{
-				return SelectedTeam;
-		}
+
 	
+		#region CAB and ACTION BAR
 		public void DoneTeam ()
 		{
-		
-				//URGENT: IMPL DONETEAM
-				//TODO: UPDATE TEAM HERE!!!
-				
+	
 				UpdateTeam ();
-				
-				
-				
+							
 				InitValues ();
 				HideEditPanels ();
 				TeamEditTop.SetActive (true);
@@ -322,11 +315,23 @@ public class TeamControl : MonoBehaviour
 		}
 		public void CancelTeam ()
 		{
-				//URGENT: IMPL CANCELTEAM
+				//CHECK: CANCEL TEAM NOT CHECKED
 				InitValues ();
 				HideEditPanels ();
+				TeamEditTop.SetActive (true);
+				TeamEditPanelBody.SetActive (true);
 		}
 		
+		public void BackToTeamsTab ()
+		{
+			
+		
+		}
+		
+		#endregion
+		
+		
+	
 		private void UpdateTeam ()
 		{
 		

@@ -44,8 +44,7 @@ public class SchoolEditControl : MonoBehaviour
 		
 		
 		
-		
-	
+
 		public Team ImplDone ()
 		{
 				theTeam.SchoolList.Clear ();
