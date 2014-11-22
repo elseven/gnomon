@@ -35,7 +35,7 @@ public class TeamControl : MonoBehaviour
 		public GameObject EditRoomPanel;
 		
 		
-	
+		public SchoolSelectControl SSC;
 		
 	
 	

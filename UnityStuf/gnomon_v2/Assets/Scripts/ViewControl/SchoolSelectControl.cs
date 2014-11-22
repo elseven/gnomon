@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+* This goes on the school switch containers
+*/
 public class SchoolSelectControl : MonoBehaviour
 {
 

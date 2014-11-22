@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TeamEditControl : MonoBehaviour
+
+/**
+* Handles SchoolEditControl
+*
+*/
+public class SchoolEditControl : MonoBehaviour
 {
 
 
