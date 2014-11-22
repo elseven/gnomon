@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 /**
 * Handles SchoolEditControl
@@ -20,8 +20,9 @@ public class SchoolEditControl : MonoBehaviour
 		public UITable ESTable;
 		public UIGrid ESGrid;
 		
-		//TODO: MISSING ALL OF THE STUFF FOR EDITSCHOOLPANEL
-		//GRID, TABLE, PARENT... 
+		public Team theTeam;
+		public User theUser;
+	
 		
 		// Use this for initialization
 		void Start ()
@@ -33,5 +34,52 @@ public class SchoolEditControl : MonoBehaviour
 		void Update ()
 		{
 	
+		}
+		
+		
+		private void SetAttachedTeam (Team team)
+		{
+				this.theTeam = team;
+		}
+		
+		
+		
+		
+		public Team GetUpdatedTeam ()
+		{
+				return theTeam;
+		}
+		
+		
+		public void Init (Team team)
+		{
+				SetAttachedTeam (team);
+				RefreshGrid ();
+		}
+		
+		public void RefreshGrid ()
+		{
+			
+				List<School> schools = Main.world.schools;
+				theUser = Main.world.TheUser;
+				
+				ESGrid.cellWidth = ESScrollArea.GetComponent<UIPanel> ().width - 20f;
+			
+				Transform parent = ParentSSC.transform;
+				while (parent.childCount>0) {
+						NGUITools.Destroy (parent.GetChild (0).gameObject);
+				}
+		
+				for (int i=0; i<schools.Count; i++) {
+						GameObject mini = NGUITools.AddChild (ParentSSC, PrefabSSC);
+						mini.GetComponent<SchoolSelectControl> ().SetAttachedSchool (schools [i]);
+						UIWidget miniWidget = mini.GetComponent<UIWidget> ();
+						miniWidget.leftAnchor.target = ESScrollArea.transform;
+						miniWidget.rightAnchor.target = ESScrollArea.transform;
+				}
+			
+		
+
+		
 		}
 }

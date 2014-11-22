@@ -9,7 +9,7 @@ public class World
 {
 
 
-		private List<School> schools = new List<School> ();
+		public List<School> schools = new List<School> ();
 		
 		//private List<Team> teams = new List<Team> ();
 		

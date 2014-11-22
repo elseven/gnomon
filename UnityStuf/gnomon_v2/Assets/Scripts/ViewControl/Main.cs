@@ -29,12 +29,7 @@ public class Main : MonoBehaviour
 		public UIScrollView TeamsScrollView;
 		public UITable TeamsTable;
 		
-		
 
-	
-		
-		
-		
 		
 		// Use this for initialization
 		void Start ()

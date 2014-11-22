@@ -65,11 +65,6 @@ public class MiniTeamControl : MonoBehaviour
 	
 		public void ShowOverflowPopup ()
 		{
-			
 				teamControl.ShowOverflow (AttachedTeam);
-			
-		
-	
-	
 		}
 }

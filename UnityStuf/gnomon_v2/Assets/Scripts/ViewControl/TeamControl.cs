@@ -11,6 +11,7 @@ public class TeamControl : MonoBehaviour
 		private Team backupTeam;
 		private Team selectedTeam;
 		private Team copyTeam;
+
 	
 		
 		public GameObject TeamEditTop;
@@ -35,7 +36,7 @@ public class TeamControl : MonoBehaviour
 		public GameObject EditRoomPanel;
 		
 		
-		public SchoolSelectControl SSC;
+		public SchoolEditControl schoolEditControl;
 		
 	
 	
@@ -70,7 +71,9 @@ public class TeamControl : MonoBehaviour
 		//TODO: SELECTING TEXT FIELD SHOULD SHOW CAB!
 
 
-
+		/**
+		* Attaches team and shows popup
+		*/
 		public void ShowOverflow (Team selected)
 		{
 		
@@ -87,8 +90,7 @@ public class TeamControl : MonoBehaviour
 	
 		public void HideOverflow ()
 		{
-				
-				
+
 				TeamOverflowPopup.SetActive (false);
 		}
 		
@@ -166,6 +168,7 @@ public class TeamControl : MonoBehaviour
 		private void InitValuesCopy ()
 		{
 				copyTeam = new Team (SelectedTeam);
+				copyTeam.Name = copyTeam.Name + "_COPY";
 				SelectedTeam = copyTeam;
 				InitValues ();
 		
@@ -280,21 +283,25 @@ public class TeamControl : MonoBehaviour
 		}
 		
 		
-		public void DoneTeam ()
-		{
-		
-				//URGENT: IMPL DONETEAM
-				backupTeam = new Team (SelectedTeam);
-				InitValues ();
-				HideEditPanels ();
-				
-			
-			
-		}
+
 		
 		#endregion
 		
 		
+		
+		public Team GetUpdatedTeam ()
+		{
+				return SelectedTeam;
+		}
+	
+		public void DoneTeam ()
+		{
+		
+				//URGENT: IMPL DONETEAM
+				
+				InitValues ();
+				HideEditPanels ();
+		}
 		public void CancelTeam ()
 		{
 				//URGENT: IMPL CANCELTEAM
@@ -333,6 +340,8 @@ public class TeamControl : MonoBehaviour
 				Debug.LogWarning (methodBase.Name);
 				TeamEditCAB.SetActive (true);
 				EditSchoolPanel.SetActive (true);
+				schoolEditControl.Init (SelectedTeam);
+				
 				//TODO: IMPL
 		}
 		
@@ -354,4 +363,6 @@ public class TeamControl : MonoBehaviour
 				EditRoomPanel.SetActive (true);
 				//TODO: IMPL
 		}
+		
+		
 }
