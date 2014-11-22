@@ -23,11 +23,11 @@ public class SchoolEditControl : MonoBehaviour
 		public Team theTeam;
 		public User theUser;
 	
-		
+		private List<School> schools = new List<School> ();
 		// Use this for initialization
 		void Start ()
 		{
-	
+		
 		}
 	
 		// Update is called once per frame
@@ -45,8 +45,20 @@ public class SchoolEditControl : MonoBehaviour
 		
 		
 		
-		public Team GetUpdatedTeam ()
+	
+		public Team ImplDone ()
 		{
+				theTeam.SchoolList.Clear ();
+				Transform parent = ParentSSC.transform;
+				SchoolSelectControl[] sscs = parent.GetComponentsInChildren<SchoolSelectControl> ();
+				foreach (SchoolSelectControl ssc in sscs) {
+						
+						
+						if (ssc.IsSelected) {
+								theTeam.SchoolList.Add (ssc.AttachedSchool);
+						}
+				}
+			
 				return theTeam;
 		}
 		
@@ -72,7 +84,7 @@ public class SchoolEditControl : MonoBehaviour
 		public void RefreshGrid ()
 		{
 			
-				List<School> schools = Main.world.schools;
+				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
 				
 				ESGrid.cellWidth = ESScrollArea.GetComponent<UIPanel> ().width - 20f;

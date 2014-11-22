@@ -19,6 +19,12 @@ public class SchoolSelectControl : MonoBehaviour
 		public GameObject OffLabel;
 		
 		public Team theTeam;
+
+		public bool IsSelected {
+				get {
+						return isSelected;
+				}
+		}
 		
 		// Use this for initialization
 		void Start ()

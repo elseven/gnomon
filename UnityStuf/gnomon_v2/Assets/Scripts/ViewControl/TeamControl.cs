@@ -312,8 +312,13 @@ public class TeamControl : MonoBehaviour
 				
 				UpdateTeam ();
 				
+				
+				
 				InitValues ();
 				HideEditPanels ();
+				TeamEditTop.SetActive (true);
+				TeamEditPanelBody.SetActive (true);
+		
 		}
 		public void CancelTeam ()
 		{
@@ -330,7 +335,7 @@ public class TeamControl : MonoBehaviour
 						Debug.LogError ("WHY IS THIS EMPTY???");
 						break;
 				case TeamEditMode.SCHOOL:
-						SelectedTeam = schoolEditControl.GetUpdatedTeam ();
+						SelectedTeam = schoolEditControl.ImplDone ();
 						break;
 				case TeamEditMode.BUILDING:
 				//URGENT: NOT IMPL
@@ -373,6 +378,7 @@ public class TeamControl : MonoBehaviour
 		}
 	
 	
+		#region SHOW EDIT PANELS
 	
 		public void ShowEditSchool ()
 		{
@@ -407,6 +413,6 @@ public class TeamControl : MonoBehaviour
 				EditRoomPanel.SetActive (true);
 				//TODO: IMPL
 		}
-		
+		#endregion
 		
 }
