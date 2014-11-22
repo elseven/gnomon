@@ -145,6 +145,7 @@ public class Main : MonoBehaviour
 				TeamsScrollView.ResetPosition ();
 				yield return null;
 				TeamsTable.Reposition ();
+				teamControl.TeamGrid.Reposition ();
 				teamTabNeedsActive = false;
 				
 				

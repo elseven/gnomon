@@ -125,6 +125,7 @@ public class TeamControl : MonoBehaviour
 						miniWidget.leftAnchor.target = ScrollArea.transform;
 						miniWidget.rightAnchor.target = ScrollArea.transform;	
 				}
+				TeamGrid.Reposition ();
 
 		}
 		

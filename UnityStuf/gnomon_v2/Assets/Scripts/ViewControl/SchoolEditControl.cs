@@ -76,6 +76,8 @@ public class SchoolEditControl : MonoBehaviour
 				ESScrollView.ResetPosition ();
 				yield return null;
 				ESTable.Reposition ();
+				ESGrid.Reposition ();
+				
 		}
 		
 		public void RefreshGrid ()
@@ -98,6 +100,8 @@ public class SchoolEditControl : MonoBehaviour
 						miniWidget.leftAnchor.target = ESScrollArea.transform;
 						miniWidget.rightAnchor.target = ESScrollArea.transform;
 				}
+				
+				ESGrid.Reposition ();
 		}
 		
 		public void ShowEditPanels ()
