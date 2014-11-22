@@ -18,7 +18,7 @@ public class SchoolSelectControl : MonoBehaviour
 		public GameObject OnLabel;
 		public GameObject OffLabel;
 		
-		private TeamControl teamControl;
+		public Team theTeam;
 		
 		// Use this for initialization
 		void Start ()
@@ -35,17 +35,19 @@ public class SchoolSelectControl : MonoBehaviour
 		
 		void Awake ()
 		{
+				/*
 				GameObject uiRoot = GameObject.FindGameObjectWithTag ("UIRoot");
 				Main main = uiRoot.GetComponent<Main> ();
-				teamControl = main.teamControl;
+				teamControl = main.teamControl;*/
 				
 		}
 		
-		public void SetAttachedSchool (School s)
+		public void SetAttachedSchool (Team team, School s)
 		{
 				//this.school = new School (s);
+				this.theTeam = team;
 				this.AttachedSchool = s;
-				isSelected = teamControl.SelectedTeam.SchoolList.Contains (this.AttachedSchool);
+				isSelected = theTeam.SchoolList.Contains (this.AttachedSchool);
 				SchoolNameLabel.text = AttachedSchool.Name;
 				Refresh ();
 		}
@@ -59,7 +61,8 @@ public class SchoolSelectControl : MonoBehaviour
 	
 		public void Refresh ()
 		{
-				OnSprite.SetActive (isSelected);	
+				OnSprite.SetActive (isSelected);
+				OffSprite.SetActive (!isSelected);
 				OnLabel.SetActive (isSelected);
 		
 				OffLabel.SetActive (!isSelected);

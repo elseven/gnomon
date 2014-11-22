@@ -341,8 +341,8 @@ public class TeamControl : MonoBehaviour
 				MethodBase methodBase = MethodBase.GetCurrentMethod ();
 				Debug.LogWarning (methodBase.Name);
 				HideDetailPanels ();
-				TeamEditCAB.SetActive (true);
-				EditSchoolPanel.SetActive (true);
+				//TeamEditCAB.SetActive (true);
+				//EditSchoolPanel.SetActive (true);
 				schoolEditControl.Init (SelectedTeam);
 				
 				//TODO: IMPL

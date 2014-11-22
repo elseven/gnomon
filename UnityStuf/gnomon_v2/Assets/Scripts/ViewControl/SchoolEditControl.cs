@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public class SchoolEditControl : MonoBehaviour
 {
 
-
+		public GameObject CABPanel;
 		public GameObject ESPanel;
 		public GameObject ESScrollArea;
 		
@@ -61,8 +61,8 @@ public class SchoolEditControl : MonoBehaviour
 		IEnumerator FixScroll ()
 		{
 				RefreshGrid ();
-				ESPanel.SetActive (true);
 				
+				ShowEditPanels ();
 				yield return null;
 				ESScrollView.ResetPosition ();
 				yield return null;
@@ -84,14 +84,18 @@ public class SchoolEditControl : MonoBehaviour
 		
 				for (int i=0; i<schools.Count; i++) {
 						GameObject mini = NGUITools.AddChild (ParentSSC, PrefabSSC);
-						mini.GetComponent<SchoolSelectControl> ().SetAttachedSchool (schools [i]);
+						mini.GetComponent<SchoolSelectControl> ().SetAttachedSchool (theTeam, schools [i]);
 						UIWidget miniWidget = mini.GetComponent<UIWidget> ();
 						miniWidget.leftAnchor.target = ESScrollArea.transform;
 						miniWidget.rightAnchor.target = ESScrollArea.transform;
 				}
-			
+		}
 		
-
+		public void ShowEditPanels ()
+		{
+				CABPanel.SetActive (true);
+				ESPanel.SetActive (true);
+		
 		
 		}
 }
