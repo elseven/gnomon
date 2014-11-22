@@ -11,11 +11,11 @@ public class BuildingEditControl : MonoBehaviour
 		public GameObject EBPanel;
 		public GameObject EBScrollArea;
 	
-		public GameObject PrefabSwitchContainer;
+		
 		public GameObject PrefabSchoolContainer;
 		
 		
-		//public GameObject ParentOfBuildingSwitch;
+	
 		public GameObject ParentOfSC;
 	
 	
@@ -28,7 +28,6 @@ public class BuildingEditControl : MonoBehaviour
 
 	
 		public Team theTeam;
-		public School theSchool;
 		public User theUser;
 		
 		
@@ -47,21 +46,6 @@ public class BuildingEditControl : MonoBehaviour
 	
 	
 	
-	
-	
-		/*	public Team ImplDone ()
-		{
-				theTeam.SchoolList.Clear ();
-				Transform parent = ParentSSC.transform;
-				SchoolSelectControl[] sscs = parent.GetComponentsInChildren<SchoolSelectControl> ();
-				foreach (SchoolSelectControl ssc in sscs) {		
-						if (ssc.IsSelected) {
-								theTeam.SchoolList.Add (ssc.AttachedSchool);
-						}
-				}
-		
-				return theTeam;
-		}*/
 	
 	
 		public void Init (Team team)
@@ -111,39 +95,25 @@ public class BuildingEditControl : MonoBehaviour
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
 		
+				
+	
 				//ADD BACK ALL SchoolAndAllBuildingsContainer
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
 						
-						
+						//LEFTOFF
+						//LEFTOFF
+						//LEFTOFF
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
-						RefreshSchoolContainer (schoolContainer, schools [i]);
-						
-						//UIWidget miniWidget = schoolContainer.GetComponent<UIWidget> ();
-						//miniWidget.leftAnchor.target = EBScrollArea.transform;
-						//miniWidget.rightAnchor.target = EBScrollArea.transform;
+						schoolContainer.GetComponent<BuildingSchoolEditControl> ().RefreshSchoolContainer (schools [i]);
+
 				}
 		
 			
 				
 		}
 		
-		private void RefreshSchoolContainer (GameObject schoolContainer, School school)
-		{
-				
-				//Transform parent = schoolContainer.transform;
-				
-				Transform parent = schoolContainer.transform;
-				while (parent.childCount>0) {
-						NGUITools.Destroy (parent.GetChild (0).gameObject);
-				}
-		
-				for (int i=0; i<school.Buildings.Count; i++) {
-						GameObject buildingContainer = NGUITools.AddChild (schoolContainer, PrefabSwitchContainer);
-						buildingContainer.GetComponent<BuildingSelectControl> ().SetAttachedBuilding (theTeam, school, school.Buildings [i]);
-			
-				}
-		}
+
 		public void ShowEditPanels ()
 		{
 				CABPanel.SetActive (true);

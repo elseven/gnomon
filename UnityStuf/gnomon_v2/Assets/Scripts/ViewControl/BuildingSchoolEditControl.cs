@@ -4,9 +4,13 @@ using System.Collections;
 public class BuildingSchoolEditControl : MonoBehaviour
 {
 
-
-		//school label
-		//building root
+		public GameObject PrefabSwitchContainer;
+		public GameObject ParentOfBuildingSwitch;
+		
+		
+		public UILabel schoolLabel;
+		
+		public School theSchool;
 	
 		// Use this for initialization
 		void Start ()
@@ -18,5 +22,14 @@ public class BuildingSchoolEditControl : MonoBehaviour
 		void Update ()
 		{
 	
+		}
+		
+		public void RefreshSchoolContainer (School school)
+		{
+		
+				this.theSchool = school;
+				
+				//URGENT: IMPLEMENT THIS
+			
 		}
 }
