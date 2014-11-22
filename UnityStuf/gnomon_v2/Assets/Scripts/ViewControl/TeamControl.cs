@@ -305,7 +305,7 @@ public class TeamControl : MonoBehaviour
 		public void BackToTeamsTab ()
 		{
 				
-				//TODO: IMPL
+				//CHECK: DOES THIS WORK ALWAYS?
 				
 				Main.world.TheUser.DeleteTeam (SelectedTeam);
 				Main.world.TheUser.myTeams.Add (SelectedTeam);
@@ -394,7 +394,7 @@ public class TeamControl : MonoBehaviour
 				HideDetailPanels ();
 				
 				//LEFTOFF
-				//buildingEditControl.Init (SelectedTeam);
+				buildingEditControl.Init (SelectedTeam);
 				//TODO: IMPL
 		}
 	
