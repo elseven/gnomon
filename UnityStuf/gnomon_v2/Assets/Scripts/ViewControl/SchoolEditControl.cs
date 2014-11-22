@@ -54,7 +54,19 @@ public class SchoolEditControl : MonoBehaviour
 		public void Init (Team team)
 		{
 				SetAttachedTeam (team);
+				StartCoroutine ("FixScroll");
+		
+		}
+		
+		IEnumerator FixScroll ()
+		{
 				RefreshGrid ();
+				ESPanel.SetActive (true);
+				
+				yield return null;
+				ESScrollView.ResetPosition ();
+				yield return null;
+				ESTable.Reposition ();
 		}
 		
 		public void RefreshGrid ()
