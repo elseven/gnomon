@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public class School
+using System;
+public class School : IComparable<School>
 {
 
 		#region fields
@@ -27,6 +27,15 @@ public class School
 		}		
 		
 		
+
+		#endregion
+
+		#region IComparable implementation
+
+		public int CompareTo (School other)
+		{
+				return this.Name.CompareTo (other.Name);
+		}
 
 		#endregion
 		
