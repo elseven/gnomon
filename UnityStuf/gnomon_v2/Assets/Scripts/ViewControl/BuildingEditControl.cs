@@ -46,11 +46,6 @@ public class BuildingEditControl : MonoBehaviour
 		}
 	
 	
-		private void SetAttachedBuilding (Building attached)
-		{
-				this.AttachedBuilding = attached;
-		}
-	
 	
 	
 	
