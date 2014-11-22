@@ -4,8 +4,6 @@ using System.Collections.Generic;
 public class User
 {
 	
-		//URGENT: USER SHOULD HAVE LIST OF SAVED TEAMS AND MATCHES
-		//URGENT: USER SHOULD BE CREATED AT STARTUP WITH DEFAULTS SETUP (FROM
 	
 		public List<Team> myTeams = new List<Team> ();
 		public List<Match> myMatches = new List<Match> ();
@@ -13,15 +11,24 @@ public class User
 	
 		public User (List<Team> teams, List<Match> matches)
 		{
-		
 				this.myTeams = teams;
 				this.myMatches = matches;
-	
 		}
 		
 		
 		
-		
+		public void DeleteTeam (Team toDelete)
+		{
+				for (int i=0; i<myTeams.Count; i++) {
+						if (myTeams [i].id == toDelete.id) {
+								myTeams.RemoveAt (i);
+								return;
+						}
+				}
+			
+				Debug.LogError ("DOESNT EXIST");
+			
+		}
 		
 		
 		

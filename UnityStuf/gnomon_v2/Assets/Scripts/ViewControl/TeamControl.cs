@@ -123,14 +123,9 @@ public class TeamControl : MonoBehaviour
 						UIWidget miniWidget = mini.GetComponent<UIWidget> ();
 
 						miniWidget.leftAnchor.target = ScrollArea.transform;
-						miniWidget.rightAnchor.target = ScrollArea.transform;
-
-						
+						miniWidget.rightAnchor.target = ScrollArea.transform;	
 				}
-				
-				//TeamGrid.Reposition ();
-				
-		
+
 		}
 		
 		
@@ -324,11 +319,18 @@ public class TeamControl : MonoBehaviour
 		
 		public void BackToTeamsTab ()
 		{
-			
+				
+				//TODO: IMPL
+				
+				Main.world.TheUser.DeleteTeam (SelectedTeam);
+				Main.world.TheUser.myTeams.Add (SelectedTeam);
+				
+				HideEditPanels ();
+				HideDetailPanels ();
 		
 		}
-		
-		#endregion
+	
+	#endregion
 		
 		
 	
@@ -358,7 +360,9 @@ public class TeamControl : MonoBehaviour
 		}
 	
 	
-	
+		/**
+		* Hide SWITCHES PANELS
+		*/
 		public void HideEditPanels ()
 		{
 				EditSchoolPanel.SetActive (false);
@@ -367,6 +371,10 @@ public class TeamControl : MonoBehaviour
 				TeamEditCAB.SetActive (false);
 				//URGENT: POPUP SAVED/CANCELED
 		}
+		
+		/**
+		* Hide TEAM EDIT PANEL BODY & TOP
+		*/
 		public void HideDetailPanels ()
 		{
 				TeamEditTop.SetActive (false);
@@ -374,13 +382,7 @@ public class TeamControl : MonoBehaviour
 			
 		}
 		
-		public void BackToTeams ()
-		{
-				//TODO: ATTACH
-				//TODO: IMPL
-				HideEditPanels ();
-				HideDetailPanels ();
-		}
+	
 	
 	
 		#region SHOW EDIT PANELS

@@ -50,9 +50,7 @@ public class SchoolEditControl : MonoBehaviour
 				theTeam.SchoolList.Clear ();
 				Transform parent = ParentSSC.transform;
 				SchoolSelectControl[] sscs = parent.GetComponentsInChildren<SchoolSelectControl> ();
-				foreach (SchoolSelectControl ssc in sscs) {
-						
-						
+				foreach (SchoolSelectControl ssc in sscs) {		
 						if (ssc.IsSelected) {
 								theTeam.SchoolList.Add (ssc.AttachedSchool);
 						}

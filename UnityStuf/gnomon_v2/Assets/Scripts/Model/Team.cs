@@ -9,12 +9,13 @@ public class Team : IComparable<Team>
 		
 		
 		private string name;
-	
+		
 		private List<School> schoolList = new List<School> ();
 		private List<Building> buildingList = new List<Building> ();
 		private List<Room> roomList = new List<Room> ();
 		
-		
+		public int id = 0;
+		private static int count = 0;
 
 		#region properties
 		public string Name {
@@ -64,16 +65,20 @@ public class Team : IComparable<Team>
 				return this.Name.CompareTo (other.Name);
 		
 		}
+		
+		
 		#endregion
 		public Team ()
 		{
 				this.Name = "Default Name";
-
+				
 		}
 		
 		public Team (string name)
 		{
 				this.Name = name;
+				id = count;
+				count++;
 		}		
 		
 		public Team (Team other)
