@@ -193,6 +193,7 @@
      <Compile Include="Assets\Scripts\Model\World.cs" />
      <Compile Include="Assets\Scripts\ViewControl\ActionBarControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\BuildingEditControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\BuildingSchoolEditControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\BuildingSelectControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\Enums\BackMode.cs" />
      <Compile Include="Assets\Scripts\ViewControl\GraphControl.cs" />

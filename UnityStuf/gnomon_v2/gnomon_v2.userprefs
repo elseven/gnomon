@@ -1,17 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ViewControl/SchoolEditControl.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ViewControl/BuildingEditControl.cs">
     <Files>
-      <File FileName="Assets/Scripts/Model/World.cs" Line="12" Column="30" />
-      <File FileName="Assets/Scripts/ViewControl/Main.cs" Line="34" Column="30" />
-      <File FileName="Assets/Scripts/Model/Team.cs" Line="87" Column="45" />
-      <File FileName="Assets/Scripts/ViewControl/TeamControl.cs" Line="107" Column="26" />
-      <File FileName="Assets/Scripts/ViewControl/SchoolEditControl.cs" Line="79" Column="11" />
-      <File FileName="Assets/Scripts/ViewControl/SchoolSelectControl.cs" Line="14" Column="23" />
+      <File FileName="Assets/Scripts/ViewControl/Main.cs" Line="55" Column="25" />
+      <File FileName="Assets/Scripts/ViewControl/TeamControl.cs" Line="392" Column="1" />
+      <File FileName="Assets/Scripts/ViewControl/SchoolEditControl.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/ViewControl/SchoolSelectControl.cs" Line="12" Column="1" />
       <File FileName="Assets/Scripts/ViewControl/MiniTeamControl.cs" Line="21" Column="1" />
-      <File FileName="Assets/Scripts/Model/Room.cs" Line="73" Column="1" />
-      <File FileName="Assets/Scripts/Model/User.cs" Line="29" Column="37" />
       <File FileName="Assets/Scripts/Graphing/MiniGraph.cs" Line="43" Column="5" />
+      <File FileName="Assets/Scripts/ViewControl/BuildingEditControl.cs" Line="136" Column="50" />
+      <File FileName="Assets/Scripts/ViewControl/BuildingSelectControl.cs" Line="39" Column="34" />
+      <File FileName="Assets/Scripts/Model/School.cs" Line="40" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,7 +25,7 @@
               <Node name="Graphing" expanded="True" />
               <Node name="Model" expanded="True" />
               <Node name="ViewControl" expanded="True">
-                <Node name="SchoolEditControl.cs" selected="True" />
+                <Node name="BuildingEditControl.cs" selected="True" />
               </Node>
             </Node>
           </Node>

@@ -15,7 +15,7 @@ public class BuildingEditControl : MonoBehaviour
 		public GameObject PrefabSchoolContainer;
 		
 		
-		public GameObject ParentOfBuildingSwitch;
+		//public GameObject ParentOfBuildingSwitch;
 		public GameObject ParentOfSC;
 	
 	
@@ -30,7 +30,8 @@ public class BuildingEditControl : MonoBehaviour
 		public Team theTeam;
 		public School theSchool;
 		public User theUser;
-	
+		
+		
 		private List<School> schools = new List<School> ();
 		// Use this for initialization
 		void Start ()
@@ -104,17 +105,23 @@ public class BuildingEditControl : MonoBehaviour
 				
 				
 				Transform parent = ParentOfSC.transform;
+				
+				//REMOVE ALL SchoolAndAllBuildingsContainer
 				while (parent.childCount>0) {
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
 		
+				//ADD BACK ALL SchoolAndAllBuildingsContainer
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
+						
+						
+						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
 						RefreshSchoolContainer (schoolContainer, schools [i]);
 						
-						UIWidget miniWidget = schoolContainer.GetComponent<UIWidget> ();
-						miniWidget.leftAnchor.target = EBScrollArea.transform;
-						miniWidget.rightAnchor.target = EBScrollArea.transform;
+						//UIWidget miniWidget = schoolContainer.GetComponent<UIWidget> ();
+						//miniWidget.leftAnchor.target = EBScrollArea.transform;
+						//miniWidget.rightAnchor.target = EBScrollArea.transform;
 				}
 		
 			
@@ -123,6 +130,8 @@ public class BuildingEditControl : MonoBehaviour
 		
 		private void RefreshSchoolContainer (GameObject schoolContainer, School school)
 		{
+				
+				//Transform parent = schoolContainer.transform;
 				
 				Transform parent = schoolContainer.transform;
 				while (parent.childCount>0) {
