@@ -202,6 +202,7 @@
      <Compile Include="Assets\Scripts\ViewControl\SharedVariables.cs" />
      <Compile Include="Assets\Scripts\ViewControl\TabControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\TeamControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\TeamEditControl.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.3.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />

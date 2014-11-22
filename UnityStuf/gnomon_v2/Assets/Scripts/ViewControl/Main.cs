@@ -30,9 +30,7 @@ public class Main : MonoBehaviour
 		public UITable TeamsTable;
 		
 		
-		//TODO: MISSING ALL OF THE STUFF FOR EDITSCHOOLPANEL
-		//GRID, TABLE, PARENT... 
-	
+
 	
 		
 		
