@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 public class BuildingEditControl : MonoBehaviour
 {
 
@@ -80,30 +81,32 @@ public class BuildingEditControl : MonoBehaviour
 		public void RefreshMain ()
 		{
 		
+				MethodBase methodBase = MethodBase.GetCurrentMethod ();
+				Debug.LogWarning (methodBase.Name);
 				Main.world.schools.Sort ();
 				
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
+				//URGENT: DO ANCHORS!
 				float width = EBScrollArea.GetComponent<UIPanel> ().width - 20f;
 				
 				
 				
 				Transform parent = ParentOfSC.transform;
 				
-				//REMOVE ALL SchoolAndAllBuildingsContainer
+				//REMOVE ALL School Containers from AllSchoolsTable
 				while (parent.childCount>0) {
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
 		
 				
 	
-				//ADD BACK ALL SchoolAndAllBuildingsContainer
+				//ADD BACK ALL SchoolContainers
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
 						
 						//LEFTOFF
-						//LEFTOFF
-						//LEFTOFF
+			
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
 						schoolContainer.GetComponent<BuildingSchoolEditControl> ().RefreshSchoolContainer (schools [i]);
 
