@@ -7,9 +7,8 @@ public class SchoolSelectControl : MonoBehaviour
 
 		
 		private School school;
-		public UILabel TeamNameLabel;
-		private bool
-				isSelected = false;
+		public UILabel SchoolNameLabel;
+		private bool isSelected = false;
 		public GameObject OnSprite;
 		public GameObject OffSprite;
 		

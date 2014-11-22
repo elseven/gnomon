@@ -34,6 +34,11 @@ public class TeamControl : MonoBehaviour
 		public GameObject EditBuildingPanel;
 		public GameObject EditRoomPanel;
 		
+		
+		//TODO: MISSING ALL OF THE STUFF FOR SCHOOLPANEL
+		//GRID, TABLE, PARENT... LOOK AT MAIN
+		
+		
 	
 	
 		public Team SelectedTeam {

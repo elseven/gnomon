@@ -30,8 +30,10 @@ public class Main : MonoBehaviour
 		public UITable TeamsTable;
 		
 		
-
-		
+		//TODO: MISSING ALL OF THE STUFF FOR EDITSCHOOLPANEL
+		//GRID, TABLE, PARENT... 
+	
+	
 		
 		
 		
@@ -110,7 +112,7 @@ public class Main : MonoBehaviour
 	
 	
 	
-	
+		
 		public void ActivateTeams ()
 		{
 				ClearVectorLines ();
@@ -121,6 +123,8 @@ public class Main : MonoBehaviour
 		}
 	
 	
+	
+		//TODO: DO SOMETHING SIMILAR FOR EDIT SCHOOL PANEL
 		IEnumerator FixTeamsScroll ()
 		{
 		
