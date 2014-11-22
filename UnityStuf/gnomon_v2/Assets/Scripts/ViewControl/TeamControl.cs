@@ -327,6 +327,7 @@ public class TeamControl : MonoBehaviour
 				
 				HideEditPanels ();
 				HideDetailPanels ();
+				Main.teamTabNeedsActive = true;
 		
 		}
 	

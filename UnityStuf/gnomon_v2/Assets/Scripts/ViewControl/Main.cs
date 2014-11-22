@@ -10,8 +10,19 @@ using Vectrosity;
 public class Main : MonoBehaviour
 {
 
-
+		[HideInInspector]
+		public static bool
+				teamTabNeedsActive = false;
+		[HideInInspector]
+		public static bool
+				homeTabNeedsActive = false;
+		[HideInInspector]
+		public static bool
+				matchTabNeedsActive = false;
+	
+	
 		public static World world = new World ();
+		
 		public GameObject HomePanel;
 		public GameObject TeamsPanel;
 		public GameObject MatchesPanel;
@@ -48,7 +59,13 @@ public class Main : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-	
+				if (teamTabNeedsActive) {
+						ActivateTeams ();
+				} else if (homeTabNeedsActive) {
+						ActivateHome ();
+				} else if (matchTabNeedsActive) {
+						ActivateMatches ();
+				}
 		}
 		
 		void Awake ()
@@ -97,7 +114,7 @@ public class Main : MonoBehaviour
 				InitMiniGraphs ();
 				HomePanel.SetActive (true);
 				TopPanel.SetActive (true);
-				
+				homeTabNeedsActive = false;
 				
 
 		
@@ -128,6 +145,7 @@ public class Main : MonoBehaviour
 				TeamsScrollView.ResetPosition ();
 				yield return null;
 				TeamsTable.Reposition ();
+				teamTabNeedsActive = false;
 				
 				
 				
@@ -139,6 +157,7 @@ public class Main : MonoBehaviour
 				DeactivateAllPanels ();
 				MatchesPanel.SetActive (true);
 				TopPanel.SetActive (true);
+				matchTabNeedsActive = false;
 		}
 		
 		public void ActivateGraph ()
