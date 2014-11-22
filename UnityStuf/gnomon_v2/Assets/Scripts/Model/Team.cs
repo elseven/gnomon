@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
-
-public class Team
+public class Team : IComparable<Team>
 {
 
-
+		
+		
 		private string name;
 	
 		private List<School> schoolList = new List<School> ();
@@ -56,7 +57,14 @@ public class Team
 		
 		#endregion
 
-
+		#region IComparable implementation
+		public int CompareTo (Team other)
+		{
+		
+				return this.Name.CompareTo (other.Name);
+		
+		}
+		#endregion
 		public Team ()
 		{
 				this.Name = "Default Name";
