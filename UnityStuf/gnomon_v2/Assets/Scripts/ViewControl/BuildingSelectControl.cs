@@ -48,9 +48,7 @@ public class BuildingSelectControl : MonoBehaviour
 						Debug.LogError ("no school");
 				}
 		
-				if (b == null) {
-						Debug.LogError ("no building");
-				}
+		
 				//this.school = new School (s);
 				this.theTeam = team;
 				this.theSchool = s;

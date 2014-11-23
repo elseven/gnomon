@@ -34,8 +34,10 @@ public class BuildingSchoolEditControl : MonoBehaviour
 				while (parent.childCount>0) {
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
-		
 				
+				
+				//UIWidget topWidget= ParentOfBuildingSwitch.GetComponent<UIWidget>();
+				Transform topTransform = ParentOfBuildingSwitch.transform;
 				
 				//LEFTOFF iterate over all buildings not just the ones in theSchool? or is this right? nevermind i think...
 				//ADD BACK ALL PrefabSwitchContainer to Buildings
@@ -43,10 +45,22 @@ public class BuildingSchoolEditControl : MonoBehaviour
 						GameObject building = NGUITools.AddChild (ParentOfBuildingSwitch, PrefabSwitchContainer);
 			
 						//LEFTOFF
-			
-						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
+						
+						//ADD building to school container
 						building.GetComponent<BuildingSelectControl> ().SetAttachedBuilding (theTeam, theSchool, i);
-			
+						UIWidget buildingWidget = building.GetComponent<UIWidget> ();
+						
+						buildingWidget.topAnchor.target = topTransform;
+						buildingWidget.bottomAnchor.target = topTransform;
+						buildingWidget.topAnchor.absolute = -30;
+						buildingWidget.bottomAnchor.absolute = -60;
+						
+						//buildingWidget.height = 20;
+						
+						
+						
+						
+						topTransform = building.transform;
 				}
 				
 			

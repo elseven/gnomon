@@ -98,18 +98,30 @@ public class BuildingEditControl : MonoBehaviour
 				while (parent.childCount>0) {
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
-		
-				
+				/*
+		GameObject mini = NGUITools.AddChild (ParentSSC, PrefabSSC);
+		mini.GetComponent<SchoolSelectControl> ().SetAttachedSchool (theTeam, schools [i]);
+		UIWidget miniWidget = mini.GetComponent<UIWidget> ();
+		miniWidget.leftAnchor.target = ESScrollArea.transform;
+		miniWidget.rightAnchor.target = ESScrollArea.transform;
+				*/
 	
 				//ADD BACK ALL SchoolContainers
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
 						
 						//LEFTOFF
-			
+						
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
 						schoolContainer.GetComponent<BuildingSchoolEditControl> ().RefreshSchoolContainer (theTeam, schools [i]);
-
+						
+						
+						UIWidget scWidget = schoolContainer.GetComponent<UIWidget> ();
+						scWidget.leftAnchor.target = EBScrollArea.transform;
+						scWidget.rightAnchor.target = EBScrollArea.transform;
+						
+						
+						
 				}
 		
 			
