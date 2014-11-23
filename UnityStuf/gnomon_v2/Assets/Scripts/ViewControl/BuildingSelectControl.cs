@@ -15,7 +15,7 @@ public class BuildingSelectControl : MonoBehaviour
 	
 		public Team theTeam;
 		public School theSchool;
-	
+		
 	
 		public bool IsSelected {
 				get {
@@ -36,12 +36,26 @@ public class BuildingSelectControl : MonoBehaviour
 		}
 	
 	
-		public void SetAttachedBuilding (Team team, School s, Building b)
+		public void SetAttachedBuilding (Team team, School s, int buildingIndex)
 		{
+		
+				if (team == null) {
+						Debug.LogError ("no team");
+				}
+				
+		
+				if (s == null) {
+						Debug.LogError ("no school");
+				}
+		
+				if (b == null) {
+						Debug.LogError ("no building");
+				}
 				//this.school = new School (s);
 				this.theTeam = team;
 				this.theSchool = s;
-				isSelected = theSchool.Buildings.Contains (this.AttachedBuilding);
+				this.AttachedBuilding = s.Buildings [buildingIndex];
+				isSelected = theTeam.BuildingList.Contains (this.AttachedBuilding);
 				BuildingNameLabel.text = AttachedBuilding.Name;
 				Refresh ();
 		}

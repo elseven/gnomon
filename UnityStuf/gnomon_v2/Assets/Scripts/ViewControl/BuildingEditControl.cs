@@ -108,7 +108,7 @@ public class BuildingEditControl : MonoBehaviour
 						//LEFTOFF
 			
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
-						schoolContainer.GetComponent<BuildingSchoolEditControl> ().RefreshSchoolContainer (schools [i]);
+						schoolContainer.GetComponent<BuildingSchoolEditControl> ().RefreshSchoolContainer (theTeam, schools [i]);
 
 				}
 		

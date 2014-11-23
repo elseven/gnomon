@@ -6,24 +6,6 @@ TODO: HAVE WINDOW SHOW UP ON EDIT AND COPY!
 
 
 
-Pass entire team not just name to popup
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-graphs not stretching to fit 
 
 __________________________________________
 holo blue light = 33b5e5 ( rgb: 51, 181, 229 )
@@ -40,29 +22,6 @@ __________________________________
 
 
 
-TODO:
-
-	TEAMS
-		VIEW GRAPH
-			[similar to minigraph]
-		CREATE
-		EDIT
-		DELETE
-		COPY
-		
-	MATCHES
-		VIEW GRAPH
-		CREATE
-		EDIT
-		DELETE
-		COPY
-
-
-
-
-
-
-
 
 
 
@@ -73,11 +32,6 @@ ______________________________________________________________
 THE DOCTOR:
 
 Change star
-Temp search maybe? then save
-
-
-
-
 
 ______________________________________________________________
 QUESTIONS:
