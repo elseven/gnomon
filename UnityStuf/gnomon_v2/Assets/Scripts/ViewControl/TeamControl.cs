@@ -331,8 +331,9 @@ public class TeamControl : MonoBehaviour
 						SelectedTeam = schoolEditControl.ImplDone ();
 						break;
 				case TeamEditMode.BUILDING:
-				//URGENT: NOT IMPL
+						//URGENT: NOT IMPL
 						Debug.LogError ("NOT IMPLEMENTED");
+						SelectedTeam = buildingEditControl.ImplDone ();
 						break;
 				case TeamEditMode.ROOM:
 				//URGENT: NOT IMPL
