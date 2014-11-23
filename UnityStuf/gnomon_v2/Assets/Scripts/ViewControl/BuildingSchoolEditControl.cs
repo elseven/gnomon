@@ -27,7 +27,7 @@ public class BuildingSchoolEditControl : MonoBehaviour
 				//URGENT: IMPLEMENT THIS
 				//LEFTOFF
 				
-		
+				schoolLabel.text = theSchool.Name;
 				Transform parent = ParentOfBuildingSwitch.transform;
 		
 				//REMOVE ALL PrefabSwitchContainer from Buildings
@@ -55,9 +55,10 @@ public class BuildingSchoolEditControl : MonoBehaviour
 						buildingWidget.topAnchor.absolute = -30;
 						buildingWidget.bottomAnchor.absolute = -60;
 						
-						//buildingWidget.height = 20;
 						
-						
+						//NEW STUFF
+						buildingWidget.leftAnchor.target = parent;
+						buildingWidget.rightAnchor.target = parent;
 						
 						
 						topTransform = building.transform;
