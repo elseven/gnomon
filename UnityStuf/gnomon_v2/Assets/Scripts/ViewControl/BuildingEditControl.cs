@@ -45,6 +45,21 @@ public class BuildingEditControl : MonoBehaviour
 		
 		}
 	
+		public Team ImplDone ()
+		{
+				theTeam.BuildingList.Clear ();
+				Transform parent = ParentOfSC.transform;
+				//SchoolSelectControl[] sscs = parent.GetComponentsInChildren<SchoolSelectControl> ();
+				BuildingSelectControl[] bscs = parent.GetComponentsInChildren<BuildingSelectControl> ();
+				
+				foreach (BuildingSelectControl bsc in bscs) {	
+						if (bsc.IsSelected) {
+								theTeam.BuildingList.Add (bsc.AttachedBuilding);
+						}
+				}
+				theTeam.BuildingList.Sort ();
+				return theTeam;
+		}
 	
 	
 	

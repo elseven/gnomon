@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public class Building
+using System;
+public class Building:IComparable<Building>
 {
 
 	#region fields
@@ -45,6 +45,23 @@ public class Building
 				this.SchoolName = schoolName;
 				GenerateRooms ();
 		}
+
+	#region IComparable implementation
+
+
+		public int CompareTo (Building other)
+		{
+				
+				int combined = 0;
+				int schoolComp = this.SchoolName.CompareTo (other.SchoolName);
+				int buildComp = this.Name.CompareTo (other.Name);
+				combined = schoolComp * 10 + buildComp;
+				return combined;
+		}
+
+
+	#endregion
+
 		public string GetFullName ()
 		{
 				return this.Name + "   (" + this.SchoolName + ")";
@@ -57,7 +74,7 @@ public class Building
 						for (int tens=0; tens<=maxTensPlace; tens++) {
 								for (int ones=0; ones<=maxOnesPlace; ones++) {
 					
-										bool isPublished = ((Random.Range (0, 10) % 10) == 0);
+										bool isPublished = ((UnityEngine.Random.Range (0, 10) % 10) == 0);
 										int roomNumber = hundrends * 100 + tens * 10 + ones;
 										Room room = new Room (roomNumber, schoolName, name, isPublished);
 										rooms.Add (room);
