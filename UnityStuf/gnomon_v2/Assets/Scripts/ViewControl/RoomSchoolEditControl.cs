@@ -44,10 +44,10 @@ public class RoomSchoolEditControl : MonoBehaviour
 				for (int i=0; i<theSchool.Buildings.Count; i++) {
 						GameObject building = NGUITools.AddChild (ParentOfBuildings, PrefabBuildingContainer);
 			
-						/*
+						
 						//ADD building to school container
 						building.GetComponent<RoomBuildingEditControl> ().RefreshBuildingContainer (theTeam, theSchool, i);
-						
+						/*
 						UIWidget buildingWidget = building.GetComponent<UIWidget> ();
 			
 			
