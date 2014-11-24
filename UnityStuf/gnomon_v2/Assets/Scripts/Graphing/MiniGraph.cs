@@ -38,6 +38,12 @@ public class MiniGraph : MonoBehaviour
 		public Vector2[] rawPoints;
 		public Main main;
 		
+		public UILabel label0;
+		public UILabel label1;
+		public UILabel label2;
+		public UILabel label3;
+		public UILabel label4;
+		
 	
 		// Use this for initialization
 		void Start ()
@@ -103,6 +109,20 @@ public class MiniGraph : MonoBehaviour
 				
 				VectorLine vl = VectorLine.SetLine (cp.GetColorWrapperAt (0).ColorValue, points);
 				vl.lineWidth = 20f;
+				
+				
+				int incValue = Mathf.RoundToInt (max / 4);
+				label0.text = "0";
+				label1.text = incValue.ToString ();
+				label2.text = (incValue * 2).ToString ();
+				label3.text = (incValue * 3).ToString ();
+				label4.text = (incValue * 4).ToString ();
+				
+				
+				
+				
+				
+				
 				
 				
 				main.vectorLines.Add (vl);
