@@ -31,7 +31,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
 		
-				/*
+				
 				//UIWidget topWidget= ParentOfRoomSwitch.GetComponent<UIWidget>();
 				Transform topTransform = ParentOfRoomSwitch.transform;
 		
@@ -39,6 +39,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 				for (int i=0; i<theBuilding.Rooms.Count; i++) {
 						GameObject room = NGUITools.AddChild (ParentOfRoomSwitch, PrefabSwitchContainer);
 			
+						/*
 						//ADD room to building container
 						room.GetComponent<RoomSelectControl> ().SetAttachedRoom (theTeam, theSchool, theBuilding, i);
 						
@@ -54,10 +55,10 @@ public class RoomBuildingEditControl : MonoBehaviour
 						roomWidget.rightAnchor.target = parent;
 						
 			
-						topTransform = room.transform;
+						topTransform = room.transform;*/
 				}
 		
-		*/
+		
 		}
 	
 }
