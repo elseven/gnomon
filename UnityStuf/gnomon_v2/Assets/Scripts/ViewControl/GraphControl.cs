@@ -104,7 +104,10 @@ public class GraphControl : MonoBehaviour
 				for (int i=0; i<pointsList.Count; i++) {
 						pointsList [i] = Tools.Normalize (pointsList [i], height, max, min);
 						pointsList [i] = Tools.MoveToOrigin (pointsList [i], bottom, left, width, height);
-						main.vectorLines.Add (VectorLine.SetLine (Tools.cp.GetColorWrapperAt (i).ColorValue, pointsList [i]));
+						//main.vectorLines.Add (VectorLine.SetLine (Tools.cp.GetColorWrapperAt (i).ColorValue, pointsList [i]));
+						VectorLine vl = new VectorLine (combinedTitle + "_" + i, pointsList [i], Tools.cp.GetColorWrapperAt (i).ColorValue, null, 4f, LineType.Continuous);
+						vl.Draw ();
+						main.vectorLines.Add (vl);
 				}
 				
 				
