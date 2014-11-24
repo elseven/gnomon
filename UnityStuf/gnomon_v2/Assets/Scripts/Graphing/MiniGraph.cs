@@ -113,12 +113,17 @@ public class MiniGraph : MonoBehaviour
 				VectorLine vl = new VectorLine ("mini_" + SelectedMiniMode.ToString (), points, cp.GetColorWrapperAt (0).ColorValue, null, 4f, LineType.Continuous);
 			
 				
-				int incValue = Mathf.RoundToInt (max / 4);
+				float incValue = (max / 4.0f);
+				string formatString = "n0";
+				if (incValue < 5f) {
+						formatString = "f1";
+				}
+				
 				label0.text = "0";
-				label1.text = incValue.ToString ();
-				label2.text = (incValue * 2).ToString ();
-				label3.text = (incValue * 3).ToString ();
-				label4.text = (incValue * 4).ToString ();
+				label1.text = incValue.ToString (formatString);
+				label2.text = (incValue * 2).ToString (formatString);
+				label3.text = (incValue * 3).ToString (formatString);
+				label4.text = (incValue * 4).ToString (formatString);
 				
 				
 				

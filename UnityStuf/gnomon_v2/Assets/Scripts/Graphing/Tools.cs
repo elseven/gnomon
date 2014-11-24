@@ -14,6 +14,11 @@ public class Tools
 				//max -= min;
 				
 				
+				
+				
+				
+								
+																
 				for (int i=0; i<points.Length; i++) {
 				
 				
@@ -44,6 +49,17 @@ public class Tools
 						}
 					
 				}
+				
+				
+				
+				max = BetterMax (max);
+				
+				
+				
+				
+				
+				
+				
 				return max;
 
 		}
@@ -72,6 +88,7 @@ public class Tools
 						}
 				}
 				
+				max = BetterMax (max);
 				return max;
 		
 		}
@@ -88,6 +105,78 @@ public class Tools
 		
 				return min;
 		
+		}
+		
+		
+		
+		
+		
+		
+		private static float BetterMax (float max)
+		{
+			
+				int betterAsInt = Mathf.CeilToInt (max);
+				float better = betterAsInt + 0f;
+				
+				
+				/*
+				if (betterAsInt < 10) {
+						return 10;
+				} else if (betterAsInt < 25) {
+						return 25;
+				} else if (betterAsInt < 50) {
+						return 50;
+				} else if (betterAsInt < 100) {
+						return 100;
+				}*/
+				
+				int numDigits = CalculateDigits (betterAsInt);
+				
+				float quarterValue = 0.5f * Mathf.Pow (10f, numDigits - 1);
+				float roundedToQuarter = quarterValue;
+				
+				Debug.LogWarning ("first: " + roundedToQuarter);
+				while (roundedToQuarter<better) {
+						roundedToQuarter += quarterValue;
+						Debug.LogWarning ("then: " + roundedToQuarter);
+				}
+				
+				
+				
+				better = roundedToQuarter;
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				return better;
+		}
+		
+		
+		
+		private static int CalculateDigits (int value)
+		{
+		
+				int numDigits = 1;
+			
+				int div = value / 10;
+			
+				while (div>=1) {
+						numDigits++;
+						div /= 10;
+				}
+			
+			
+				Debug.LogWarning ("value= " + value + " #digits= " + numDigits);
+			
+			
+			
+				return numDigits;
 		}
 		
 		
