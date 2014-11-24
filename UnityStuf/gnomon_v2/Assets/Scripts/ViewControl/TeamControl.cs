@@ -48,7 +48,7 @@ public class TeamControl : MonoBehaviour
 		
 		public SchoolEditControl schoolEditControl;
 		public BuildingEditControl buildingEditControl;
-		//public RoomEditControl roomEditControl;
+		public RoomEditControl roomEditControl;
 	
 	
 		public Team SelectedTeam {
@@ -382,8 +382,7 @@ public class TeamControl : MonoBehaviour
 				HideDetailPanels ();
 
 				schoolEditControl.Init (SelectedTeam);
-				
-				//TODO: IMPL
+
 		}
 		
 		public void ShowEditBuilding ()
@@ -393,9 +392,9 @@ public class TeamControl : MonoBehaviour
 				ActiveTEM = TeamEditMode.BUILDING;
 				HideDetailPanels ();
 				
-				//LEFTOFF
+			
 				buildingEditControl.Init (SelectedTeam);
-				//TODO: IMPL
+				
 		}
 	
 		public void ShowEditRooms ()
@@ -403,9 +402,10 @@ public class TeamControl : MonoBehaviour
 				MethodBase methodBase = MethodBase.GetCurrentMethod ();
 				Debug.LogWarning (methodBase.Name);
 				ActiveTEM = TeamEditMode.ROOM;
-				TeamEditCAB.SetActive (true);
-				EditRoomPanel.SetActive (true);
-				//TODO: IMPL
+				HideDetailPanels ();
+		
+		
+				roomEditControl.Init (SelectedTeam);
 		}
 		#endregion
 		
