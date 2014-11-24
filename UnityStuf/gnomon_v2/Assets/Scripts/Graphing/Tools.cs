@@ -11,14 +11,14 @@ public class Tools
 				
 				
 				//shift down to min
-				//max -= min;
+				max -= min;
 				
 				
 				for (int i=0; i<points.Length; i++) {
 				
 				
 						//shift down
-						//points [i].y -= min;
+						points [i].y -= min;
 						//scale so values are btwn 0 and 1
 						points [i].y /= max;
 						//values btwn 0 and graphTop
