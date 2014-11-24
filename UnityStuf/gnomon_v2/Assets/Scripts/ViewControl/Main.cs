@@ -79,7 +79,10 @@ public class Main : MonoBehaviour
 		
 		#endregion
 
-
+		public void SetBackMode (BackMode mode)
+		{
+				SelectedBackMode = mode;
+		}
 		public void ClearVectorLines ()
 		{
 				for (int i=0; i<vectorLines.Count; i++) {
@@ -88,16 +91,6 @@ public class Main : MonoBehaviour
 				}
 				vectorLines.Clear ();
 		}
-		
-		
-		
-		//FIXME: SET BACK MODE NOT BEING CALLED
-		public void SetBackMode (BackMode mode)
-		{
-				SelectedBackMode = mode;	
-		}
-		
-		
 		
 		
 		
@@ -152,7 +145,7 @@ public class Main : MonoBehaviour
 		
 		IEnumerator ImplActivateTeams ()
 		{
-		
+				
 				//CHECK: NEED TO MAKE SURE TABLE STARTS OUT AT TOP AFTER ADDING ITEMS
 				ClearVectorLines ();
 				DeactivateAllPanels ();
@@ -196,8 +189,8 @@ public class Main : MonoBehaviour
 		{
 		
 				//URGENT: ACTUALLY IMPL THIS
-				
-				
+		
+		
 				HidePanel.SetActive (true);
 				
 				ClearVectorLines ();

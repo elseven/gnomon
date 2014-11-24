@@ -264,7 +264,7 @@ public class TeamControl : MonoBehaviour
 								
 					
 						
-						label += "      #" + r.Number;
+						label += "      #" + r.Number + "\n";
 				}
 				
 				
@@ -323,6 +323,8 @@ public class TeamControl : MonoBehaviour
 		private void UpdateTeam ()
 		{
 		
+				//URGENT
+				//CHECK: IS THIS WHERE LINK IS GETTING LOST? SOMEHOW THE TEAM IS GETTING LOST WHEN YOU EDIT ANOTHER ONE OR SOMETHING?
 				switch (ActiveTEM) {
 				case TeamEditMode.EMPTY:
 						Debug.LogError ("WHY IS THIS EMPTY???");
@@ -343,6 +345,12 @@ public class TeamControl : MonoBehaviour
 						Debug.LogError ("NOT IMPLEMENTED");
 						break;
 				}
+				
+				
+				
+				
+				
+				
 		}
 	
 	
@@ -409,4 +417,5 @@ public class TeamControl : MonoBehaviour
 		}
 		#endregion
 		
+	
 }

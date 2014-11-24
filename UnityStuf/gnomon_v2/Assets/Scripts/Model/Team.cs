@@ -95,6 +95,13 @@ public class Team : IComparable<Team>
 				}
 		}
 		
+		
+		public string GenerateGraphTitle ()
+		{
+				return "Team " + this.Name;
+		
+		}
+		
 		public int GetLineCount ()
 		{
 				return SchoolList.Count + BuildingList.Count + RoomList.Count;
