@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class Tools
 {
 		public static ColorPicker cp = new ColorPicker ();
+		public static Color LIGHT_BLUE = new Color (51 / 255f, 181 / 255f, 229 / 255f);
 		
 		#region Vector stuff
 		public static Vector2[] Normalize (Vector2[] points, float graphTop, float max, float min)

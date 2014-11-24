@@ -17,7 +17,7 @@ public class TeamControl : MonoBehaviour
 		private TeamEditMode ActiveTEM = TeamEditMode.EMPTY;
 		public GameObject TeamOverflowPopup;
 		public UILabel PopupHeader;
-		private Team backupTeam;
+		//private Team backupTeam;
 		private Team selectedTeam;
 		private Team copyTeam;
 
@@ -49,7 +49,7 @@ public class TeamControl : MonoBehaviour
 		public SchoolEditControl schoolEditControl;
 		public BuildingEditControl buildingEditControl;
 		public RoomEditControl roomEditControl;
-	
+		public TeamNameEditControl teamNameEditControl;
 	
 		public Team SelectedTeam {
 				get {
@@ -72,7 +72,7 @@ public class TeamControl : MonoBehaviour
 		{
 		
 				//actual reference
-				this.backupTeam = selected;
+				//this.backupTeam = selected;
 				
 				//deep copy
 				this.SelectedTeam = new Team (selected);
@@ -380,6 +380,14 @@ public class TeamControl : MonoBehaviour
 	
 	
 		#region SHOW EDIT PANELS
+		
+		public void ShowEditName ()
+		{
+				ActiveTEM = TeamEditMode.SCHOOL;
+				TeamEditCAB.SetActive (true);
+				TeamEditTop.SetActive (false);
+				teamNameEditControl.Init (SelectedTeam);
+		}
 	
 		public void ShowEditSchool ()
 		{

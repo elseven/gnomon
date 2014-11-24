@@ -12,7 +12,7 @@ public class BuildingSchoolEditControl : MonoBehaviour
 		
 		public School theSchool;
 		public Team theTeam;
-	
+		
 
 		
 		public void RefreshSchoolContainer (Team team, School school)
