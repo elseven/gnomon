@@ -47,23 +47,22 @@ public class RoomSchoolEditControl : MonoBehaviour
 						
 						//ADD building to school container
 						building.GetComponent<RoomBuildingEditControl> ().RefreshBuildingContainer (theTeam, theSchool, i);
-						/*
+						
 						UIWidget buildingWidget = building.GetComponent<UIWidget> ();
 			
 			
-						
 						buildingWidget.topAnchor.target = topTransform;
 						buildingWidget.bottomAnchor.target = topTransform;
-						buildingWidget.topAnchor.absolute = -30;
-						buildingWidget.bottomAnchor.absolute = -60;
+						buildingWidget.topAnchor.absolute = -30 - 200 * i;
+						buildingWidget.bottomAnchor.absolute = -60 - 200 * i;
 			
 			
 						buildingWidget.leftAnchor.target = parent;
 						buildingWidget.rightAnchor.target = parent;
 						
 			
-						topTransform = building.transform;
-						*/
+						//topTransform = building.transform;
+						
 				}
 		
 		

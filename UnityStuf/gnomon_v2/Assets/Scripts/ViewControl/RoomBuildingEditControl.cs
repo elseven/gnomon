@@ -39,7 +39,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 				for (int i=0; i<3; i++) {
 						GameObject room = NGUITools.AddChild (ParentOfRoomSwitch, PrefabSwitchContainer);
 			
-						/*
+						
 						//ADD room to building container
 						room.GetComponent<RoomSelectControl> ().SetAttachedRoom (theTeam, theSchool, theBuilding, i);
 						
@@ -55,8 +55,10 @@ public class RoomBuildingEditControl : MonoBehaviour
 						roomWidget.rightAnchor.target = parent;
 						
 			
-						topTransform = room.transform;*/
+						topTransform = room.transform;
 				}
+				
+				
 		
 		
 		}

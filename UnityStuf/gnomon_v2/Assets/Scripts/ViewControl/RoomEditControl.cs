@@ -105,6 +105,7 @@ public class RoomEditControl : MonoBehaviour
 		
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
+				//StartCoroutine ("ImplRefreshMain");
 				float width = ERScrollArea.GetComponent<UIPanel> ().width - 20f;
 		
 		
@@ -116,7 +117,7 @@ public class RoomEditControl : MonoBehaviour
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
 		
-		
+				//yield return null;
 				//ADD BACK ALL SchoolContainers
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
@@ -132,11 +133,7 @@ public class RoomEditControl : MonoBehaviour
 						scWidget.rightAnchor.target = ERScrollArea.transform;
 			
 			
-			
 				}
-		
-		
-		
 		}
 	
 	
@@ -147,4 +144,8 @@ public class RoomEditControl : MonoBehaviour
 		
 		
 		}
+		
+		
+
+	
 }
