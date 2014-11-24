@@ -36,7 +36,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 				Transform topTransform = ParentOfRoomSwitch.transform;
 		
 				//ADD BACK ALL PrefabSwitchContainer to Buildings
-				for (int i=0; i<theBuilding.Rooms.Count; i++) {
+				for (int i=0; i<3; i++) {
 						GameObject room = NGUITools.AddChild (ParentOfRoomSwitch, PrefabSwitchContainer);
 			
 						/*

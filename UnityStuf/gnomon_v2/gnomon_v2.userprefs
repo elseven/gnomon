@@ -5,10 +5,10 @@
       <File FileName="Assets/Scripts/ViewControl/BuildingEditControl.cs" Line="74" Column="4" />
       <File FileName="Assets/Scripts/ViewControl/BuildingSelectControl.cs" Line="76" Column="2" />
       <File FileName="Assets/Scripts/ViewControl/BuildingSchoolEditControl.cs" Line="38" Column="63" />
-      <File FileName="Assets/Scripts/ViewControl/RoomBuildingEditControl.cs" Line="57" Column="9" />
+      <File FileName="Assets/Scripts/ViewControl/RoomBuildingEditControl.cs" Line="58" Column="39" />
       <File FileName="Assets/Scripts/ViewControl/RoomEditControl.cs" Line="106" Column="34" />
       <File FileName="Assets/Scripts/ViewControl/RoomSelectControl.cs" Line="57" Column="55" />
-      <File FileName="Assets/Scripts/ViewControl/RoomSchoolEditControl.cs" Line="60" Column="9" />
+      <File FileName="Assets/Scripts/ViewControl/RoomSchoolEditControl.cs" Line="49" Column="66" />
       <File FileName="Assets/Scripts/ViewControl/Main.cs" Line="11" Column="1" />
       <File FileName="Assets/Scripts/ViewControl/TeamControl.cs" Line="408" Column="1" />
     </Files>
