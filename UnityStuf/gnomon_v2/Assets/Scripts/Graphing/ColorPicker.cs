@@ -24,6 +24,7 @@ public class ColorPicker
 		{
 				return ColorArray [index % 10];
 		}
+		
 	
 	
 }

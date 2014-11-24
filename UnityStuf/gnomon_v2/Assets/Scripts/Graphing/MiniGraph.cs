@@ -25,6 +25,8 @@ public class MiniGraph : MonoBehaviour
 		public GameObject Overlay;
 		public GraphControl graphControl;
 		
+		public static ColorPicker cp = new ColorPicker ();
+		
 
 		UISprite canvas1;
 		
@@ -98,9 +100,12 @@ public class MiniGraph : MonoBehaviour
 		
 				points = Tools.MoveToOrigin (rawPoints, bottom, left, width, height);
 		
-		
-		
-				main.vectorLines.Add (VectorLine.SetLine (Color.green, points));
+				
+				VectorLine vl = VectorLine.SetLine (cp.GetColorWrapperAt (0).ColorValue, points);
+				vl.lineWidth = 20f;
+				
+				
+				main.vectorLines.Add (vl);
 		}
 		
 		
