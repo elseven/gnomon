@@ -336,7 +336,7 @@ public class TeamControl : MonoBehaviour
 						break;
 				case TeamEditMode.ROOM:
 				//URGENT: NOT IMPL
-						Debug.LogError ("NOT IMPLEMENTED");
+						SelectedTeam = roomEditControl.ImplDone ();
 						break;
 				case TeamEditMode.NAME:
 				//URGENT: NOT IMPL

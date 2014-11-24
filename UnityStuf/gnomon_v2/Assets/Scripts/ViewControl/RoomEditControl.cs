@@ -49,17 +49,17 @@ public class RoomEditControl : MonoBehaviour
 		public Team ImplDone ()
 		{
 		
-				/*
-				theTeam.BuildingList.Clear ();
+				
+				theTeam.RoomList.Clear ();
 				Transform parent = ParentOfSC.transform;
-				BuildingSelectControl[] bscs = parent.GetComponentsInChildren<BuildingSelectControl> ();
+				RoomSelectControl[] rscs = parent.GetComponentsInChildren<RoomSelectControl> ();
 		
-				foreach (BuildingSelectControl bsc in bscs) {	
-						if (bsc.IsSelected) {
-								theTeam.BuildingList.Add (bsc.AttachedBuilding);
+				foreach (RoomSelectControl rsc in rscs) {	
+						if (rsc.IsSelected) {
+								theTeam.RoomList.Add (rsc.AttachedRoom);
 						}
 				}
-				theTeam.BuildingList.Sort ();*/
+				theTeam.RoomList.Sort ();
 				
 				
 				return theTeam;
