@@ -174,10 +174,12 @@ public class Main : MonoBehaviour
 				HidePanel.SetActive (true);
 				ClearVectorLines ();
 				DeactivateAllPanels ();
-				InitMiniGraphs ();
+				
+				
 				HomePanel.SetActive (true);
 				TopPanel.SetActive (true);
-				
+				yield return null;
+				InitMiniGraphs ();
 				yield return null;
 				HidePanel.SetActive (false);
 				homeTabNeedsActive = false;

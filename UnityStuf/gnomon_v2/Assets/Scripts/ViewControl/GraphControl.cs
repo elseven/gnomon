@@ -89,17 +89,26 @@ public class GraphControl : MonoBehaviour
 		
 		public void ShowGraphPanel ()
 		{
-				Init ();
 				
-				main.ActivateGraph ();
+				main.ActivateGraph ();		
+				StartCoroutine ("ImplShowGraph");
+		
+		}
+		
+		IEnumerator ImplShowGraph ()
+		{
+		
+		
+				yield return null;
+				Init ();
 		
 				combinedTitle = Tools.MakeTitle (titlesList);
 				GraphTitle.text = combinedTitle;
-				
-				
+		
+				yield return null;
 				float min = Tools.SuperMin (pointsList);
 				float max = Tools.SuperMax (pointsList);
-				
+		
 				
 				for (int i=0; i<pointsList.Count; i++) {
 						pointsList [i] = Tools.Normalize (pointsList [i], height, max, min);
@@ -109,12 +118,8 @@ public class GraphControl : MonoBehaviour
 						vl.Draw ();
 						main.vectorLines.Add (vl);
 				}
-				
-				
-				
 		
 		
-				
 		
 		}
 	
