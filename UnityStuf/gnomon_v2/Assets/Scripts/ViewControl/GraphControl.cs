@@ -93,7 +93,10 @@ public class GraphControl : MonoBehaviour
 				
 				float incValue = (max / 8.0f);
 		
-				string formatString = "n2";
+				string formatString = "n0";
+				if (incValue < .5f) {
+						formatString = "n2";
+				}
 		
 		
 				label0.text = "0";
