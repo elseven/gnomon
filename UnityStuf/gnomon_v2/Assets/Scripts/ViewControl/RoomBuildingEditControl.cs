@@ -43,6 +43,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 			
 						//ADD room to building container
 						room.GetComponent<RoomSelectControl> ().SetAttachedRoom (theTeam, theSchool, theBuilding, i);
+						/*
 						UIWidget roomWidget = room.GetComponent<UIWidget> ();
 			
 						roomWidget.topAnchor.target = topTransform;
@@ -53,7 +54,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 			
 						roomWidget.leftAnchor.target = parent;
 						roomWidget.rightAnchor.target = parent;
-			
+						*/
 			
 						topTransform = room.transform;
 				}

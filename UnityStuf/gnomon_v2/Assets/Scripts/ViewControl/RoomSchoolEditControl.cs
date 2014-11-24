@@ -22,13 +22,15 @@ public class RoomSchoolEditControl : MonoBehaviour
 				MethodBase methodBase = MethodBase.GetCurrentMethod ();
 				Debug.LogWarning (methodBase.Name);
 		
+				
 				this.theSchool = school;
 				this.theTeam = team;
 		
 		
 				schoolLabel.text = theSchool.Name;
 				Transform parent = ParentOfBuildings.transform;
-		
+				
+				
 				//REMOVE ALL PrefabBuildingContainer from Buildings
 				while (parent.childCount>0) {
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
@@ -42,10 +44,14 @@ public class RoomSchoolEditControl : MonoBehaviour
 				for (int i=0; i<theSchool.Buildings.Count; i++) {
 						GameObject building = NGUITools.AddChild (ParentOfBuildings, PrefabBuildingContainer);
 			
+						/*
 						//ADD building to school container
 						building.GetComponent<RoomBuildingEditControl> ().RefreshBuildingContainer (theTeam, theSchool, i);
+						
 						UIWidget buildingWidget = building.GetComponent<UIWidget> ();
 			
+			
+						
 						buildingWidget.topAnchor.target = topTransform;
 						buildingWidget.bottomAnchor.target = topTransform;
 						buildingWidget.topAnchor.absolute = -30;
@@ -54,9 +60,10 @@ public class RoomSchoolEditControl : MonoBehaviour
 			
 						buildingWidget.leftAnchor.target = parent;
 						buildingWidget.rightAnchor.target = parent;
-			
+						
 			
 						topTransform = building.transform;
+						*/
 				}
 		
 		
