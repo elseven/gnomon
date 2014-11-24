@@ -19,9 +19,25 @@ public class GraphControl : MonoBehaviour
 		public UILabel GraphTitle;
 		Camera cam;
 		public Camera NGUICam;
-		
+
 	
 		public Main main;
+	
+	
+		public UILabel label0;
+		public UILabel label1;
+		public UILabel label2;
+		public UILabel label3;
+		public UILabel label4;
+		public UILabel label5;
+		public UILabel label6;
+		public UILabel label7;
+		public UILabel label8;
+	
+	
+	
+	
+	
 	
 		// Use this for initialization
 		void Start ()
