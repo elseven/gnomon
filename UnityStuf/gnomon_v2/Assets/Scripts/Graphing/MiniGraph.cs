@@ -87,16 +87,16 @@ public class MiniGraph : MonoBehaviour
 				switch (SelectedMiniMode) {
 				case MiniMode.SCHOOL:
 						School school = Main.world.GetSchoolByName (HardcodedSchoolName);
-						rawPoints = school.GetEnergyPointsRange (0, 30);
+						rawPoints = school.GetEnergyPointsRange (0, 29);
 						break;
 				case MiniMode.BUILDING:
 						Building building = Main.world.GetBuildingByNames (HardcodedSchoolName, HardcodedBuildingName);
-						rawPoints = building.GetEnergyPointsRange (0, 30);
+						rawPoints = building.GetEnergyPointsRange (0, 29);
 						break;
 			
 				case MiniMode.ROOM:
 						Room room = Main.world.GetRoomByNames (HardcodedSchoolName, HardcodedBuildingName, 0);
-						rawPoints = room.GetEnergyPointsRange (0, 30);
+						rawPoints = room.GetEnergyPointsRange (0, 29);
 						break;		
 				}
 		
@@ -107,9 +107,11 @@ public class MiniGraph : MonoBehaviour
 				points = Tools.MoveToOrigin (rawPoints, bottom, left, width, height);
 		
 				
-				VectorLine vl = VectorLine.SetLine (cp.GetColorWrapperAt (0).ColorValue, points);
-				vl.lineWidth = 20f;
-				
+				//VectorLine vl = VectorLine.SetLine (cp.GetColorWrapperAt (0).ColorValue, points);
+				//vl.smoothWidth = true;
+				//vl.lineWidth = 40f;
+				VectorLine vl = new VectorLine ("mini_" + SelectedMiniMode.ToString (), points, cp.GetColorWrapperAt (0).ColorValue, null, 4f, LineType.Continuous);
+			
 				
 				int incValue = Mathf.RoundToInt (max / 4);
 				label0.text = "0";
@@ -124,8 +126,9 @@ public class MiniGraph : MonoBehaviour
 				
 				
 				
-				
+				vl.Draw ();
 				main.vectorLines.Add (vl);
+				
 		}
 		
 		

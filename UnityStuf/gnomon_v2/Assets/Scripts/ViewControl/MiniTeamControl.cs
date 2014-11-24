@@ -85,7 +85,7 @@ public class MiniTeamControl : MonoBehaviour
 				
 				
 				graphControl.ClearList ();
-				graphControl.AddToPointsList (title, AttachedTeam.GetEnergyPointsRange (0, 30));
+				graphControl.AddToPointsList (title, AttachedTeam.GetEnergyPointsRange (0, 29));
 				main.ClearVectorLines ();
 				main.SetBackMode (BackMode.TEAMS);
 				graphControl.ShowGraphPanel ();
