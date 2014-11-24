@@ -34,8 +34,8 @@ public class MiniGraph : MonoBehaviour
 		public Camera NGUICam;
 		public string HardcodedSchoolName;
 		public string HardcodedBuildingName;
-		public Vector2[] points;
-		public Vector2[] rawPoints;
+		private Vector2[] points;
+		private Vector2[] rawPoints;
 		public Main main;
 		
 		public UILabel label0;
@@ -44,7 +44,9 @@ public class MiniGraph : MonoBehaviour
 		public UILabel label3;
 		public UILabel label4;
 		
-	
+		private School theSchool;
+		private Building theBuilding;
+		private Room theRoom;
 		// Use this for initialization
 		void Start ()
 		{
@@ -86,26 +88,32 @@ public class MiniGraph : MonoBehaviour
 		
 				switch (SelectedMiniMode) {
 				case MiniMode.SCHOOL:
-						School school = Main.world.GetSchoolByName (HardcodedSchoolName);
-						rawPoints = school.GetEnergyPointsRange (0, 29);
+						theSchool = Main.world.GetSchoolByName (HardcodedSchoolName);
+						rawPoints = theSchool.GetEnergyPointsRange (0, 29);
 						break;
 				case MiniMode.BUILDING:
-						Building building = Main.world.GetBuildingByNames (HardcodedSchoolName, HardcodedBuildingName);
-						rawPoints = building.GetEnergyPointsRange (0, 29);
+						theBuilding = Main.world.GetBuildingByNames (HardcodedSchoolName, HardcodedBuildingName);
+						rawPoints = theBuilding.GetEnergyPointsRange (0, 29);
 						break;
 			
 				case MiniMode.ROOM:
-						Room room = Main.world.GetRoomByNames (HardcodedSchoolName, HardcodedBuildingName, 0);
-						rawPoints = room.GetEnergyPointsRange (0, 29);
+						theRoom = Main.world.GetRoomByNames (HardcodedSchoolName, HardcodedBuildingName, 0);
+						rawPoints = theRoom.GetEnergyPointsRange (0, 29);
 						break;		
 				}
 		
 				float min = Tools.SingleMin (rawPoints);
 				float max = Tools.SingleMax (rawPoints);
 				points = Tools.Normalize (rawPoints, height, max, min);
-		
-				points = Tools.MoveToOrigin (rawPoints, bottom, left, width, height);
-		
+				//points = Tools.MoveToOrigin (rawPoints, bottom, left, width, height);
+				points = Tools.MoveToOrigin (points, bottom, left, width, height);
+				
+				
+				string pstring = "Minigraph_" + SelectedMiniMode.ToString ();
+				foreach (Vector2 p in rawPoints) {
+						pstring += p.y + "\n";
+				}
+				Debug.LogError (pstring);
 				
 				//VectorLine vl = VectorLine.SetLine (cp.GetColorWrapperAt (0).ColorValue, points);
 				//vl.smoothWidth = true;
@@ -125,12 +133,7 @@ public class MiniGraph : MonoBehaviour
 				label3.text = (incValue * 3).ToString (formatString);
 				label4.text = (incValue * 4).ToString (formatString);
 				
-				
-				
-				
-				
-				
-				
+		
 				vl.Draw ();
 				main.vectorLines.Add (vl);
 				
@@ -158,12 +161,15 @@ public class MiniGraph : MonoBehaviour
 				switch (SelectedMiniMode) {
 				case MiniMode.SCHOOL:
 						title = HardcodedSchoolName;
+						rawPoints = theSchool.GetEnergyPointsRange (0, 29);
 						break;
 				case MiniMode.BUILDING:
 						title = HardcodedBuildingName + "(" + HardcodedSchoolName + ")";
+						rawPoints = theBuilding.GetEnergyPointsRange (0, 29);
 						break;
 				case MiniMode.ROOM:
 						title = "Room #101, " + HardcodedBuildingName + " (" + HardcodedSchoolName + ")";
+						rawPoints = theRoom.GetEnergyPointsRange (0, 29);
 						break;
 				}
 				

@@ -12,13 +12,7 @@ public class Tools
 				
 				//shift down to min
 				//max -= min;
-				
-				
-				
-				
-				
-								
-																
+					
 				for (int i=0; i<points.Length; i++) {
 				
 				
@@ -39,7 +33,59 @@ public class Tools
 		}
 		
 		
+		
 		public static float SingleMax (Vector2[] points)
+		{
+				float max = SimpleMax (points);
+				
+				
+				
+				max = BetterMax (max);
+				
+				//Debug.LogError ("single = " + max);
+				
+				
+				return max;
+
+		}
+		
+		
+		
+		public static float SuperMax (List<Vector2[]> pointsList)
+		{
+		
+				string superstring = "Supermax:\n";
+				float max = float.MinValue;
+				superstring += "list length: " + pointsList.Count + "\n";
+				foreach (Vector2[] points in pointsList) {
+				
+						float tempMax = SimpleMax (points);
+						superstring += "tempmax = " + tempMax + "\n";		
+						if (tempMax > max) {
+								//Debug.LogError ("setting max to = " + tempMax);
+								max = tempMax;
+						}
+						superstring += "max is = " + max;
+				}
+				
+				superstring += "*****prebetter**** = " + max + "\n";
+				max = BetterMax (max);
+				superstring += "after better = " + max + "\n";
+				superstring += "calc normal = " + SingleMax (pointsList [0]);
+				
+				
+				
+				Debug.Log (superstring);
+				return max;
+		
+		}
+		
+	
+		
+		
+		
+		
+		private static float SimpleMax (Vector2[] points)
 		{
 				float max = float.MinValue;
 		
@@ -47,70 +93,12 @@ public class Tools
 						if (v.y > max) {
 								max = v.y;
 						}
-					
 				}
-				
-				
-				
-				max = BetterMax (max);
-				
-				
-				
-				
-				
-				
-				
+		
+				//max = BetterMax (max);
 				return max;
-
+			
 		}
-		public static float SingleMin (Vector2[] points)
-		{
-				
-				float min = float.MaxValue;
-				foreach (Vector2 v in points) {
-				
-						if (v.y < min) {
-								min = v.y;
-						}
-				}
-				return min;
-		
-		}
-		
-		
-		public static float SuperMax (List<Vector2[]> pointsList)
-		{
-				float max = float.MinValue;
-				foreach (Vector2[] points in pointsList) {
-						float tempMax = SingleMax (points);
-						if (tempMax > max) {
-								max = tempMax;
-						}
-				}
-				
-				max = BetterMax (max);
-				return max;
-		
-		}
-		
-		public static float SuperMin (List<Vector2[]> pointsList)
-		{
-				float min = float.MaxValue;
-				foreach (Vector2[] points in pointsList) {
-						float tempMin = SingleMin (points);
-						if (tempMin < min) {
-								min = tempMin;
-						}
-				}
-		
-				return min;
-		
-		}
-		
-		
-		
-		
-		
 		
 		private static float BetterMax (float max)
 		{
@@ -132,27 +120,20 @@ public class Tools
 				
 				int numDigits = CalculateDigits (betterAsInt);
 				
-				float quarterValue = 0.5f * Mathf.Pow (10f, numDigits - 1);
+				//float quarterValue = 0.5f * Mathf.Pow (10f, numDigits - 1);
+				float quarterValue = 2 * Mathf.Pow (10f, numDigits - 1);
 				float roundedToQuarter = quarterValue;
 				
-				Debug.LogWarning ("first: " + roundedToQuarter);
-				while (roundedToQuarter<better) {
+				//Debug.LogWarning ("first: " + roundedToQuarter);
+				while (roundedToQuarter<=better) {
 						roundedToQuarter += quarterValue;
-						Debug.LogWarning ("then: " + roundedToQuarter);
+						//Debug.LogWarning ("then: " + roundedToQuarter);
 				}
 				
 				
 				
 				better = roundedToQuarter;
-				
-			
-			
-			
-			
-			
-			
-			
-			
+		
 			
 				return better;
 		}
@@ -181,7 +162,51 @@ public class Tools
 		
 		
 		
+
+		public static float SuperMin (List<Vector2[]> pointsList)
+		{
+				float min = float.MaxValue;
+				foreach (Vector2[] points in pointsList) {
+						float tempMin = SingleMin (points);
+						if (tempMin < min) {
+								min = tempMin;
+						}
+				}
 		
+				return min;
+		
+		}
+				
+						
+		public static float SingleMin (Vector2[] points)
+		{
+		
+				float min = float.MaxValue;
+				foreach (Vector2 v in points) {
+			
+						if (v.y < min) {
+								min = v.y;
+						}
+				}
+				return min;
+		
+		}						
+										
+												
+														
+																
+																		
+																				
+																						
+																								
+																										
+																												
+																														
+																																
+																																		
+																																				
+																																						
+																																										
 		public static Vector2[] MoveToOrigin (Vector2[] points, float bottom, float left, float width, float height)
 		{
 		
@@ -217,6 +242,39 @@ public class Tools
 				return new Vector2 (left, bottom);
 		}
 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		#endregion
 		
