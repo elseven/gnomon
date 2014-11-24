@@ -15,10 +15,10 @@ public class RoomBuildingEditControl : MonoBehaviour
 		public Building theBuilding;
 	
 	
-		public void RefreshBuildingContainer (Team team, School school, int buildingIndex)
+		public int RefreshBuildingContainer (Team team, School school, int buildingIndex)
 		{
 		
-	
+				int roomCount = 10;
 				this.theSchool = school;
 				this.theTeam = team;
 				this.theBuilding = school.Buildings [buildingIndex];
@@ -36,7 +36,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 				Transform topTransform = ParentOfRoomSwitch.transform;
 		
 				//ADD BACK ALL PrefabSwitchContainer to Buildings
-				for (int i=0; i<3; i++) {
+				for (int i=0; i<roomCount; i++) {
 						GameObject room = NGUITools.AddChild (ParentOfRoomSwitch, PrefabSwitchContainer);
 			
 						
@@ -47,20 +47,20 @@ public class RoomBuildingEditControl : MonoBehaviour
 			
 						roomWidget.topAnchor.target = topTransform;
 						roomWidget.bottomAnchor.target = topTransform;
-						roomWidget.topAnchor.absolute = -30;
-						roomWidget.bottomAnchor.absolute = -60;
+						roomWidget.topAnchor.absolute = -2 - 30 * i;
+						roomWidget.bottomAnchor.absolute = -32 - 30 * i;
 			
 			
 						roomWidget.leftAnchor.target = parent;
 						roomWidget.rightAnchor.target = parent;
 						
 			
-						topTransform = room.transform;
+						//topTransform = room.transform;
 				}
 				
-				
-		
-		
+				//TODO FIX THIS TO ACTUALLY WORK
+				//int roomCount = 3;
+				return roomCount;
 		}
 	
 }

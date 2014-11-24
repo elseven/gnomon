@@ -40,27 +40,33 @@ public class RoomSchoolEditControl : MonoBehaviour
 				//UIWidget topWidget= ParentOfBuildings.GetComponent<UIWidget>();
 				Transform topTransform = ParentOfBuildings.transform;
 		
+				int topOffset = 0;
+				int roomHeight = 30;
 				//ADD BACK ALL PrefabBuildingContainer to Buildings
 				for (int i=0; i<theSchool.Buildings.Count; i++) {
+						
 						GameObject building = NGUITools.AddChild (ParentOfBuildings, PrefabBuildingContainer);
 			
 						
 						//ADD building to school container
-						building.GetComponent<RoomBuildingEditControl> ().RefreshBuildingContainer (theTeam, theSchool, i);
+						int roomCount = building.GetComponent<RoomBuildingEditControl> ().RefreshBuildingContainer (theTeam, theSchool, i);
+						
 						
 						UIWidget buildingWidget = building.GetComponent<UIWidget> ();
 			
 			
 						buildingWidget.topAnchor.target = topTransform;
 						buildingWidget.bottomAnchor.target = topTransform;
-						buildingWidget.topAnchor.absolute = -30 - 200 * i;
-						buildingWidget.bottomAnchor.absolute = -60 - 200 * i;
+						
+						buildingWidget.topAnchor.absolute = -30 - topOffset;
+						buildingWidget.bottomAnchor.absolute = -60 - topOffset;
 			
 			
 						buildingWidget.leftAnchor.target = parent;
 						buildingWidget.rightAnchor.target = parent;
 						
-			
+						topOffset += roomCount * roomHeight;
+						topOffset += 60;
 						//topTransform = building.transform;
 						
 				}

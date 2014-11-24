@@ -123,7 +123,7 @@ public class RoomEditControl : MonoBehaviour
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
 			
 			
-			
+						schools [i].Buildings.Sort ();
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
 						schoolContainer.GetComponent<RoomSchoolEditControl> ().RefreshSchoolContainer (theTeam, schools [i]);
 			
