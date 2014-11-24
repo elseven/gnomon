@@ -49,7 +49,6 @@ public class BuildingSelectControl : MonoBehaviour
 				}
 		
 		
-				//this.school = new School (s);
 				this.theTeam = team;
 				this.theSchool = s;
 				this.AttachedBuilding = s.Buildings [buildingIndex];

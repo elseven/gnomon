@@ -27,6 +27,15 @@ public class Building:IComparable<Building>
 				}
 		}
 
+		public List<Room> Rooms {
+				get {
+						return rooms;
+				}
+				set {
+						rooms = value;
+				}
+		}
+
 		public string SchoolName {
 				get {
 						return schoolName;

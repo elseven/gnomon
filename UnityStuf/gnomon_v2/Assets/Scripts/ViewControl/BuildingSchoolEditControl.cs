@@ -24,9 +24,7 @@ public class BuildingSchoolEditControl : MonoBehaviour
 				this.theSchool = school;
 				this.theTeam = team;
 				
-				//URGENT: IMPLEMENT THIS
-				//LEFTOFF
-				
+
 				schoolLabel.text = theSchool.Name;
 				Transform parent = ParentOfBuildingSwitch.transform;
 		
@@ -39,13 +37,10 @@ public class BuildingSchoolEditControl : MonoBehaviour
 				//UIWidget topWidget= ParentOfBuildingSwitch.GetComponent<UIWidget>();
 				Transform topTransform = ParentOfBuildingSwitch.transform;
 				
-				//LEFTOFF iterate over all buildings not just the ones in theSchool? or is this right? nevermind i think...
 				//ADD BACK ALL PrefabSwitchContainer to Buildings
 				for (int i=0; i<theSchool.Buildings.Count; i++) {
 						GameObject building = NGUITools.AddChild (ParentOfBuildingSwitch, PrefabSwitchContainer);
-			
-						//LEFTOFF
-						
+									
 						//ADD building to school container
 						building.GetComponent<BuildingSelectControl> ().SetAttachedBuilding (theTeam, theSchool, i);
 						UIWidget buildingWidget = building.GetComponent<UIWidget> ();
@@ -55,8 +50,7 @@ public class BuildingSchoolEditControl : MonoBehaviour
 						buildingWidget.topAnchor.absolute = -30;
 						buildingWidget.bottomAnchor.absolute = -60;
 						
-						
-						//NEW STUFF
+
 						buildingWidget.leftAnchor.target = parent;
 						buildingWidget.rightAnchor.target = parent;
 						

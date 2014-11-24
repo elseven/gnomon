@@ -201,6 +201,10 @@
      <Compile Include="Assets\Scripts\ViewControl\Main.cs" />
      <Compile Include="Assets\Scripts\ViewControl\MatchControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\MiniTeamControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\RoomBuildingEditControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\RoomEditControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\RoomSchoolEditControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\RoomSelectControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\SchoolEditControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\SchoolSelectControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\SharedVariables.cs" />

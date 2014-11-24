@@ -102,7 +102,6 @@ public class BuildingEditControl : MonoBehaviour
 				
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
-				//URGENT: DO ANCHORS!
 				float width = EBScrollArea.GetComponent<UIPanel> ().width - 20f;
 				
 				
@@ -119,7 +118,7 @@ public class BuildingEditControl : MonoBehaviour
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
 						
-						//LEFTOFF
+						
 						
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
 						schoolContainer.GetComponent<BuildingSchoolEditControl> ().RefreshSchoolContainer (theTeam, schools [i]);
