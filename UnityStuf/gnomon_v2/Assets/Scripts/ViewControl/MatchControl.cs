@@ -278,18 +278,18 @@ public class MatchControl : MonoBehaviour
 		public void ShowEditName ()
 		{
 				ActiveMEM = MatchEditMode.NAME;
-				//TODO: FOR MATCHES
-				//TeamEditCAB.SetActive (true);
-				//TeamEditTop.SetActive (false);
-				//teamNameEditControl.Init (SelectedTeam);
+				
+				MatchEditCAB.SetActive (true);
+				MatchEditTop.SetActive (false);
+				matchesNameEditControl.Init (SelectedMatch);
 		}
 		public void ShowEditTeam ()
 		{
 		
 				ActiveMEM = MatchEditMode.TEAM;
-				//TODO: FOR MATCHES
-				//HideDetailPanels ();
-				//schoolEditControl.Init (SelectedTeam);
+			
+				HideDetailPanels ();
+				matchesTeamEditControl.Init (SelectedMatch);
 		
 		}
 		#endregion	

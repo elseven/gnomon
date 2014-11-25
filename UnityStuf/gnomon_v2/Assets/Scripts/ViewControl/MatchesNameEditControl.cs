@@ -36,7 +36,6 @@ public class MatchesNameEditControl : MonoBehaviour
 				MatchNameField.selectionStart = 0;
 				MatchNameField.selectionEnd = theMatch.Name.Length;
 				MatchNameField.UpdateLabel ();
-				//MatchNameLabel.text = theMatch.Name;
 		
 				underline.color = Tools.LIGHT_BLUE;
 		
@@ -57,7 +56,6 @@ public class MatchesNameEditControl : MonoBehaviour
 	
 		public void ImplCancel ()
 		{
-				//MatchNameLabel.text = theMatch.Name;
 				MatchNameField.value = theMatch.Name;
 				MatchNameField.UpdateLabel ();
 				OnDeselect ();

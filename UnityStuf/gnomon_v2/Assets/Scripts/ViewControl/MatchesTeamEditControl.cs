@@ -49,6 +49,7 @@ public class MatchesTeamEditControl : MonoBehaviour
 		public void Init (Match match)
 		{
 				SetAttachedMatch (match);
+				match.TeamList.Sort ();
 				StartCoroutine ("FixScroll");
 		
 		}
@@ -69,9 +70,40 @@ public class MatchesTeamEditControl : MonoBehaviour
 		public void RefreshGrid ()
 		{
 				//TODO: REFRESH GRID
+
+	
 		
-				throw new System.NotImplementedException ();
+				theUser = Main.world.TheUser;
 		
+				
+				float width = ETScrollArea.GetComponent<UIPanel> ().width - 20f;
+		
+		
+		
+				Transform parent = ParentOfTeams.transform;
+		
+				//REMOVE ALL Team Switch things
+				while (parent.childCount>0) {
+						NGUITools.Destroy (parent.GetChild (0).gameObject);
+				}
+		
+		
+				//ADD BACK ALL Team switch things
+				for (int i=0; i<theUser.myTeams.Count; i++) {
+						GameObject teamSwitch = NGUITools.AddChild (ParentOfTeams, PrefabTeam);
+			
+						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
+						teamSwitch.GetComponent<TeamSelectControl> ().SetAttachedTeam (theMatch, theUser.myTeams [i]);
+			
+			
+						UIWidget miniWidget = teamSwitch.GetComponent<UIWidget> ();
+						miniWidget.leftAnchor.target = ETScrollArea.transform;
+						miniWidget.rightAnchor.target = ETScrollArea.transform;
+			
+			
+			
+				}
+						
 	
 		}
 	
