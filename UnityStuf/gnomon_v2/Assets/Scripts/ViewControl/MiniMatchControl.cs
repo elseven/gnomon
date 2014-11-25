@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MiniMatchControl : MonoBehaviour
 {
-
+		//TODO: GIVE CLICK FUNCTIONALITY (MINI MATCH CONTAINER)
 	
 		public Match AttachedMatch;
 	

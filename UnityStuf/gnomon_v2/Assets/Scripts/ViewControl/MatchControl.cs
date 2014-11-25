@@ -34,7 +34,10 @@ public class MatchControl : MonoBehaviour
 		public GameObject MiniMatchParent;
 	
 		public GameObject ScrollArea;
-	
+		
+		
+		
+		//TODO: NOT DRAGGED
 		public UIInput MatchNameTextField;
 		
 		

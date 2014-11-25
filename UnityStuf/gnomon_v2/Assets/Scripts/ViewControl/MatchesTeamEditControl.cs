@@ -8,8 +8,8 @@ public class MatchesTeamEditControl : MonoBehaviour
 	
 		public Match theMatch;
 	
-		public GameObject ParentOfMatches;
-		public GameObject PrefabMatch;
+		public GameObject ParentOfTeams;
+		public GameObject PrefabTeam;
 		
 		public GameObject CABPanel;
 		public GameObject ETPanel;
@@ -34,7 +34,7 @@ public class MatchesTeamEditControl : MonoBehaviour
 		public Match ImplDone ()
 		{
 				theMatch.TeamList.Clear ();
-				Transform parent = ParentOfMatches.transform;
+				Transform parent = ParentOfTeams.transform;
 				TeamSelectControl[] tscs = parent.GetComponentsInChildren<TeamSelectControl> ();
 				foreach (TeamSelectControl tsc in tscs) {		
 						if (tsc.IsSelected) {
