@@ -28,6 +28,8 @@ public class MatchControl : MonoBehaviour
 	
 		public GameObject MatchEditPanelBody;
 	
+	
+	
 		public UITable MatchTable;
 		public UIGrid MatchGrid;
 		public GameObject PrefabMiniMatch;
@@ -42,6 +44,8 @@ public class MatchControl : MonoBehaviour
 		
 		
 		public UIInput MatchNameTextField;
+		
+	
 		
 		
 		public MatchesNameEditControl matchesNameEditControl;
@@ -258,7 +262,7 @@ public class MatchControl : MonoBehaviour
 		*/
 		public void HideEditPanels ()
 		{
-				//TODO: HIDE THE SWITCHES PANEL
+				matchesTeamEditControl.ETPanel.SetActive (false);
 				MatchEditCAB.SetActive (false);
 				//URGENT: POPUP SAVED/CANCELED
 		}
