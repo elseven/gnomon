@@ -36,7 +36,7 @@ public class Match : IComparable<Match>
 	
 		public Match ()
 		{
-				this.Name = "<EMPTY MATCH>";
+				this.Name = "<MATCH NAME>";
 				this.TeamList = new List<Team> ();
 				id = count;
 				count++;

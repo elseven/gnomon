@@ -123,6 +123,14 @@ public class MatchControl : MonoBehaviour
 		#endregion
 	
 		#region CAB and ACTIONBAR
+		
+		public void AddMatch ()
+		{
+				SelectedMatch = new Match ();
+				EditMatch ();
+		
+		
+		}
 		public void DoneMatch ()
 		{
 		
