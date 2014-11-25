@@ -31,6 +31,25 @@ public class User
 		}
 		
 		
+		public void UpdateTeam (Team toReplace)
+		{
+				for (int i=0; i<myTeams.Count; i++) {
+						if (myTeams [i].id == toReplace.id) {
+								myTeams [i] = toReplace;
+								return;
+						}
+				}
+		
+				Debug.LogError ("DOESNT EXIST");
+		
+		
+		
+		
+		
+		
+		}
+		
+		
 		
 		
 		

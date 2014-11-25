@@ -53,7 +53,7 @@ public class RoomSelectControl : MonoBehaviour
 				this.theTeam = team;
 				this.theSchool = s;
 				this.theBuilding = b;
-				//CHECK GetRoomAt???
+				
 				this.AttachedRoom = theBuilding.Rooms [roomIndex];
 				isSelected = theTeam.RoomList.Contains (this.AttachedRoom);
 				RoomNumberLabel.text = AttachedRoom.Number.ToString ();

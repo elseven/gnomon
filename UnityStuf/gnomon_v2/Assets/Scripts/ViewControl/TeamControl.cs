@@ -5,9 +5,7 @@ using System.Reflection;
 public class TeamControl : MonoBehaviour
 {
 
-		/*LEFTOFF When you edit a team and then edit another team, the first edit is lost.
-	Also, some of the text is getting screwed up in the mini team thing
-	COULD BE because just setting SelectedTeam and never updating user.teams (or whatever it's called)
+		/*LEFTOFF some of the text is getting screwed up in the mini team thing
 */
 		public enum TeamEditMode
 		{
@@ -79,7 +77,9 @@ public class TeamControl : MonoBehaviour
 				//this.backupTeam = selected;
 				
 				//deep copy
-				this.SelectedTeam = new Team (selected);
+				//this.SelectedTeam = new Team (selected);
+				
+				this.SelectedTeam = selected;
 				PopupHeader.text = SelectedTeam.Name;
 				
 				TeamOverflowPopup.SetActive (true);
@@ -327,8 +327,7 @@ public class TeamControl : MonoBehaviour
 		private void UpdateTeam ()
 		{
 		
-				//URGENT
-				//CHECK: IS THIS WHERE LINK IS GETTING LOST? SOMEHOW THE TEAM IS GETTING LOST WHEN YOU EDIT ANOTHER ONE OR SOMETHING?
+			
 				switch (ActiveTEM) {
 				case TeamEditMode.EMPTY:
 						Debug.LogError ("WHY IS THIS EMPTY???");
@@ -351,7 +350,7 @@ public class TeamControl : MonoBehaviour
 				
 				
 				
-				
+				Main.world.TheUser.UpdateTeam (SelectedTeam);			
 				
 				
 		}
