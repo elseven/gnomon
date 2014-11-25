@@ -69,8 +69,6 @@ public class MatchesTeamEditControl : MonoBehaviour
 	
 		public void RefreshGrid ()
 		{
-				//TODO: REFRESH GRID
-
 	
 		
 				theUser = Main.world.TheUser;

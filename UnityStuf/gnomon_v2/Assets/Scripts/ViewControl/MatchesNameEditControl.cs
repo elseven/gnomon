@@ -56,8 +56,10 @@ public class MatchesNameEditControl : MonoBehaviour
 	
 		public void ImplCancel ()
 		{
+				
 				MatchNameField.value = theMatch.Name;
 				MatchNameField.UpdateLabel ();
+				//MatchNameField.label.text = "asdffdas";
 				OnDeselect ();
 		}
 	
