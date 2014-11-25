@@ -37,9 +37,10 @@ public class MatchControl : MonoBehaviour
 		public GameObject ScrollArea;
 		public UIScrollView ScrollView;
 		
+		public UILabel TeamListLabel;
 		
 		
-		//TODO: NOT DRAGGED
+		
 		public UIInput MatchNameTextField;
 		
 		
@@ -76,16 +77,40 @@ public class MatchControl : MonoBehaviour
 		#region INIT
 		void InitValues ()
 		{
-				throw new System.NotImplementedException ();
+				
 		
-				//TODO: FOR MATCHES
-				/*
-				TeamNameTextField.label.text = SelectedTeam.Name;
-				TeamNameTextField.UpdateLabel ();
-				SchoolListLabel.text = InitSchoolLabel ();
-				*/
+				
+				
+				MatchNameTextField.label.text = SelectedMatch.Name;
+				MatchNameTextField.UpdateLabel ();
+				TeamListLabel.text = InitTeamLabel ();
+				
 		}	
 	
+		string InitTeamLabel ()
+		{
+		
+				SelectedMatch.TeamList.Sort ();
+				string label = "";
+				for (int i=0; i<SelectedMatch.TeamList.Count; i++) {
+						//School tempSchool = SelectedTeam.SchoolList [i];
+						Team tempTeam = SelectedMatch.TeamList [i];
+						label += tempTeam.Name;
+			
+						//ADD NEW LINE FOR ALL BUT LAST LINE
+						if (i < SelectedMatch.TeamList.Count - 1) {
+								label += "\n";
+						}
+				}
+		
+				if (label.Length == 0) {
+						label = "[ffffff49]" + "(no teams)";
+				}
+		
+				return label;
+			
+			
+		}
 		void InitValuesCopy ()
 		{
 				throw new System.NotImplementedException ();
@@ -144,7 +169,7 @@ public class MatchControl : MonoBehaviour
 		}
 		void HideOverflow ()
 		{
-				throw new System.NotImplementedException ();
+				MatchOverflowPopup.SetActive (false);
 		}	
 		
 		

@@ -68,9 +68,11 @@ public class MatchesTeamEditControl : MonoBehaviour
 	
 		public void RefreshGrid ()
 		{
-		
-				
 				//TODO: REFRESH GRID
+		
+				throw new System.NotImplementedException ();
+		
+	
 		}
 	
 		public void ShowEditPanels ()
