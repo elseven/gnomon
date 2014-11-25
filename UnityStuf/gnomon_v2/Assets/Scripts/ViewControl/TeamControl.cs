@@ -162,6 +162,7 @@ public class TeamControl : MonoBehaviour
 		private void InitValues ()
 		{
 				TeamNameTextField.label.text = SelectedTeam.Name;
+				TeamNameTextField.UpdateLabel ();
 				//TeamNameTextField.defaultText = SelectedTeam.Name;
 				SchoolListLabel.text = InitSchoolLabel ();
 				BuildingListLabel.text = InitBuildingLabel ();

@@ -7,6 +7,7 @@ public class TeamNameEditControl : MonoBehaviour
 
 		//QUESTION: HOW TO STOP USER FROM PRESSING SOMETHING ELSE WHILE EDITING NAME?
 		public UISprite underline;
+		public UIInput TeamNameField;
 		public UILabel TeamNameLabel;
 		public GameObject TeamCAB;
 		public GameObject TeamEditHomeTop;
@@ -30,6 +31,14 @@ public class TeamNameEditControl : MonoBehaviour
 		public void Init (Team team)
 		{
 				this.theTeam = team;
+				TeamNameField.label.text = theTeam.Name;
+				TeamNameField.value = theTeam.Name;
+				TeamNameField.isSelected = true;
+				TeamNameField.selectionStart = 0;
+				TeamNameField.selectionEnd = theTeam.Name.Length;
+				TeamNameField.UpdateLabel ();
+				//TeamNameLabel.text = theTeam.Name;
+				
 				underline.color = Tools.LIGHT_BLUE;
 				
 				
@@ -49,7 +58,9 @@ public class TeamNameEditControl : MonoBehaviour
 		
 		public void ImplCancel ()
 		{
-				TeamNameLabel.text = theTeam.Name;
+				//TeamNameLabel.text = theTeam.Name;
+				TeamNameField.value = theTeam.Name;
+				TeamNameField.UpdateLabel ();
 				OnDeselect ();
 		}
 		
