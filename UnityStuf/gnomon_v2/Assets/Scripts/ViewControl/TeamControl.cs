@@ -162,6 +162,7 @@ public class TeamControl : MonoBehaviour
 		private void InitValues ()
 		{
 				TeamNameTextField.label.text = SelectedTeam.Name;
+				//TeamNameTextField.defaultText = SelectedTeam.Name;
 				SchoolListLabel.text = InitSchoolLabel ();
 				BuildingListLabel.text = InitBuildingLabel ();
 				RoomListLabel.text = InitRoomLabel ();
@@ -315,8 +316,10 @@ public class TeamControl : MonoBehaviour
 		public void CancelTeam ()
 		{
 				//CHECK: CANCEL TEAM NOT CHECKED
+				teamNameEditControl.ImplCancel ();
 				InitValues ();
 				HideEditPanels ();
+				
 				TeamEditTop.SetActive (true);
 				TeamEditPanelBody.SetActive (true);
 		}
