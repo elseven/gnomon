@@ -41,11 +41,8 @@ public class User
 				}
 		
 				Debug.LogError ("DOESNT EXIST");
-		
-		
-		
-		
-		
+				
+				myTeams.Add (toReplace);
 		
 		}
 		

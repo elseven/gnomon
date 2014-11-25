@@ -120,11 +120,21 @@ public class TeamControl : MonoBehaviour
 		
 		
 		
-		#region POPUP STUFF
+		#region POPUP STUFF and FOOTER
+		
+		
+		public void AddTeam ()
+		{
+				SelectedTeam = new Team ("<TEAM NAME>");
+				EditTeam ();
+		
+		
+		}
+		
+		
 		
 		public void EditTeam ()
 		{
-				//URGENT: IMPL EDIT TEAM
 				HideOverflow ();
 				InitValues ();
 				TeamEditTop.SetActive (true);
@@ -184,7 +194,7 @@ public class TeamControl : MonoBehaviour
 				}
 				
 				if (label.Length == 0) {
-						label = "[ffffff0e]" + "(no schools/universities)";
+						label = "[ffffff49]" + "(no schools/universities)";
 				}
 				
 				return label;
@@ -239,7 +249,9 @@ public class TeamControl : MonoBehaviour
 						
 				}
 				
-				
+				if (label.Length == 0) {
+						label = "[ffffff49]" + "(no buildings)";
+				}
 				
 				return label;
 		}
@@ -271,6 +283,9 @@ public class TeamControl : MonoBehaviour
 						label += "      #" + r.Number + "\n";
 				}
 				
+				if (label.Length == 0) {
+						label = "[ffffff49]" + "(no rooms)";
+				}
 				
 		
 				return label;
@@ -309,7 +324,7 @@ public class TeamControl : MonoBehaviour
 		public void BackToTeamsTab ()
 		{
 				
-				//CHECK: DOES THIS WORK ALWAYS?
+				
 				
 				Main.world.TheUser.DeleteTeam (SelectedTeam);
 				Main.world.TheUser.myTeams.Add (SelectedTeam);
@@ -319,6 +334,7 @@ public class TeamControl : MonoBehaviour
 				Main.teamTabNeedsActive = true;
 		
 		}
+	
 	
 	#endregion
 		

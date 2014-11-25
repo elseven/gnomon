@@ -71,6 +71,8 @@ public class Team : IComparable<Team>
 		public Team ()
 		{
 				this.Name = "Default Name";
+				id = count;
+				count++;
 				
 		}
 		
