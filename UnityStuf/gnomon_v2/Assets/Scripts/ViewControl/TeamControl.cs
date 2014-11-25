@@ -7,6 +7,7 @@ public class TeamControl : MonoBehaviour
 
 		/*LEFTOFF When you edit a team and then edit another team, the first edit is lost.
 	Also, some of the text is getting screwed up in the mini team thing
+	COULD BE because just setting SelectedTeam and never updating user.teams (or whatever it's called)
 */
 		public enum TeamEditMode
 		{
