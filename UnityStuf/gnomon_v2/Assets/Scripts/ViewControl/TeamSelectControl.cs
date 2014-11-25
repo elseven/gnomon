@@ -3,7 +3,6 @@ using System.Collections;
 
 public class TeamSelectControl : MonoBehaviour
 {
-		//TODO: ATTACH LABELS AND SPRITES
 	
 		public Team AttachedTeam;
 		public UILabel TeamNameLabel;

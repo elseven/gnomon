@@ -5,7 +5,8 @@ using Vectrosity;
 public class GraphControl : MonoBehaviour
 {
 
-
+		//LEFTOFF: ADD TICKS AND X-AXIS LABEL TO GRAPH AND MINI GRAPHS!
+		
 		public List<Vector2[]> pointsList = new List<Vector2[]> ();
 		public List<string> titlesList = new List<string> ();
 		public string combinedTitle;

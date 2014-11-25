@@ -30,7 +30,6 @@ public class ActionBarControl : MonoBehaviour
 		{
 				
 				main.ClearVectorLines ();
-				//FIXME: BACK NOT CALLED
 				switch (main.SelectedBackMode) {
 				case BackMode.HOME:
 						main.ActivateHome ();

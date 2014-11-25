@@ -209,7 +209,7 @@ public class MatchControl : MonoBehaviour
 	
 		public void DeleteMatch ()
 		{
-				/*URGENT: IMPL DELETE match WITH CONFIRM POPUP*/
+				/*TODO: IMPL DELETE match WITH CONFIRM POPUP*/
 		
 		}
 		
@@ -272,7 +272,7 @@ public class MatchControl : MonoBehaviour
 		{
 				matchesTeamEditControl.ETPanel.SetActive (false);
 				MatchEditCAB.SetActive (false);
-				//URGENT: POPUP SAVED/CANCELED
+				//TODO: POPUP SAVED/CANCELED
 		}
 	
 		/**

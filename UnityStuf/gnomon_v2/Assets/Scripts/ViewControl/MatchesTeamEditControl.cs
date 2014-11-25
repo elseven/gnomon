@@ -4,7 +4,6 @@ using System.Collections;
 public class MatchesTeamEditControl : MonoBehaviour
 {
 
-		//TODO: DRAG AND DROP
 	
 		public Match theMatch;
 	

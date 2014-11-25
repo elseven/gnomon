@@ -149,7 +149,7 @@ public class TeamControl : MonoBehaviour
 	
 		public void DeleteTeam ()
 		{
-				/*URGENT: IMPL DELETE TEAM WITH CONFIRM POPUP*/
+				/*TODO: IMPL DELETE TEAM WITH CONFIRM POPUP*/
 				
 				
 		
@@ -384,7 +384,7 @@ public class TeamControl : MonoBehaviour
 				EditBuildingPanel.SetActive (false);
 				EditRoomPanel.SetActive (false);	
 				TeamEditCAB.SetActive (false);
-				//URGENT: POPUP SAVED/CANCELED
+				//TODO: POPUP SAVED/CANCELED
 		}
 		
 		/**
