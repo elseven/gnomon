@@ -146,7 +146,6 @@ public class Main : MonoBehaviour
 		IEnumerator ImplActivateTeams ()
 		{
 				
-				//CHECK: NEED TO MAKE SURE TABLE STARTS OUT AT TOP AFTER ADDING ITEMS
 				ClearVectorLines ();
 				DeactivateAllPanels ();
 				TopPanel.SetActive (true);

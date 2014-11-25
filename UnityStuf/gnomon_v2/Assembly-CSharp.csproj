@@ -200,6 +200,9 @@
      <Compile Include="Assets\Scripts\ViewControl\HomeControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\Main.cs" />
      <Compile Include="Assets\Scripts\ViewControl\MatchControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\MatchesNameEditControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\MatchesTeamEditControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\MiniMatchControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\MiniTeamControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\RoomBuildingEditControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\RoomEditControl.cs" />
@@ -211,6 +214,7 @@
      <Compile Include="Assets\Scripts\ViewControl\TabControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\TeamControl.cs" />
      <Compile Include="Assets\Scripts\ViewControl\TeamNameEditControl.cs" />
+     <Compile Include="Assets\Scripts\ViewControl\TeamSelectControl.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.3.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />

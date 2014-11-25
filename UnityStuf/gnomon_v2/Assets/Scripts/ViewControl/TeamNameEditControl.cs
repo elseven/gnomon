@@ -5,7 +5,6 @@ public class TeamNameEditControl : MonoBehaviour
 {
 
 
-		//QUESTION: HOW TO STOP USER FROM PRESSING SOMETHING ELSE WHILE EDITING NAME?
 		public UISprite underline;
 		public UIInput TeamNameField;
 		public UILabel TeamNameLabel;

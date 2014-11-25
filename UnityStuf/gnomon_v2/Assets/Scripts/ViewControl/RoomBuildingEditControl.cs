@@ -57,9 +57,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 			
 						//topTransform = room.transform;
 				}
-				
-				//TODO FIX THIS TO ACTUALLY WORK
-				//int roomCount = 3;
+			
 				return roomCount;
 		}
 	

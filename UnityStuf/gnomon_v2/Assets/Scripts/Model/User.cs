@@ -48,6 +48,38 @@ public class User
 		
 		
 		
+		public void DeleteMatch (Match toDelete)
+		{
+				for (int i=0; i<myMatches.Count; i++) {
+						if (myMatches [i].id == toDelete.id) {
+								myMatches.RemoveAt (i);
+								return;
+						}
+				}
+		
+				Debug.LogError ("DOESNT EXIST");
+		
+		}
+	
+	
+		public void UpdateMatch (Match toReplace)
+		{
+				for (int i=0; i<myMatches.Count; i++) {
+						if (myMatches [i].id == toReplace.id) {
+								myMatches [i] = toReplace;
+								return;
+						}
+				}
+		
+				Debug.LogError ("DOESNT EXIST");
+		
+				myMatches.Add (toReplace);
+		
+		}
+	
+	
+		
+		
 		
 		
 	

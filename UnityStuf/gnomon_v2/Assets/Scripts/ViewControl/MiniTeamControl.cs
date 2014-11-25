@@ -79,7 +79,7 @@ public class MiniTeamControl : MonoBehaviour
 		//ON RELEASE
 		public void ShowTeamGraph ()
 		{
-				//URGENT: ACTUALLY SHOW TEAM
+				
 				Overlay.SetActive (false);
 				string title = AttachedTeam.GenerateGraphTitle ();
 				

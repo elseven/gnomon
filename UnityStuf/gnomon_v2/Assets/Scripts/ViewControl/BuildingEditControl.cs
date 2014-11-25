@@ -85,10 +85,6 @@ public class BuildingEditControl : MonoBehaviour
 				yield return null;
 				AllSchoolsTable.Reposition ();
 				HeaderAndSchoolsTable.Reposition ();
-
-
-				//FIXME: ITERATE OVER GRIDS
-				//EBGrid.Reposition ();
 		
 		}
 		
@@ -117,9 +113,7 @@ public class BuildingEditControl : MonoBehaviour
 				//ADD BACK ALL SchoolContainers
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
-						
-						
-						
+		
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
 						schoolContainer.GetComponent<BuildingSchoolEditControl> ().RefreshSchoolContainer (theTeam, schools [i]);
 						

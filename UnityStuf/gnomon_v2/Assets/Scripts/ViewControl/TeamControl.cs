@@ -5,8 +5,6 @@ using System.Reflection;
 public class TeamControl : MonoBehaviour
 {
 
-		/*LEFTOFF some of the text is getting screwed up in the mini team thing
-*/
 		public enum TeamEditMode
 		{
 				EMPTY,
@@ -64,7 +62,6 @@ public class TeamControl : MonoBehaviour
 
 
 
-		//TODO: SELECTING TEXT FIELD SHOULD SHOW CAB!
 
 
 		/**
@@ -143,7 +140,7 @@ public class TeamControl : MonoBehaviour
 		
 		public void CopyTeam ()
 		{
-				//URGENT: IMPL COPY TEAM
+				//CHECK: COPY TEAM WORKING?
 				HideOverflow ();
 				InitValuesCopy ();
 				TeamEditTop.SetActive (true);
@@ -152,7 +149,9 @@ public class TeamControl : MonoBehaviour
 	
 		public void DeleteTeam ()
 		{
-				//URGENT: IMPL DELETE TEAM
+				/*URGENT: IMPL DELETE TEAM WITH CONFIRM POPUP*/
+				
+				
 		
 		}
 		#endregion

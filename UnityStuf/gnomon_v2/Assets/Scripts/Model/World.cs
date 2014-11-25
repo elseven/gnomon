@@ -102,7 +102,6 @@ public class World
 		
 		
 				TheUser = new User (myTeams, myMatches);
-				//URGENT: CREATE USER AND LINK TO WHATS DISPLAYED
 				
 				
 				

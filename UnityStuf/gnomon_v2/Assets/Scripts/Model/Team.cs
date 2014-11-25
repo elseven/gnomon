@@ -86,7 +86,7 @@ public class Team : IComparable<Team>
 		public Team (Team other)
 		{
 				this.Name = other.Name;
-				this.id = other.id;
+				//this.id = other.id;
 				foreach (School s in other.SchoolList) {
 						this.SchoolList.Add (s);
 				}
@@ -96,6 +96,10 @@ public class Team : IComparable<Team>
 				foreach (Room r in other.RoomList) {
 						this.RoomList.Add (r);
 				}
+				
+				this.id = count;
+				count++;
+				
 				
 		}
 		
