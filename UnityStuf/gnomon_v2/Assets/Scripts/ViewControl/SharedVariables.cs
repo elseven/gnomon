@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SharedVariables : MonoBehaviour {
+public class SharedVariables
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+		public static bool DebugGraphs = false;
+
+
 }

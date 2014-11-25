@@ -108,13 +108,13 @@ public class MiniGraph : MonoBehaviour
 				//points = Tools.MoveToOrigin (rawPoints, bottom, left, width, height);
 				points = Tools.MoveToOrigin (points, bottom, left, width, height);
 				
-				
-				string pstring = "Minigraph_" + SelectedMiniMode.ToString ();
-				foreach (Vector2 p in rawPoints) {
-						pstring += p.y + "\n";
+				if (SharedVariables.DebugGraphs) {
+						string pstring = "Minigraph_" + SelectedMiniMode.ToString ();
+						foreach (Vector2 p in rawPoints) {
+								pstring += p.y + "\n";
+						}
+						Debug.LogError (pstring);
 				}
-				Debug.LogError (pstring);
-				
 				//VectorLine vl = VectorLine.SetLine (cp.GetColorWrapperAt (0).ColorValue, points);
 				//vl.smoothWidth = true;
 				//vl.lineWidth = 40f;

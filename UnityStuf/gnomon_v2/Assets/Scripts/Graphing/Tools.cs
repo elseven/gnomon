@@ -154,7 +154,10 @@ public class Tools
 				}
 			
 			
-				Debug.LogWarning ("value= " + value + " #digits= " + numDigits);
+				if (SharedVariables.DebugGraphs) {
+						Debug.LogWarning ("value= " + value + " #digits= " + numDigits);
+				}
+				
 			
 			
 			

@@ -116,13 +116,17 @@ public class GraphControl : MonoBehaviour
 				for (int i=0; i<pointsList.Count; i++) {
 						pointsList [i] = Tools.Normalize (pointsList [i], height, max, min);
 						pointsList [i] = Tools.MoveToOrigin (pointsList [i], bottom, left, width, height);
-						string pstring = combinedTitle + "_" + i + "\n";
-						foreach (Vector2 p in pointsList[i]) {
-								pstring += p.y + "\n";
+						
+						if (SharedVariables.DebugGraphs) {
+								string pstring = combinedTitle + "_" + i + "\n";
+								foreach (Vector2 p in pointsList[i]) {
+										pstring += p.y + "\n";
+								}
+				
+								Debug.LogError (pstring);
+				
 						}
 						
-						Debug.LogError (pstring);
-			
 						VectorLine vl = new VectorLine (combinedTitle + "_" + i, pointsList [i], Tools.cp.GetColorWrapperAt (i).ColorValue, null, 4f, LineType.Continuous);
 						vl.Draw ();
 						main.vectorLines.Add (vl);
@@ -143,7 +147,11 @@ public class GraphControl : MonoBehaviour
 		public void AddToPointsList (string title, Vector2[] points)
 		{
 		
-				Debug.Log ("points count = " + points.Length);
+			
+				if (SharedVariables.DebugGraphs) {
+						Debug.Log ("points count = " + points.Length);
+				}	
+					
 				titlesList.Add (title);
 				pointsList.Add (points);
 			

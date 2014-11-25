@@ -5,6 +5,9 @@ using System.Reflection;
 public class TeamControl : MonoBehaviour
 {
 
+		/*LEFTOFF When you edit a team and then edit another team, the first edit is lost.
+	Also, some of the text is getting screwed up in the mini team thing
+*/
 		public enum TeamEditMode
 		{
 				EMPTY,
@@ -337,12 +340,11 @@ public class TeamControl : MonoBehaviour
 						SelectedTeam = buildingEditControl.ImplDone ();
 						break;
 				case TeamEditMode.ROOM:
-				//URGENT: NOT IMPL
 						SelectedTeam = roomEditControl.ImplDone ();
 						break;
 				case TeamEditMode.NAME:
-				//URGENT: NOT IMPL
-						Debug.LogError ("NOT IMPLEMENTED");
+				
+						SelectedTeam = teamNameEditControl.ImplDone ();
 						break;
 				}
 				
@@ -383,7 +385,7 @@ public class TeamControl : MonoBehaviour
 		
 		public void ShowEditName ()
 		{
-				ActiveTEM = TeamEditMode.SCHOOL;
+				ActiveTEM = TeamEditMode.NAME;
 				TeamEditCAB.SetActive (true);
 				TeamEditTop.SetActive (false);
 				teamNameEditControl.Init (SelectedTeam);
