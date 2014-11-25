@@ -39,6 +39,7 @@ public class Main : MonoBehaviour
 		public MiniGraph BuildingMiniGraph;
 		public MiniGraph RoomMiniGraph;
 		public TeamControl teamControl;
+		public MatchControl matchControl;
 		
 		
 		public UIScrollView TeamsScrollView;
@@ -189,19 +190,25 @@ public class Main : MonoBehaviour
 		IEnumerator ImplActivateMatches ()
 		{
 		
-				//URGENT: ACTUALLY IMPL THIS
-		
-		
-				HidePanel.SetActive (true);
-				
 				ClearVectorLines ();
 				DeactivateAllPanels ();
-				MatchesPanel.SetActive (true);
 				TopPanel.SetActive (true);
-				
+				HidePanel.SetActive (true);
+				matchControl.RefreshGrid ();
+				//TeamsPanel.SetActive (true);
+				MatchesPanel.SetActive (true);
+				yield return null;
+				//TeamsScrollView.ResetPosition ();
+				matchControl.ScrollView.ResetPosition ();
+				yield return null;
+				matchControl.MatchTable.Reposition ();
+				matchControl.MatchGrid.Reposition ();
+		
 				yield return null;
 				HidePanel.SetActive (false);
 				matchTabNeedsActive = false;
+		
+	
 		}
 		
 		#endregion

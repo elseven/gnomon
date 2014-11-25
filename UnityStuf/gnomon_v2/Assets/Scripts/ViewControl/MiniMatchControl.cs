@@ -23,7 +23,7 @@ public class MiniMatchControl : MonoBehaviour
 		void Start ()
 		{
 		
-				GameObject matchGO = GameObject.FindGameObjectWithTag ("MatchsPanel");
+				GameObject matchGO = GameObject.FindGameObjectWithTag ("MatchesPanel");
 				matchControl = matchGO.GetComponent<MatchControl> ();
 				GameObject rootGO = GameObject.FindGameObjectWithTag ("UIRoot");
 				main = rootGO.GetComponent<Main> ();

@@ -28,12 +28,14 @@ public class MatchControl : MonoBehaviour
 	
 		public GameObject MatchEditPanelBody;
 	
-		public UIGrid TeamGrid;
+		public UITable MatchTable;
+		public UIGrid MatchGrid;
 		public GameObject PrefabMiniMatch;
 	
 		public GameObject MiniMatchParent;
 	
 		public GameObject ScrollArea;
+		public UIScrollView ScrollView;
 		
 		
 		
@@ -55,7 +57,7 @@ public class MatchControl : MonoBehaviour
 		}
 	
 	
-	
+		#region MONO
 		// Use this for initialization
 		void Start ()
 		{
@@ -65,23 +67,33 @@ public class MatchControl : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-	
+		
 		}
+	
+	
+		#endregion
 
+		#region INIT
 		void InitValues ()
 		{
 				throw new System.NotImplementedException ();
+		
+				//TODO: FOR MATCHES
+				/*
+				TeamNameTextField.label.text = SelectedTeam.Name;
+				TeamNameTextField.UpdateLabel ();
+				SchoolListLabel.text = InitSchoolLabel ();
+				*/
 		}	
 	
+		void InitValuesCopy ()
+		{
+				throw new System.NotImplementedException ();
+		}
 	
+		#endregion
 	
-	
-	
-	
-	
-	
-	
-	
+		#region CAB and ACTIONBAR
 		public void DoneMatch ()
 		{
 		
@@ -107,8 +119,6 @@ public class MatchControl : MonoBehaviour
 		public void BackToMatchTab ()
 		{
 		
-		
-		
 				Main.world.TheUser.DeleteMatch (SelectedMatch);
 				Main.world.TheUser.myMatches.Add (SelectedMatch);
 		
@@ -117,6 +127,12 @@ public class MatchControl : MonoBehaviour
 				Main.matchTabNeedsActive = true;
 		
 		}
+		
+		#endregion
+		
+		
+		
+		#region POPUP
 		public void ShowOverflow (Match selected)
 		{
 
@@ -129,12 +145,12 @@ public class MatchControl : MonoBehaviour
 		void HideOverflow ()
 		{
 				throw new System.NotImplementedException ();
-		}		
-		void InitValuesCopy ()
-		{
-				throw new System.NotImplementedException ();
-		}
-	
+		}	
+		
+		
+			
+				
+
 		public void EditMatch ()
 		{
 				HideOverflow ();
@@ -158,11 +174,36 @@ public class MatchControl : MonoBehaviour
 		{
 				/*URGENT: IMPL DELETE match WITH CONFIRM POPUP*/
 		
-		
-		
 		}
+		
+		#endregion
+		
+		
+		public void RefreshGrid ()
+		{
+				User user = Main.world.TheUser;
+		
+				MatchGrid.cellWidth = ScrollArea.GetComponent<UIPanel> ().width - 20f;
+				Transform parentT = MiniMatchParent.transform;
+		
+		
+				while (parentT.childCount>0) {
+						NGUITools.Destroy (parentT.GetChild (0).gameObject);
+				}
+		
+		
+				for (int i=0; i<user.myMatches.Count; i++) {
+						GameObject mini = NGUITools.AddChild (MiniMatchParent, PrefabMiniMatch);
+						mini.GetComponent<MiniMatchControl> ().SetAttachedMatch (user.myMatches [i]);
+						UIWidget miniWidget = mini.GetComponent<UIWidget> ();
+			
+						miniWidget.leftAnchor.target = ScrollArea.transform;
+						miniWidget.rightAnchor.target = ScrollArea.transform;	
+				}
+				MatchGrid.Reposition ();
+		
 
-	
+		}
 	
 		private void UpdateMatch ()
 		{
@@ -179,14 +220,13 @@ public class MatchControl : MonoBehaviour
 						SelectedMatch = matchesNameEditControl.ImplDone ();
 						break;
 				}
-		
-		
-		
 				Main.world.TheUser.UpdateMatch (SelectedMatch);			
-		
 		
 		}
 	
+	
+	
+		#region SHOW/HIDE STUFF
 	
 		/**
 		* Hide SWITCHES PANELS
@@ -227,6 +267,6 @@ public class MatchControl : MonoBehaviour
 				//schoolEditControl.Init (SelectedTeam);
 		
 		}
-	
+		#endregion	
 	
 }
