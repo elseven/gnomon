@@ -41,7 +41,7 @@ public class Main : MonoBehaviour
 		public TeamControl teamControl;
 		public MatchControl matchControl;
 		
-		
+		public Printer p;
 		public UIScrollView TeamsScrollView;
 		public UITable TeamsTable;
 		
@@ -50,7 +50,7 @@ public class Main : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				
+				p = gameObject.GetComponent<Printer> ();
 				Random.seed = 123;
 				//teamControl = TeamsPanel.GetComponent<TeamControl> ();	
 				teamControl.HideEditPanels ();
