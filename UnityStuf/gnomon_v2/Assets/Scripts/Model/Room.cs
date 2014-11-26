@@ -97,9 +97,9 @@ public class Room : IComparable<Room>
 		
 		
 				for (int i=0; i<energyByDay.Length; i++) {
-					
-						energyByDay [i] = UnityEngine.Random.Range (minEnergy, maxEnergy) - energyTrend * i;
-						
+						//URGENT: FIX BACK
+						//energyByDay [i] = UnityEngine.Random.Range (minEnergy, maxEnergy) - energyTrend * i;
+						energyByDay [i] = i * 10;
 				}
 				
 			
@@ -113,7 +113,9 @@ public class Room : IComparable<Room>
 				Vector2[] points = new Vector2[end + 1 - begin];
 		
 				for (int i=0; i<points.Length; i++) {
+						
 						float y = this.GetEnergyAtDay (i);
+						
 						points [i] = new Vector2 (0f, y);
 				}
 		
@@ -122,6 +124,8 @@ public class Room : IComparable<Room>
 	
 		public float GetEnergyAtDay (int dayIndex)
 		{
+		
+				
 				if (dayIndex >= 365 || dayIndex < 0) {
 						Debug.LogError ("NOT A REAL DAY: " + dayIndex);
 						return -1;
