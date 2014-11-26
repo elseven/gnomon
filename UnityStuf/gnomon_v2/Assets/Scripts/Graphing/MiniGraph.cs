@@ -76,9 +76,10 @@ public class MiniGraph : MonoBehaviour
 				
 				
 		
-				//URGENT: THIS?
-				//Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
-				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
+				//URGENT: FIX BACK
+				Vector3 worldBottomLeft = canvas1.worldCorners [0];
+				//Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, Camera.main, Screen.width, Screen.height, canvas1.transform.position, width, height);
+				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, Camera.main, Screen.width, Screen.height, worldBottomLeft, width, height);
 				left = bottomLeft.x;
 				bottom = bottomLeft.y;
 			

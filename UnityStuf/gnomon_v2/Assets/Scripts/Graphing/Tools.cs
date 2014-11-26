@@ -14,7 +14,8 @@ public class Tools
 		public static Vector2[] MoveToOrigin (Vector2[] points, float bottom, float left, float width, float height)
 		{
 		
-		
+				//width /= panelWidth;
+				
 				for (int i=0; i<points.Length; i++) {
 						float x = left + i * width / points.Length;
 						//float y = bottom + i * height / points.Length;
@@ -30,18 +31,9 @@ public class Tools
 		{
 		
 		
-				//shift down to min
-				//max -= min;
-		
 				for (int i=0; i<points.Length; i++) {
-			
-			
-						//shift down
-						//points [i].y -= min;
-						//scale so values are btwn 0 and 1
-						points [i].y /= max;
-						//values btwn 0 and graphTop
-						points [i].y *= graphTop;
+						points [i].y *= (graphTop / max);
+						
 				}
 		
 		
@@ -52,31 +44,30 @@ public class Tools
 		
 		}
 	
-		public static Vector2 CenterToBottomLeft (Camera cam, Vector2 worldCenter, float canvasWidth, float canvasHeight)
+		public static Vector2 CenterToBottomLeft (Camera nguicam, Camera main, int sWidth, int sHeight, Vector3 worldBottomLeft, float canvasWidth, float canvasHeight)
 		{
+		
+		
+				
 				//Center
-				Vector2 centerPoint = cam.WorldToScreenPoint (worldCenter);
+				Vector2 bottomLeft = nguicam.WorldToScreenPoint (worldBottomLeft);
 				
 				
 				float left = 0f;
 				float bottom = 0f;
-		
-		
-				Debug.LogWarning ("worldcenter=" + worldCenter + "  centerPoint= " + centerPoint);
-				canvasWidth /= panelWidth;
-				canvasHeight /= panelHeight;
+				float tempW = canvasWidth;
+				float tempH = canvasHeight;
 				
 		
-				//bottom left
-				left = centerPoint.x - canvasWidth / 2.0f;
-				bottom = centerPoint.y - canvasHeight / 2.0f;
 		
 		
+				
+				Debug.LogWarning ("sw= " + sWidth + " sh= " + sHeight + "\nworldcenter= " + worldBottomLeft + "\ncenterPoint= " + bottomLeft + "\nprev can width=  " + tempW + "  tempH=" + tempH + "\ncanvasWidth= " + canvasWidth + "  canvasH= " + canvasHeight);
 		
-		
-				/*	right = left + canvasWidth;
-				top = bottom + canvasHeight;*/
-		
+				left = bottomLeft.x;
+				bottom = bottomLeft.y;
+				
+				
 				return new Vector2 (left, bottom);
 		}
 	
