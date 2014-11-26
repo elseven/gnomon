@@ -11,15 +11,15 @@ public class Tools
 		
 	
 		#region NORMALIZATION STUFF
-		public static Vector2[] MoveToOrigin (Vector2[] points, float bottom, float left, float width, float height)
+		private static Vector2[] MoveToOrigin (Vector2[] points, Vector2 bottomLeft, float width, float height)
 		{
 		
 				//width /= panelWidth;
 				
 				for (int i=0; i<points.Length; i++) {
-						float x = left + i * width / points.Length;
+						float x = bottomLeft.x + i * width / points.Length;
 						//float y = bottom + i * height / points.Length;
-						float y = bottom + points [i].y;
+						float y = bottomLeft.y + points [i].y;
 						points [i] = new Vector2 (x, y);
 				}
 		
@@ -27,7 +27,7 @@ public class Tools
 		}
 	
 	
-		public static Vector2[] Normalize (Vector2[] points, float graphTop, float max, float min)
+		private static Vector2[] Normalize (Vector2[] points, float graphTop, float max, float min)
 		{
 		
 		
@@ -44,34 +44,64 @@ public class Tools
 		
 		}
 	
-		public static Vector2 CenterToBottomLeft (Camera nguicam, Camera main, int sWidth, int sHeight, Vector3 worldBottomLeft, float canvasWidth, float canvasHeight)
+	
+		public static Vector2[] Map (Camera nguicam, Vector3 worldBottomLeft, Vector3 worldTopRight, Vector2[] rawPoints)
 		{
 		
-		
+				Vector2[] points;
 				
-				//Center
+				//TO WORLD POINTS AND WIDTHS
 				Vector2 bottomLeft = nguicam.WorldToScreenPoint (worldBottomLeft);
+				Vector2 topRight = nguicam.WorldToScreenPoint (worldTopRight);
+				float width = Mathf.Abs (topRight.x - bottomLeft.x);
+				float height = Mathf.Abs (topRight.y - bottomLeft.y);
 				
+				float min = Tools.SingleMin (rawPoints);
+				float max = Tools.SingleMax (rawPoints);
 				
-				float left = 0f;
-				float bottom = 0f;
-				float tempW = canvasWidth;
-				float tempH = canvasHeight;
-				
+				points = Tools.Normalize (rawPoints, height, max, min);
+				points = Tools.MoveToOrigin (points, bottomLeft, width, height);
 		
-		
-		
+				if (SharedVariables.DebugGraphs) {
+						string pstring = "Minigraph_" + worldBottomLeft.y;
+						foreach (Vector2 p in rawPoints) {
+								pstring += p.y + "\n";
+						}
+						Debug.LogError (pstring);
+				}
 				
-				Debug.LogWarning ("sw= " + sWidth + " sh= " + sHeight + "\nworldcenter= " + worldBottomLeft + "\ncenterPoint= " + bottomLeft + "\nprev can width=  " + tempW + "  tempH=" + tempH + "\ncanvasWidth= " + canvasWidth + "  canvasH= " + canvasHeight);
-		
-				left = bottomLeft.x;
-				bottom = bottomLeft.y;
+
 				
-				
-				return new Vector2 (left, bottom);
+				return points;
 		}
 	
+		public static List<Vector2[]> Map (Camera nguicam, Vector3 worldBottomLeft, Vector3 worldTopRight, List<Vector2[]> rawPointsList)
+		{
+		
+				List<Vector2[]> pointsList = new List<Vector2[]> ();
+		
+				//TO WORLD POINTS AND WIDTHS
+				Vector2 bottomLeft = nguicam.WorldToScreenPoint (worldBottomLeft);
+				Vector2 topRight = nguicam.WorldToScreenPoint (worldTopRight);
+				float width = Mathf.Abs (topRight.x - bottomLeft.x);
+				float height = Mathf.Abs (topRight.y - bottomLeft.y);
+		
+				float min = Tools.SuperMax (rawPointsList);
+				float max = Tools.SuperMax (rawPointsList);
+				
+				for (int i=0; i<rawPointsList.Count; i++) {
+						Vector2[] tempPoints = Tools.Normalize (rawPointsList [i], height, max, min);
+						pointsList.Add (MoveToOrigin (tempPoints, bottomLeft, width, height));
+				}
+				
+		
+		
+		
+				return pointsList;
+		}
 	
+		
+		
 	
 		#endregion
 	

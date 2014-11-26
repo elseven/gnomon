@@ -76,22 +76,35 @@ public class GraphControl : MonoBehaviour
 				GraphTitle.text = combinedTitle;
 		
 		
-				//URGENT: FIX BACK
-				Vector3 worldBottomLeft = canvas1.worldCorners [0];
-				//Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, Camera.main, Screen.width, Screen.height, canvas1.transform.position, width, height);
-				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, Camera.main, Screen.width, Screen.height, worldBottomLeft, width, height);
-				left = bottomLeft.x;
-				bottom = bottomLeft.y;
-				//right = left + width;
-				//top = bottom + height;
 		
+				//URGENT WORKING ON THIS
+				Vector3 worldBottomLeft = canvas1.worldCorners [0];
+				Vector3 worldTopRight = canvas1.worldCorners [2];
+				width = canvas1.width;
+				height = canvas1.height;
+		
+				pointsList = Tools.Map (NGUICam, worldBottomLeft, worldTopRight, pointsList);
+				float max = Tools.SuperMax (pointsList);
 		
 				
 		
-
-				float min = Tools.SuperMin (pointsList);
-				float max = Tools.SuperMax (pointsList);
 		
+				for (int i=0; i<pointsList.Count; i++) {
+			
+						if (SharedVariables.DebugGraphs) {
+								string pstring = combinedTitle + "_" + i + "\n";
+								foreach (Vector2 p in pointsList[i]) {
+										pstring += p.y + "\n";
+								}
+				
+								Debug.LogError (pstring);
+				
+						}
+			
+						VectorLine vl = new VectorLine (combinedTitle + "_" + i, pointsList [i], Tools.cp.GetColorWrapperAt (i).ColorValue, null, 4f, LineType.Continuous);
+						vl.Draw ();
+						main.vectorLines.Add (vl);
+				}
 		
 				
 				
@@ -115,27 +128,8 @@ public class GraphControl : MonoBehaviour
 		
 		
 		
-		
-		
-				for (int i=0; i<pointsList.Count; i++) {
-						pointsList [i] = Tools.Normalize (pointsList [i], height, max, min);
-						pointsList [i] = Tools.MoveToOrigin (pointsList [i], bottom, left, width, height);
-						
-						if (SharedVariables.DebugGraphs) {
-								string pstring = combinedTitle + "_" + i + "\n";
-								foreach (Vector2 p in pointsList[i]) {
-										pstring += p.y + "\n";
-								}
 				
-								Debug.LogError (pstring);
-				
-						}
-						
-						VectorLine vl = new VectorLine (combinedTitle + "_" + i, pointsList [i], Tools.cp.GetColorWrapperAt (i).ColorValue, null, 4f, LineType.Continuous);
-						vl.Draw ();
-						main.vectorLines.Add (vl);
-				}
-		
+	
 	
 				
 		}

@@ -70,21 +70,12 @@ public class MiniGraph : MonoBehaviour
 		
 		
 				
-				width = canvas1.width;
-				height = canvas1.height;
-				
+		
 				
 				
 		
-				//URGENT: FIX BACK
-				Vector3 worldBottomLeft = canvas1.worldCorners [0];
-				//Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, Camera.main, Screen.width, Screen.height, canvas1.transform.position, width, height);
-				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, Camera.main, Screen.width, Screen.height, worldBottomLeft, width, height);
-				left = bottomLeft.x;
-				bottom = bottomLeft.y;
-			
 		
-				points = new Vector2[30];
+				
 		
 				switch (SelectedMiniMode) {
 				case MiniMode.SCHOOL:
@@ -101,23 +92,24 @@ public class MiniGraph : MonoBehaviour
 						rawPoints = theRoom.GetEnergyPointsRange (0, 29);
 						break;		
 				}
-		
-				float min = Tools.SingleMin (rawPoints);
-				float max = Tools.SingleMax (rawPoints);
-				points = Tools.Normalize (rawPoints, height, max, min);
-				//points = Tools.MoveToOrigin (rawPoints, bottom, left, width, height);
-				points = Tools.MoveToOrigin (points, bottom, left, width, height);
 				
-				if (SharedVariables.DebugGraphs) {
-						string pstring = "Minigraph_" + SelectedMiniMode.ToString ();
-						foreach (Vector2 p in rawPoints) {
-								pstring += p.y + "\n";
-						}
-						Debug.LogError (pstring);
-				}
-				//VectorLine vl = VectorLine.SetLine (cp.GetColorWrapperAt (0).ColorValue, points);
-				//vl.smoothWidth = true;
-				//vl.lineWidth = 40f;
+				
+				
+				//URGENT WORKING ON THIS
+				Vector3 worldBottomLeft = canvas1.worldCorners [0];
+				Vector3 worldTopRight = canvas1.worldCorners [2];
+				width = canvas1.width;
+				height = canvas1.height;
+		
+				points = Tools.Map (NGUICam, worldBottomLeft, worldTopRight, rawPoints);
+				float max = Tools.SingleMax (points);
+		
+		
+				
+			
+			
+			
+			
 				VectorLine vl = new VectorLine ("mini_" + SelectedMiniMode.ToString (), points, cp.GetColorWrapperAt (0).ColorValue, null, 4f, LineType.Continuous);
 			
 				
