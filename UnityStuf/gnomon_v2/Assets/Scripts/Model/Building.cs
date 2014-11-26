@@ -83,7 +83,8 @@ public class Building:IComparable<Building>
 						for (int tens=0; tens<=maxTensPlace; tens++) {
 								for (int ones=0; ones<=maxOnesPlace; ones++) {
 					
-										bool isPublished = ((UnityEngine.Random.Range (0, 10) % 10) == 0);
+										//bool isPublished = ((UnityEngine.Random.Range (0, 10) % 10) == 0);
+										bool isPublished = true;
 										int roomNumber = hundrends * 100 + tens * 10 + ones;
 										Room room = new Room (roomNumber, schoolName, name, isPublished);
 										rooms.Add (room);
@@ -98,22 +99,6 @@ public class Building:IComparable<Building>
 		{
 				return this.rooms [index];
 		}
-		
-		
-		/*
-		private int GenerateRoomNumber ()
-		{
-		
-				int hundredsPlace = Random.Range (minHundredsPlace, maxHundredsPlace);
-				int tensPlace = Random.Range (0, 6);
-				int onesPlace = Random.Range (0, 10);
-				int roomNumber = 100 * hundredsPlace + 10 * tensPlace + onesPlace;
-				
-				return roomNumber;
-		}
-	
-		*/
-		
 		
 
 			

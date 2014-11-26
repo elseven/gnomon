@@ -80,9 +80,7 @@ public class MiniGraph : MonoBehaviour
 				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
 				left = bottomLeft.x;
 				bottom = bottomLeft.y;
-				//right = left + width;
-				//top = bottom + height;
-		
+			
 		
 				points = new Vector2[30];
 		

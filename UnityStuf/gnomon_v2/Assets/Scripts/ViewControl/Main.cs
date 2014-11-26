@@ -23,7 +23,7 @@ public class Main : MonoBehaviour
 	
 	
 	
-		public static World world = new World ();
+		public static World world;
 		
 		public GameObject HidePanel;
 		
@@ -50,6 +50,8 @@ public class Main : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
+		
+				world = new World ();
 				p = gameObject.GetComponent<Printer> ();
 				Random.seed = 123;
 				//teamControl = TeamsPanel.GetComponent<TeamControl> ();	

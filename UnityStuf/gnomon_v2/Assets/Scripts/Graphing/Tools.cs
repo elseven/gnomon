@@ -195,22 +195,8 @@ public class Tools
 				return min;
 		
 		}						
-										
-												
-														
-																
-																		
-																				
-																						
-																								
-																										
-																												
-																														
-																																
-																																		
-																																				
-																																						
-																																										
+
+				
 		public static Vector2[] MoveToOrigin (Vector2[] points, float bottom, float left, float width, float height)
 		{
 		
@@ -246,36 +232,6 @@ public class Tools
 				return new Vector2 (left, bottom);
 		}
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
