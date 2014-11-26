@@ -76,7 +76,8 @@ public class MiniGraph : MonoBehaviour
 				
 				
 		
-		
+				//URGENT: THIS?
+				//Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
 				Vector2 bottomLeft = Tools.CenterToBottomLeft (NGUICam, canvas1.transform.position, width, height);
 				left = bottomLeft.x;
 				bottom = bottomLeft.y;

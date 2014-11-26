@@ -5,18 +5,37 @@ public class Tools
 {
 		public static ColorPicker cp = new ColorPicker ();
 		public static Color LIGHT_BLUE = new Color (51 / 255f, 181 / 255f, 229 / 255f);
+		private static int panelWidth = 450;
+		private static int panelHeight = 800;
 		
-		#region Vector stuff
+		
+	
+		#region NORMALIZATION STUFF
+		public static Vector2[] MoveToOrigin (Vector2[] points, float bottom, float left, float width, float height)
+		{
+		
+		
+				for (int i=0; i<points.Length; i++) {
+						float x = left + i * width / points.Length;
+						//float y = bottom + i * height / points.Length;
+						float y = bottom + points [i].y;
+						points [i] = new Vector2 (x, y);
+				}
+		
+				return points;
+		}
+	
+	
 		public static Vector2[] Normalize (Vector2[] points, float graphTop, float max, float min)
 		{
-				
-				
+		
+		
 				//shift down to min
 				//max -= min;
-					
+		
 				for (int i=0; i<points.Length; i++) {
-				
-				
+			
+			
 						//shift down
 						//points [i].y -= min;
 						//scale so values are btwn 0 and 1
@@ -24,16 +43,49 @@ public class Tools
 						//values btwn 0 and graphTop
 						points [i].y *= graphTop;
 				}
-				
-				
+		
+		
 				return points;
-				
-			
-	
-	
+		
+		
+		
+		
 		}
+	
+		public static Vector2 CenterToBottomLeft (Camera cam, Vector2 worldCenter, float canvasWidth, float canvasHeight)
+		{
+				//Center
+				Vector2 centerPoint = cam.WorldToScreenPoint (worldCenter);
+				
+				
+				float left = 0f;
+				float bottom = 0f;
 		
 		
+				Debug.LogWarning ("worldcenter=" + worldCenter + "  centerPoint= " + centerPoint);
+				canvasWidth /= panelWidth;
+				canvasHeight /= panelHeight;
+				
+		
+				//bottom left
+				left = centerPoint.x - canvasWidth / 2.0f;
+				bottom = centerPoint.y - canvasHeight / 2.0f;
+		
+		
+		
+		
+				/*	right = left + canvasWidth;
+				top = bottom + canvasHeight;*/
+		
+				return new Vector2 (left, bottom);
+		}
+	
+	
+	
+		#endregion
+	
+		
+		#region MAX/MIN STUFF
 		
 		public static float SingleMax (Vector2[] points)
 		{
@@ -141,31 +193,6 @@ public class Tools
 		
 		
 		
-		private static int CalculateDigits (int value)
-		{
-		
-				int numDigits = 1;
-			
-				int div = value / 10;
-			
-				while (div>=1) {
-						numDigits++;
-						div /= 10;
-				}
-			
-			
-				if (SharedVariables.DebugGraphs) {
-						Debug.LogWarning ("value= " + value + " #digits= " + numDigits);
-				}
-				
-			
-			
-			
-				return numDigits;
-		}
-		
-		
-		
 
 		public static float SuperMin (List<Vector2[]> pointsList)
 		{
@@ -196,48 +223,34 @@ public class Tools
 		
 		}						
 
-				
-		public static Vector2[] MoveToOrigin (Vector2[] points, float bottom, float left, float width, float height)
+	
+		private static int CalculateDigits (int value)
 		{
 		
+				int numDigits = 1;
 		
-				for (int i=0; i<points.Length; i++) {
-						float x = left + i * width / points.Length;
-						//float y = bottom + i * height / points.Length;
-						float y = bottom + points [i].y;
-						points [i] = new Vector2 (x, y);
+				int div = value / 10;
+		
+				while (div>=1) {
+						numDigits++;
+						div /= 10;
 				}
-				
-				return points;
+		
+		
+				if (SharedVariables.DebugGraphs) {
+						Debug.LogWarning ("value= " + value + " #digits= " + numDigits);
+				}
+		
+		
+		
+		
+				return numDigits;
 		}
 		
-		public static Vector2 CenterToBottomLeft (Camera cam, Vector2 worldCenter, float canvasWidth, float canvasHeight)
-		{
-				//Center
-				Vector2 centerPoint = cam.WorldToScreenPoint (worldCenter);
-		
-				float left = 0f;
-				float bottom = 0f;
-		
-				//bottom left
-				left = centerPoint.x - canvasWidth / 2.0f;
-				bottom = centerPoint.y - canvasHeight / 2.0f;
-		
-		
-		
-		
-				/*	right = left + canvasWidth;
-				top = bottom + canvasHeight;*/
-				
-				return new Vector2 (left, bottom);
-		}
-		
-
-
-
-
 		#endregion
 		
+
+		#region GRAPH STUFF
 		public static string MakeTitle (List<string> rawTitles)
 		{
 				string formatted = "";
@@ -256,5 +269,5 @@ public class Tools
 		
 		}
 
-
+		#endregion
 }
