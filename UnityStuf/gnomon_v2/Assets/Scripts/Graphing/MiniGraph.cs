@@ -94,8 +94,6 @@ public class MiniGraph : MonoBehaviour
 				}
 				
 				
-				
-				//URGENT WORKING ON THIS
 				Vector3 worldBottomLeft = canvas1.worldCorners [0];
 				Vector3 worldTopRight = canvas1.worldCorners [2];
 				width = canvas1.width;
