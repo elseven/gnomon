@@ -54,8 +54,10 @@ public class GraphControl : MonoBehaviour
 				Vector3 worldTopRight = canvas1.worldCorners [2];
 				width = canvas1.width;
 				height = canvas1.height;
+				
+				
+				//NOTE: LISTS ARE PASS BY REF SO FIND MAX BEFORE PASSING TO TOOLS.MAP
 				float max = Tools.SuperMax (rawPointsList);
-		
 				List<Vector2[]> pointsList = Tools.Map (NGUICam, worldBottomLeft, worldTopRight, rawPointsList);
 		
 		
