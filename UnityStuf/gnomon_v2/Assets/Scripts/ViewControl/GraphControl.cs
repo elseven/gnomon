@@ -7,7 +7,8 @@ public class GraphControl : MonoBehaviour
 
 		//LEFTOFF: ADD TICKS AND X-AXIS LABEL TO GRAPH AND MINI GRAPHS!
 		
-		public List<Vector2[]> pointsList = new List<Vector2[]> ();
+		//private List<Vector2[]> pointsList = new List<Vector2[]> ();
+		private List<Vector2[]> rawPointsList = new List<Vector2[]> ();
 		public List<string> titlesList = new List<string> ();
 		public string combinedTitle;
 		float left;
@@ -36,40 +37,11 @@ public class GraphControl : MonoBehaviour
 		public UILabel label8;
 	
 	
-	
-	
-	
-	
-		// Use this for initialization
-		void Start ()
-		{
-				
-				
-				
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-	
-		}				
-	
-	
-
-
 		
 		private void Setup ()
 		{
 				VectorLine.SetCamera (Camera.main);
 				cam = VectorLine.GetCamera ();
-		
-				//cam.transform.position = new Vector3 (0f, 0f, 0f);
-				//canvas1 = gameObject.GetComponent<UISprite> ();
-		
-		
-		
-				width = canvas1.width;
-				height = canvas1.height;
 		
 		
 				combinedTitle = Tools.MakeTitle (titlesList);
@@ -82,9 +54,10 @@ public class GraphControl : MonoBehaviour
 				Vector3 worldTopRight = canvas1.worldCorners [2];
 				width = canvas1.width;
 				height = canvas1.height;
+				float max = Tools.SuperMax (rawPointsList);
 		
-				pointsList = Tools.Map (NGUICam, worldBottomLeft, worldTopRight, pointsList);
-				float max = Tools.SuperMax (pointsList);
+				List<Vector2[]> pointsList = Tools.Map (NGUICam, worldBottomLeft, worldTopRight, rawPointsList);
+		
 		
 				
 		
@@ -138,20 +111,16 @@ public class GraphControl : MonoBehaviour
 		
 		public void ClearList ()
 		{
-				pointsList.Clear ();
+				rawPointsList.Clear ();
 				titlesList.Clear ();
 		
 		}
 		public void AddToPointsList (string title, Vector2[] points)
 		{
 		
-			
-				if (SharedVariables.DebugGraphs) {
-						Debug.Log ("points count = " + points.Length);
-				}	
-					
+		
 				titlesList.Add (title);
-				pointsList.Add (points);
+				rawPointsList.Add (points);
 			
 				
 		
@@ -162,9 +131,9 @@ public class GraphControl : MonoBehaviour
 		
 		public void SetPointsList (List<string> titles, List<Vector2[]> newPointsList)
 		{
-				pointsList = newPointsList;
+				rawPointsList = newPointsList;
 				titlesList = titles;
-				foreach (Vector2[] va in pointsList) {
+				foreach (Vector2[] va in rawPointsList) {
 						foreach (Vector2 v in va) {
 								Debug.Log (v.y);
 						}

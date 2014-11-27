@@ -100,9 +100,9 @@ public class MiniGraph : MonoBehaviour
 				Vector3 worldTopRight = canvas1.worldCorners [2];
 				width = canvas1.width;
 				height = canvas1.height;
-		
+				float max = Tools.SingleMax (rawPoints);
 				points = Tools.Map (NGUICam, worldBottomLeft, worldTopRight, rawPoints);
-				float max = Tools.SingleMax (points);
+				
 		
 		
 				
@@ -162,6 +162,9 @@ public class MiniGraph : MonoBehaviour
 				case MiniMode.ROOM:
 						title = "Room #101, " + HardcodedBuildingName + " (" + HardcodedSchoolName + ")";
 						rawPoints = theRoom.GetEnergyPointsRange (0, 29);
+						break;
+				default:
+						Debug.LogError ("something went wrong!!!!");
 						break;
 				}
 				

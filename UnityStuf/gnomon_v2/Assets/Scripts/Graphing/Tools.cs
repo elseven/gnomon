@@ -5,17 +5,13 @@ public class Tools
 {
 		public static ColorPicker cp = new ColorPicker ();
 		public static Color LIGHT_BLUE = new Color (51 / 255f, 181 / 255f, 229 / 255f);
-		private static int panelWidth = 450;
-		private static int panelHeight = 800;
-		
-		
+
 	
 		#region NORMALIZATION STUFF
 		private static Vector2[] MoveToOrigin (Vector2[] points, Vector2 bottomLeft, float width, float height)
 		{
 		
-				//width /= panelWidth;
-				
+	
 				for (int i=0; i<points.Length; i++) {
 						float x = bottomLeft.x + i * width / points.Length;
 						//float y = bottom + i * height / points.Length;
@@ -86,7 +82,7 @@ public class Tools
 				float width = Mathf.Abs (topRight.x - bottomLeft.x);
 				float height = Mathf.Abs (topRight.y - bottomLeft.y);
 		
-				float min = Tools.SuperMax (rawPointsList);
+				float min = Tools.SuperMin (rawPointsList);
 				float max = Tools.SuperMax (rawPointsList);
 				
 				for (int i=0; i<rawPointsList.Count; i++) {
@@ -150,6 +146,9 @@ public class Tools
 				
 				
 				Debug.Log (superstring);
+				
+				
+				
 				return max;
 		
 		}
@@ -257,10 +256,6 @@ public class Tools
 						div /= 10;
 				}
 		
-		
-				if (SharedVariables.DebugGraphs) {
-						Debug.LogWarning ("value= " + value + " #digits= " + numDigits);
-				}
 		
 		
 		

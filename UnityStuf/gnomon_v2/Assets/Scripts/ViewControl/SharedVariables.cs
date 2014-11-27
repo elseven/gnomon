@@ -4,7 +4,7 @@ using System.Collections;
 public class SharedVariables
 {
 
-		public static bool DebugGraphs = false;
+		public static bool DebugGraphs = true;
 
 
 }
