@@ -66,15 +66,7 @@ public class GraphControl : MonoBehaviour
 		
 				for (int i=0; i<pointsList.Count; i++) {
 			
-						if (SharedVariables.DebugGraphs) {
-								string pstring = combinedTitle + "_" + i + "\n";
-								foreach (Vector2 p in pointsList[i]) {
-										pstring += p.y + "\n";
-								}
-				
-								Debug.LogError (pstring);
-				
-						}
+		
 			
 						VectorLine vl = new VectorLine (combinedTitle + "_" + i, pointsList [i], Tools.cp.GetColorWrapperAt (i).ColorValue, null, 4f, LineType.Continuous);
 						vl.Draw ();
@@ -86,7 +78,7 @@ public class GraphControl : MonoBehaviour
 				float incValue = (max / 8.0f);
 		
 				string formatString = "n0";
-				if (incValue < .5f) {
+				if (incValue < 1f) {
 						formatString = "n2";
 				}
 		

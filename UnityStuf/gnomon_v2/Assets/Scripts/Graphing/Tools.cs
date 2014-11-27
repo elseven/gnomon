@@ -144,9 +144,9 @@ public class Tools
 				superstring += "calc normal = " + SingleMax (pointsList [0]);
 				
 				
-				
-				Debug.Log (superstring);
-				
+				if (SharedVariables.DebugGraphs) {
+						Debug.Log (superstring);
+				}
 				
 				
 				return max;

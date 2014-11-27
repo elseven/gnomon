@@ -10,7 +10,11 @@ using Vectrosity;
 */
 public class Main : MonoBehaviour
 {
-
+		//FIXME: AUTO FILL STRING NAME ON ADD MATCH IS PREVIOUSLY EDITED
+		//CHECK: EVERYTHING TO DO WITH TEAM/MATCH NAME
+		
+		
+		
 		[HideInInspector]
 		public static bool
 				teamTabNeedsActive = false;

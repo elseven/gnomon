@@ -97,9 +97,9 @@ public class Room : IComparable<Room>
 		
 		
 				for (int i=0; i<energyByDay.Length; i++) {
-						//URGENT: FIX BACK
-						//energyByDay [i] = UnityEngine.Random.Range (minEnergy, maxEnergy) - energyTrend * i;
-						energyByDay [i] = i * 10;
+						
+						energyByDay [i] = UnityEngine.Random.Range (minEnergy, maxEnergy) - energyTrend * i;
+						//energyByDay [i] = i * 10;
 				}
 				
 			
