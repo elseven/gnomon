@@ -94,6 +94,7 @@ public class MatchControl : MonoBehaviour
 				
 				
 				MatchNameTextField.label.text = SelectedMatch.Name;
+				MatchNameTextField.value = SelectedMatch.Name;
 				MatchNameTextField.UpdateLabel ();
 				TeamListLabel.text = InitTeamLabel ();
 				
