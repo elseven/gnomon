@@ -148,7 +148,6 @@ public class MatchControl : MonoBehaviour
 				matchesNameEditControl.ImplCancel ();
 				InitValues ();
 				HideEditPanels ();
-		
 				MatchEditTop.SetActive (true);
 				MatchEditPanelBody.SetActive (true);
 		}
@@ -257,7 +256,9 @@ public class MatchControl : MonoBehaviour
 						SelectedMatch = matchesNameEditControl.ImplDone ();
 						break;
 				}
-				Main.world.TheUser.UpdateMatch (SelectedMatch);			
+				Main.world.TheUser.UpdateMatch (SelectedMatch);
+				Main.ackMessage = "Match updated";
+				Main.showAck = true;
 		
 		}
 	

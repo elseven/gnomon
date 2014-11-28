@@ -19,6 +19,17 @@ public class User
 		
 		public void DeleteTeam (Team toDelete)
 		{
+		
+				for (int j=0; j<myMatches.Count; j++) {
+						Match tempMatch = myMatches [j];
+						for (int jj=0; jj<tempMatch.TeamList.Count; jj++) {
+								if (tempMatch.TeamList [jj].id == toDelete.id) {
+										tempMatch.TeamList.RemoveAt (jj);
+										break;
+								}
+						}
+				}
+		
 				for (int i=0; i<myTeams.Count; i++) {
 						if (myTeams [i].id == toDelete.id) {
 								myTeams.RemoveAt (i);

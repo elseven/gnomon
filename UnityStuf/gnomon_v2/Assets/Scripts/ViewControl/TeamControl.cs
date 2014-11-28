@@ -5,6 +5,7 @@ using System.Reflection;
 public class TeamControl : MonoBehaviour
 {
 
+
 		public enum TeamEditMode
 		{
 				EMPTY,
@@ -51,6 +52,11 @@ public class TeamControl : MonoBehaviour
 		public RoomEditControl roomEditControl;
 		public TeamNameEditControl teamNameEditControl;
 	
+		public GameObject ConfirmDeleteTeamPopup;
+		public GameObject CancelOverlay;
+		public GameObject ConfirmOverlay;
+	
+		public User theUser;
 		public Team SelectedTeam {
 				get {
 						return selectedTeam;
@@ -63,35 +69,10 @@ public class TeamControl : MonoBehaviour
 
 
 
-
-		/**
-		* Attaches team and shows popup
-		*/
-		public void ShowOverflow (Team selected)
-		{
-		
-				//actual reference
-				//this.backupTeam = selected;
-				
-				//deep copy
-				//this.SelectedTeam = new Team (selected);
-				
-				this.SelectedTeam = selected;
-				PopupHeader.text = SelectedTeam.Name;
-				
-				TeamOverflowPopup.SetActive (true);
-	
-		}
-	
-		public void HideOverflow ()
-		{
-
-				TeamOverflowPopup.SetActive (false);
-		}
 		
 		public void RefreshGrid ()
 		{
-				User user = Main.world.TheUser;
+				theUser = Main.world.TheUser;
 				
 				TeamGrid.cellWidth = ScrollArea.GetComponent<UIPanel> ().width - 20f;
 				Transform parentT = MiniTeamParent.transform;
@@ -102,9 +83,9 @@ public class TeamControl : MonoBehaviour
 				}
 				
 				
-				for (int i=0; i<user.myTeams.Count; i++) {
+				for (int i=0; i<theUser.myTeams.Count; i++) {
 						GameObject mini = NGUITools.AddChild (MiniTeamParent, PrefabMiniTeam);
-						mini.GetComponent<MiniTeamControl> ().SetAttachedTeam (user.myTeams [i]);
+						mini.GetComponent<MiniTeamControl> ().SetAttachedTeam (theUser.myTeams [i]);
 						UIWidget miniWidget = mini.GetComponent<UIWidget> ();
 
 						miniWidget.leftAnchor.target = ScrollArea.transform;
@@ -118,12 +99,40 @@ public class TeamControl : MonoBehaviour
 		
 		
 		#region POPUP STUFF and FOOTER
+		/**
+		* Attaches team and shows popup
+		*/
+		public void ShowOverflow (Team selected)
+		{
 		
+				//actual reference
+				//this.backupTeam = selected;
+		
+				//deep copy
+				//this.SelectedTeam = new Team (selected);
+		
+				this.SelectedTeam = selected;
+				PopupHeader.text = SelectedTeam.Name;
+		
+				TeamOverflowPopup.SetActive (true);
+		
+		}
+	
+		public void HideOverflow ()
+		{
+		
+				TeamOverflowPopup.SetActive (false);
+		}
+	
+
+	
 		
 		public void AddTeam ()
 		{
 				SelectedTeam = new Team ("<TEAM NAME>");
 				EditTeam ();
+				Main.ackMessage = "Team added";
+				Main.showAck = true;
 		
 		
 		}
@@ -145,15 +154,56 @@ public class TeamControl : MonoBehaviour
 				InitValuesCopy ();
 				TeamEditTop.SetActive (true);
 				TeamEditPanelBody.SetActive (true);
+				Main.ackMessage = "Team coppied";
+				Main.showAck = true;
 		}
 	
 		public void DeleteTeam ()
 		{
 				/*TODO: IMPL DELETE TEAM WITH CONFIRM POPUP*/
 				
-				
+				HideOverflow ();
+				ShowConfirmDeleteTeam ();
 		
 		}
+		
+		public void ShowConfirmDeleteTeam ()
+		{
+				ConfirmDeleteTeamPopup.SetActive (true);
+		}
+	
+	
+		
+		public void ShowDeleteOverlay ()
+		{
+				ConfirmOverlay.SetActive (true);
+		}
+		public void ShowCancelOverlay ()
+		{
+				CancelOverlay.SetActive (true);
+		}
+		
+		
+		public void ConfirmDelete ()
+		{
+		
+				ConfirmOverlay.SetActive (false);
+				theUser.DeleteTeam (SelectedTeam);
+				
+				
+				BackToTeamsTab ();
+				Main.ackMessage = "Team deleted";
+				Main.showAck = true;
+				
+				
+		}
+		
+		public void CancelDelete ()
+		{
+				CancelOverlay.SetActive (false);
+				BackToTeamsTab ();
+		}
+		
 		#endregion
 
 	
@@ -339,7 +389,7 @@ public class TeamControl : MonoBehaviour
 		}
 	
 	
-	#endregion
+		#endregion
 		
 		
 	
@@ -370,7 +420,8 @@ public class TeamControl : MonoBehaviour
 				
 				
 				Main.world.TheUser.UpdateTeam (SelectedTeam);			
-				
+				Main.ackMessage = "Team updated";
+				Main.showAck = true;
 				
 		}
 	

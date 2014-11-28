@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using Vectrosity;
 public class GraphControl : MonoBehaviour
 {
-
-		//LEFTOFF: ADD TICKS AND X-AXIS LABEL TO GRAPH AND MINI GRAPHS!
 		
 		//private List<Vector2[]> pointsList = new List<Vector2[]> ();
 		private List<Vector2[]> rawPointsList = new List<Vector2[]> ();
@@ -143,15 +141,9 @@ public class GraphControl : MonoBehaviour
 		
 		IEnumerator ImplShowGraph ()
 		{
-		
-		
 				yield return null;
 				Setup ();
 				yield return null;
-	
-		
-		
-		
 		}
 	
 	

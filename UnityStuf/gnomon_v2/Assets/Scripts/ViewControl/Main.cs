@@ -25,8 +25,13 @@ public class Main : MonoBehaviour
 		public static bool
 				matchTabNeedsActive = false;
 	
-	
-	
+		[HideInInspector]
+		public static bool
+				showAck = false ;
+				
+		[HideInInspector]
+		public static string
+				ackMessage = "";
 		public static World world;
 		
 		public GameObject HidePanel;
@@ -48,6 +53,11 @@ public class Main : MonoBehaviour
 		public Printer p;
 		public UIScrollView TeamsScrollView;
 		public UITable TeamsTable;
+		
+		
+		public GameObject AckPanel;
+		public UILabel AckLabel;
+		public UIWidget AckContainer;
 		
 
 		#region MONO
@@ -77,6 +87,13 @@ public class Main : MonoBehaviour
 				} else if (matchTabNeedsActive) {
 						ActivateMatches ();
 				}
+				
+				
+				if (showAck) {
+				
+						ActivateAck ();
+				}
+				
 		}
 		
 		void Awake ()
@@ -136,6 +153,12 @@ public class Main : MonoBehaviour
 				ActionPanel.SetActive (true);
 		}
 	
+	
+	
+		private void ActivateAck ()
+		{
+				StartCoroutine ("ImplActivateAck");
+		}
 
 		public void DeactivateAllPanels ()
 		{
@@ -149,6 +172,29 @@ public class Main : MonoBehaviour
 		
 
 		#region COROUTINES
+		
+		IEnumerator ImplActivateAck ()
+		{
+				AckLabel.text = ackMessage;
+				yield return null;
+				AckContainer.alpha = 0f;
+				AckPanel.SetActive (true);
+				yield return null;
+				for (int i=0; i<30; i++) {
+						AckContainer.alpha += 0.03f;
+						yield return new WaitForSeconds (0.01f);
+				}
+			
+				yield return new WaitForSeconds (0.7f);
+				for (int j=0; j<30; j++) {
+						AckContainer.alpha -= 0.03f;
+						yield return new WaitForSeconds (0.01f);
+				}
+				AckPanel.SetActive (false);
+				showAck = false;
+			
+			
+		}
 		
 		IEnumerator ImplActivateTeams ()
 		{
