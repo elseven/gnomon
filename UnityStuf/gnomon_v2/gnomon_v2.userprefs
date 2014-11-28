@@ -1,15 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ViewControl/SharedVariables.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ViewControl/RoomBuildingEditControl.cs">
     <Files>
-      <File FileName="Assets/Scripts/ViewControl/SharedVariables.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ViewControl/RoomBuildingEditControl.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="ViewControl" expanded="True" />
+              <Node name="ViewControl" expanded="True">
+                <Node name="RoomBuildingEditControl.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
