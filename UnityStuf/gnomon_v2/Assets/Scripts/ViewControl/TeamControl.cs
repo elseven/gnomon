@@ -187,9 +187,10 @@ public class TeamControl : MonoBehaviour
 		public void ConfirmDelete ()
 		{
 		
+		
 				ConfirmOverlay.SetActive (false);
 				theUser.DeleteTeam (SelectedTeam);
-				
+				ConfirmDeleteTeamPopup.SetActive (false);		
 				
 				BackToTeamsTab ();
 				Main.ackMessage = "Team deleted";
@@ -201,6 +202,7 @@ public class TeamControl : MonoBehaviour
 		public void CancelDelete ()
 		{
 				CancelOverlay.SetActive (false);
+				ConfirmDeleteTeamPopup.SetActive (false);
 				BackToTeamsTab ();
 		}
 		
