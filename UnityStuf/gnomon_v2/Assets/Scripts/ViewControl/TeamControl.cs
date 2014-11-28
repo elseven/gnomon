@@ -169,7 +169,7 @@ public class TeamControl : MonoBehaviour
 		
 		public void ShowConfirmDeleteTeam ()
 		{
-				DeleteTeamLabel.text = "Delete team " + SelectedTeam.Name + "?";
+				DeleteTeamLabel.text = "Delete team \"" + SelectedTeam.Name + "\"?";
 				ConfirmDeleteTeamPopup.SetActive (true);
 		}
 	
@@ -442,7 +442,6 @@ public class TeamControl : MonoBehaviour
 				EditBuildingPanel.SetActive (false);
 				EditRoomPanel.SetActive (false);	
 				TeamEditCAB.SetActive (false);
-				//TODO: POPUP SAVED/CANCELED
 		}
 		
 		/**

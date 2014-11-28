@@ -57,7 +57,7 @@ public class TeamNameEditControl : MonoBehaviour
 		
 		public void ImplCancel ()
 		{
-				//URGENT: THROWS EXCEPTION!
+				//CHECK: THROWS EXCEPTION?? HASN'T HAPPENED RECENTLY
 				TeamNameField.value = theTeam.Name;
 				TeamNameField.UpdateLabel ();
 				OnDeselect ();

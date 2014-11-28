@@ -216,14 +216,13 @@ public class MatchControl : MonoBehaviour
 	
 		public void DeleteMatch ()
 		{
-				/*TODO: IMPL DELETE match WITH CONFIRM POPUP*/
 				HideOverflow ();
 				ShowConfirmDeleteMatch ();
 		
 		}
 		public void ShowConfirmDeleteMatch ()
 		{
-				DeleteMatchLabel.text = "Delete match " + SelectedMatch.Name + "?";
+				DeleteMatchLabel.text = "Delete match \"" + SelectedMatch.Name + "\"?";
 				ConfirmDeleteMatchPopup.SetActive (true);
 		}
 	
@@ -325,7 +324,6 @@ public class MatchControl : MonoBehaviour
 		{
 				matchesTeamEditControl.ETPanel.SetActive (false);
 				MatchEditCAB.SetActive (false);
-				//TODO: POPUP SAVED/CANCELED
 		}
 	
 		/**
