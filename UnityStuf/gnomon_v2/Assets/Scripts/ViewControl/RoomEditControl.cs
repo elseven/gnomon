@@ -125,7 +125,10 @@ public class RoomEditControl : MonoBehaviour
 			
 						schools [i].Buildings.Sort ();
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
-						schoolContainer.GetComponent<RoomSchoolEditControl> ().RefreshSchoolContainer (theTeam, schools [i]);
+						RoomSchoolEditControl rsec = schoolContainer.GetComponent<RoomSchoolEditControl> ();
+						rsec.HeaderContainer.leftAnchor.target = ERScrollArea.transform;
+						rsec.HeaderContainer.rightAnchor.target = ERScrollArea.transform;
+						rsec.RefreshSchoolContainer (theTeam, schools [i]);
 			
 			
 						UIWidget scWidget = schoolContainer.GetComponent<UIWidget> ();

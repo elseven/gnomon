@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 public class TeamControl : MonoBehaviour
 {
-
+		
 
 		public enum TeamEditMode
 		{

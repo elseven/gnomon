@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 public class User
 {
-	
+		//URGENT: ALPHABETIZE teams and matches on add/update
+		//TODO: ADD DRAGS TO STUFF
 	
 		public List<Team> myTeams = new List<Team> ();
 		public List<Match> myMatches = new List<Match> ();

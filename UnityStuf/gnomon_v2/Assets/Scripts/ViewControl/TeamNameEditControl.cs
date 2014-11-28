@@ -30,13 +30,18 @@ public class TeamNameEditControl : MonoBehaviour
 		public void Init (Team team)
 		{
 				this.theTeam = team;
-				TeamNameField.label.text = theTeam.Name;
-				TeamNameField.value = theTeam.Name;
-				TeamNameField.isSelected = true;
-				TeamNameField.selectionStart = 0;
-				TeamNameField.selectionEnd = theTeam.Name.Length;
+				
+				if (!TeamNameField.isSelected) {
+						TeamNameField.label.text = theTeam.Name;
+						TeamNameField.value = theTeam.Name;
+						TeamNameField.isSelected = true;
+						TeamNameField.selectionStart = 0;
+						TeamNameField.selectionEnd = theTeam.Name.Length;
+				}
+				
+				
+				
 				TeamNameField.UpdateLabel ();
-				//TeamNameLabel.text = theTeam.Name;
 				
 				underline.color = Tools.LIGHT_BLUE;
 				

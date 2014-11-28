@@ -10,6 +10,7 @@ public class RoomSchoolEditControl : MonoBehaviour
 	
 	
 		public UILabel schoolLabel;
+		public UIWidget HeaderContainer;
 	
 		public School theSchool;
 		public Team theTeam;

@@ -30,11 +30,18 @@ public class MatchesNameEditControl : MonoBehaviour
 		public void Init (Match match)
 		{
 				this.theMatch = match;
-				MatchNameField.label.text = theMatch.Name;
-				MatchNameField.value = theMatch.Name;
-				MatchNameField.isSelected = true;
-				MatchNameField.selectionStart = 0;
-				MatchNameField.selectionEnd = theMatch.Name.Length;
+				
+		
+				if (!MatchNameField.isSelected) {
+			
+						MatchNameField.label.text = theMatch.Name;
+						MatchNameField.value = theMatch.Name;
+						MatchNameField.isSelected = true;		
+			
+						MatchNameField.selectionStart = 0;
+						MatchNameField.selectionEnd = theMatch.Name.Length;
+				}
+				
 				MatchNameField.UpdateLabel ();
 		
 				underline.color = Tools.LIGHT_BLUE;
