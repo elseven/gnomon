@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class User
 {
 		//URGENT: ALPHABETIZE teams and matches on add/update
-		//TODO: ADD DRAGS TO STUFF
 	
 		public List<Team> myTeams = new List<Team> ();
 		public List<Match> myMatches = new List<Match> ();
@@ -27,16 +26,17 @@ public class User
 						for (int jj=0; jj<tempMatch.TeamList.Count; jj++) {
 								if (tempMatch.TeamList [jj].id == toDelete.id) {
 										tempMatch.TeamList.RemoveAt (jj);
-										
+										tempMatch.TeamList.Sort ();
 										break;
 								}
 						}
 				}
-		
+				
 				for (int i=0; i<myTeams.Count; i++) {
 						if (myTeams [i].id == toDelete.id) {
 								myTeams.RemoveAt (i);
 								Debug.LogWarning ("yay!");
+								myMatches.Sort ();
 								return;
 						}
 				}
@@ -48,9 +48,12 @@ public class User
 		
 		public void UpdateTeam (Team toReplace)
 		{
+		
+				
 				for (int i=0; i<myTeams.Count; i++) {
 						if (myTeams [i].id == toReplace.id) {
 								myTeams [i] = toReplace;
+								myTeams.Sort ();
 								return;
 						}
 				}
@@ -58,9 +61,11 @@ public class User
 				Debug.LogError ("UPDATE DOESNT EXIST");
 				
 				myTeams.Add (toReplace);
+				myTeams.Sort ();
+		
 		
 		}
-		
+	
 		
 		
 		public void DeleteMatch (Match toDelete)
@@ -68,10 +73,11 @@ public class User
 				for (int i=0; i<myMatches.Count; i++) {
 						if (myMatches [i].id == toDelete.id) {
 								myMatches.RemoveAt (i);
+								myMatches.Sort ();
 								return;
 						}
 				}
-		
+				myMatches.Sort ();
 				Debug.LogError ("DOESNT EXIST");
 		
 		}
@@ -82,6 +88,7 @@ public class User
 				for (int i=0; i<myMatches.Count; i++) {
 						if (myMatches [i].id == toReplace.id) {
 								myMatches [i] = toReplace;
+								myMatches.Sort ();
 								return;
 						}
 				}
@@ -89,7 +96,7 @@ public class User
 				Debug.LogError ("DOESNT EXIST");
 		
 				myMatches.Add (toReplace);
-		
+				myMatches.Sort ();
 		}
 	
 	
