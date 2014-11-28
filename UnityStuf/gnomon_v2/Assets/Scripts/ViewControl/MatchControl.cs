@@ -186,7 +186,7 @@ public class MatchControl : MonoBehaviour
 				MatchOverflowPopup.SetActive (true);
 		
 		}
-		void HideOverflow ()
+		public void HideOverflow ()
 		{
 				MatchOverflowPopup.SetActive (false);
 		}	
