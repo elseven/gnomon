@@ -51,6 +51,14 @@ public class MatchControl : MonoBehaviour
 		public MatchesNameEditControl matchesNameEditControl;
 		public MatchesTeamEditControl matchesTeamEditControl;	
 		
+		public GameObject ConfirmDeleteMatchPopup;
+		public GameObject CancelOverlay;
+		public GameObject ConfirmOverlay;
+		public UILabel DeleteMatchLabel;
+	
+		private User theUser;
+		
+		
 	
 		public Match SelectedMatch {
 				get {
@@ -66,7 +74,7 @@ public class MatchControl : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-		
+				theUser = Main.world.TheUser;
 		}
 	
 		// Update is called once per frame
@@ -209,9 +217,53 @@ public class MatchControl : MonoBehaviour
 		public void DeleteMatch ()
 		{
 				/*TODO: IMPL DELETE match WITH CONFIRM POPUP*/
+				HideOverflow ();
+				ShowConfirmDeleteMatch ();
 		
 		}
+		public void ShowConfirmDeleteMatch ()
+		{
+				DeleteMatchLabel.text = "Delete match " + SelectedMatch.Name + "?";
+				ConfirmDeleteMatchPopup.SetActive (true);
+		}
+	
+	
+	
+		public void ShowDeleteOverlay ()
+		{
+				ConfirmOverlay.SetActive (true);
+		}
+		public void ShowCancelOverlay ()
+		{
+				CancelOverlay.SetActive (true);
+		}
+	
+	
+		public void ConfirmDelete ()
+		{
 		
+		
+				ConfirmOverlay.SetActive (false);
+				theUser.DeleteMatch (SelectedMatch);
+				ConfirmDeleteMatchPopup.SetActive (false);		
+		
+				HideEditPanels ();
+				HideDetailPanels ();
+				Main.matchTabNeedsActive = true;
+				Main.ackMessage = "Match deleted";
+				Main.showAck = true;
+		
+		
+		}
+	
+		public void CancelDelete ()
+		{
+				CancelOverlay.SetActive (false);
+				ConfirmDeleteMatchPopup.SetActive (false);
+				HideEditPanels ();
+				HideDetailPanels ();
+				Main.matchTabNeedsActive = true;
+		}
 		#endregion
 		
 		

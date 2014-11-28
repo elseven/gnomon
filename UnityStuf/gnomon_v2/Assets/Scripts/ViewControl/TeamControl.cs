@@ -55,6 +55,7 @@ public class TeamControl : MonoBehaviour
 		public GameObject ConfirmDeleteTeamPopup;
 		public GameObject CancelOverlay;
 		public GameObject ConfirmOverlay;
+		public UILabel DeleteTeamLabel;
 	
 		public User theUser;
 		public Team SelectedTeam {
@@ -160,7 +161,6 @@ public class TeamControl : MonoBehaviour
 	
 		public void DeleteTeam ()
 		{
-				/*TODO: IMPL DELETE TEAM WITH CONFIRM POPUP*/
 				
 				HideOverflow ();
 				ShowConfirmDeleteTeam ();
@@ -169,6 +169,7 @@ public class TeamControl : MonoBehaviour
 		
 		public void ShowConfirmDeleteTeam ()
 		{
+				DeleteTeamLabel.text = "Delete team " + SelectedTeam.Name + "?";
 				ConfirmDeleteTeamPopup.SetActive (true);
 		}
 	
@@ -192,7 +193,9 @@ public class TeamControl : MonoBehaviour
 				theUser.DeleteTeam (SelectedTeam);
 				ConfirmDeleteTeamPopup.SetActive (false);		
 				
-				BackToTeamsTab ();
+				HideEditPanels ();
+				HideDetailPanels ();
+				Main.teamTabNeedsActive = true;
 				Main.ackMessage = "Team deleted";
 				Main.showAck = true;
 				
@@ -203,7 +206,9 @@ public class TeamControl : MonoBehaviour
 		{
 				CancelOverlay.SetActive (false);
 				ConfirmDeleteTeamPopup.SetActive (false);
-				BackToTeamsTab ();
+				HideEditPanels ();
+				HideDetailPanels ();
+				Main.teamTabNeedsActive = true;
 		}
 		
 		#endregion
@@ -381,9 +386,9 @@ public class TeamControl : MonoBehaviour
 				
 				
 				
-				Main.world.TheUser.DeleteTeam (SelectedTeam);
-				Main.world.TheUser.myTeams.Add (SelectedTeam);
-				
+				//Main.world.TheUser.DeleteTeam (SelectedTeam);
+				//Main.world.TheUser.myTeams.Add (SelectedTeam);
+				Main.world.TheUser.UpdateTeam (SelectedTeam);
 				HideEditPanels ();
 				HideDetailPanels ();
 				Main.teamTabNeedsActive = true;

@@ -11,8 +11,8 @@ public class User
 	
 		public User (List<Team> teams, List<Match> matches)
 		{
-				this.myTeams = teams;
-				this.myMatches = matches;
+				this.myTeams.AddRange (teams);
+				this.myMatches.AddRange (matches);
 		}
 		
 		
@@ -20,11 +20,13 @@ public class User
 		public void DeleteTeam (Team toDelete)
 		{
 		
+				Debug.LogWarning ("id to delete: " + toDelete.id);
 				for (int j=0; j<myMatches.Count; j++) {
 						Match tempMatch = myMatches [j];
 						for (int jj=0; jj<tempMatch.TeamList.Count; jj++) {
 								if (tempMatch.TeamList [jj].id == toDelete.id) {
 										tempMatch.TeamList.RemoveAt (jj);
+										
 										break;
 								}
 						}
@@ -33,11 +35,12 @@ public class User
 				for (int i=0; i<myTeams.Count; i++) {
 						if (myTeams [i].id == toDelete.id) {
 								myTeams.RemoveAt (i);
+								Debug.LogWarning ("yay!");
 								return;
 						}
 				}
 			
-				Debug.LogError ("DOESNT EXIST");
+				Debug.LogError ("DELETE DOESNT EXIST");
 			
 		}
 		
@@ -51,7 +54,7 @@ public class User
 						}
 				}
 		
-				Debug.LogError ("DOESNT EXIST");
+				Debug.LogError ("UPDATE DOESNT EXIST");
 				
 				myTeams.Add (toReplace);
 		
