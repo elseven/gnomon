@@ -14,7 +14,8 @@ public class RoomSchoolEditControl : MonoBehaviour
 	
 		public School theSchool;
 		public Team theTeam;
-	
+		private Transform parent;
+		private bool needsRefresh = false;
 	
 	
 		public void RefreshSchoolContainer (Team team, School school)
@@ -29,12 +30,14 @@ public class RoomSchoolEditControl : MonoBehaviour
 		
 		
 				schoolLabel.text = theSchool.Name;
-				Transform parent = ParentOfBuildings.transform;
-				
-				
+				parent = ParentOfBuildings.transform;
+				gameObject.SetActive (true);
+				ParentOfBuildings.SetActive (true);
+				PrefabBuildingContainer.SetActive (true);
 				//REMOVE ALL PrefabBuildingContainer from Buildings
 				while (parent.childCount>0) {
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
+						//yield return null;
 				}
 		
 		
@@ -45,33 +48,37 @@ public class RoomSchoolEditControl : MonoBehaviour
 				int roomHeight = 30;
 				//ADD BACK ALL PrefabBuildingContainer to Buildings
 				for (int i=0; i<theSchool.Buildings.Count; i++) {
-						
+			
 						GameObject building = NGUITools.AddChild (ParentOfBuildings, PrefabBuildingContainer);
 			
-						
+			
 						//ADD building to school container
 						int roomCount = building.GetComponent<RoomBuildingEditControl> ().RefreshBuildingContainer (theTeam, theSchool, i);
-						
-						
+			
+			
 						UIWidget buildingWidget = building.GetComponent<UIWidget> ();
 			
 			
 						buildingWidget.topAnchor.target = topTransform;
 						buildingWidget.bottomAnchor.target = topTransform;
-						
+			
 						buildingWidget.topAnchor.absolute = -30 - topOffset;
 						buildingWidget.bottomAnchor.absolute = -60 - topOffset;
 			
 			
 						buildingWidget.leftAnchor.target = parent;
 						buildingWidget.rightAnchor.target = parent;
-						
+			
 						topOffset += roomCount * roomHeight;
 						topOffset += 60;
 						//topTransform = building.transform;
-						
+			
+			
 				}
-		
-		
+				
 		}
+		
+	
+		
+				
 }

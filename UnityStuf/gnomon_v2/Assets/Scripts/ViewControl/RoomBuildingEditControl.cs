@@ -18,7 +18,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 		public int RefreshBuildingContainer (Team team, School school, int buildingIndex)
 		{
 		
-				int roomCount = 3;
+				int roomCount = 5;
 				this.theSchool = school;
 				this.theTeam = team;
 				this.theBuilding = school.Buildings [buildingIndex];

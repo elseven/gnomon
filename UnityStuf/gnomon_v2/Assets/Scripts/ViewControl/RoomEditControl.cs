@@ -6,7 +6,7 @@ using System.Reflection;
 public class RoomEditControl : MonoBehaviour
 {
 
-	
+		//TODO: ADD SCROLL COLLIDERS TO PREFABS FOR ROOMS
 		public Room AttachedRoom;
 	
 	
@@ -80,31 +80,29 @@ public class RoomEditControl : MonoBehaviour
 		IEnumerator FixScroll ()
 		{
 		
-		
+				//yield return null;
 				RefreshMain ();
+				//yield return new WaitForEndOfFrame ();
+				
 				ShowEditPanels ();
-				yield return null;
+				
 				ERScrollView.ResetPosition ();
 				yield return null;
 				AllSchoolsTable.Reposition ();
-				HeaderAndSchoolsTable.Reposition ();
-		
-		
-		
+				//HeaderAndSchoolsTable.Reposition ();
+				
 		
 		}
 	
-	
-		public void RefreshMain ()
+		private void RefreshMain ()
 		{
 		
-	
 				Main.world.schools.Sort ();
 		
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
 				//StartCoroutine ("ImplRefreshMain");
-				
+		
 		
 				Transform parent = ParentOfSC.transform;
 		
@@ -113,15 +111,19 @@ public class RoomEditControl : MonoBehaviour
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
 		
-				//yield return null;
+				ParentOfSC.SetActive (true);
+				PrefabSchoolContainer.SetActive (true);
+		
 				//ADD BACK ALL SchoolContainers
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
+						schoolContainer.SetActive (true);
 			
 			
 						//schools [i].Buildings.Sort ();
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
 						RoomSchoolEditControl rsec = schoolContainer.GetComponent<RoomSchoolEditControl> ();
+			
 						rsec.HeaderContainer.leftAnchor.target = ERScrollArea.transform;
 						rsec.HeaderContainer.rightAnchor.target = ERScrollArea.transform;
 						rsec.RefreshSchoolContainer (theTeam, schools [i]);
@@ -131,9 +133,9 @@ public class RoomEditControl : MonoBehaviour
 						scWidget.leftAnchor.target = ERScrollArea.transform;
 						scWidget.rightAnchor.target = ERScrollArea.transform;
 			
-			
 				}
 		}
+	
 	
 	
 		public void ShowEditPanels ()
