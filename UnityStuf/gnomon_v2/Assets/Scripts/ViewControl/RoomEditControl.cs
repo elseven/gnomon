@@ -34,18 +34,7 @@ public class RoomEditControl : MonoBehaviour
 	
 	
 		private List<School> schools = new List<School> ();
-		// Use this for initialization
-		void Start ()
-		{
-		
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-		
-		}
-	
+
 		public Team ImplDone ()
 		{
 		
@@ -80,10 +69,8 @@ public class RoomEditControl : MonoBehaviour
 		IEnumerator FixScroll ()
 		{
 		
-				//yield return null;
 				RefreshMain ();
 				yield return null;
-				//yield return new WaitForEndOfFrame ();
 				
 				ShowEditPanels ();
 				
@@ -97,7 +84,7 @@ public class RoomEditControl : MonoBehaviour
 		private void RefreshMain ()
 		{
 		
-				Main.world.schools.Sort ();
+				//Main.world.schools.Sort ();
 		
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
@@ -111,13 +98,13 @@ public class RoomEditControl : MonoBehaviour
 						NGUITools.Destroy (parent.GetChild (0).gameObject);
 				}
 		
-				ParentOfSC.SetActive (true);
-				PrefabSchoolContainer.SetActive (true);
+				//ParentOfSC.SetActive (true);
+				//PrefabSchoolContainer.SetActive (true);
 		
 				//ADD BACK ALL SchoolContainers
 				for (int i=0; i<schools.Count; i++) {
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
-						schoolContainer.SetActive (true);
+						//schoolContainer.SetActive (true);
 			
 			
 						//schools [i].Buildings.Sort ();
