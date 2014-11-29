@@ -53,13 +53,13 @@ public class RoomSelectControl : MonoBehaviour
 				Refresh ();
 		}
 	
-		public void Refresh ()
+		private void Refresh ()
 		{
 				OnSprite.SetActive (isSelected);
 				OffSprite.SetActive (!isSelected);
 				OnLabel.SetActive (isSelected);
-		
 				OffLabel.SetActive (!isSelected);
+				
 		}
 	
 	

@@ -33,18 +33,7 @@ public class BuildingEditControl : MonoBehaviour
 		
 		
 		private List<School> schools = new List<School> ();
-		// Use this for initialization
-		void Start ()
-		{
-		
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-		
-		}
-	
+
 		public Team ImplDone ()
 		{
 				theTeam.BuildingList.Clear ();
