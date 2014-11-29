@@ -82,7 +82,6 @@ public class RoomEditControl : MonoBehaviour
 		
 		
 				RefreshMain ();
-		
 				ShowEditPanels ();
 				yield return null;
 				ERScrollView.ResetPosition ();
@@ -99,16 +98,13 @@ public class RoomEditControl : MonoBehaviour
 		public void RefreshMain ()
 		{
 		
-				MethodBase methodBase = MethodBase.GetCurrentMethod ();
-				Debug.LogWarning (methodBase.Name);
+	
 				Main.world.schools.Sort ();
 		
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
 				//StartCoroutine ("ImplRefreshMain");
-				//float width = ERScrollArea.GetComponent<UIPanel> ().width - 20f;
-		
-		
+				
 		
 				Transform parent = ParentOfSC.transform;
 		

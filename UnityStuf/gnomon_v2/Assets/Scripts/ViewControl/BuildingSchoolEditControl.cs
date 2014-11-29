@@ -18,8 +18,7 @@ public class BuildingSchoolEditControl : MonoBehaviour
 		public void RefreshSchoolContainer (Team team, School school)
 		{
 		
-				MethodBase methodBase = MethodBase.GetCurrentMethod ();
-				Debug.LogWarning (methodBase.Name);
+				
 		
 				this.theSchool = school;
 				this.theTeam = team;

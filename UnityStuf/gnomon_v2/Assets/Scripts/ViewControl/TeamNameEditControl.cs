@@ -63,6 +63,7 @@ public class TeamNameEditControl : MonoBehaviour
 		public void ImplCancel ()
 		{
 				//CHECK: THROWS EXCEPTION?? HASN'T HAPPENED RECENTLY
+				//TODO: EXCEPTION IF CHANGING SCHOOLS and buildings
 				TeamNameField.value = theTeam.Name;
 				TeamNameField.UpdateLabel ();
 				OnDeselect ();
