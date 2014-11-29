@@ -14,7 +14,7 @@ public class RoomSelectControl : MonoBehaviour
 		public GameObject OffLabel;
 	
 		public Team theTeam;
-		public School theSchool;
+		
 		public Building theBuilding;
 	
 	
@@ -24,20 +24,9 @@ public class RoomSelectControl : MonoBehaviour
 				}
 		}
 	
-		// Use this for initialization
-		void Start ()
-		{
-				Refresh ();
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-		
-		}
-	
-	
-		public void SetAttachedRoom (Team team, School s, Building b, int roomIndex)
+
+
+		public void SetAttachedRoom (Team team, Building b, int roomIndex)
 		{
 		
 				if (team == null) {
@@ -45,13 +34,9 @@ public class RoomSelectControl : MonoBehaviour
 				}
 		
 		
-				if (s == null) {
-						Debug.LogError ("no school");
-				}
-		
-		
+			
 				this.theTeam = team;
-				this.theSchool = s;
+				//this.theSchool = s;
 				this.theBuilding = b;
 				
 				this.AttachedRoom = theBuilding.Rooms [roomIndex];

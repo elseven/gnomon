@@ -41,7 +41,7 @@ public class RoomBuildingEditControl : MonoBehaviour
 			
 						
 						//ADD room to building container
-						room.GetComponent<RoomSelectControl> ().SetAttachedRoom (theTeam, theSchool, theBuilding, i);
+						room.GetComponent<RoomSelectControl> ().SetAttachedRoom (theTeam, theBuilding, i);
 						
 						UIWidget roomWidget = room.GetComponent<UIWidget> ();
 			

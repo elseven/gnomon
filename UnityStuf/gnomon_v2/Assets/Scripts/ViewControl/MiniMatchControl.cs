@@ -82,7 +82,6 @@ public class MiniMatchControl : MonoBehaviour
 		{
 		
 				Overlay.SetActive (false);
-				string title = "";
 				graphControl.ClearList ();
 				foreach (Team t in AttachedMatch.TeamList) {
 						Vector2[] points = t.GetEnergyPointsRange (0, 29);

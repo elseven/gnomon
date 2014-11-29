@@ -13,8 +13,7 @@ public class GraphControl : MonoBehaviour
 		//float right;
 		//float top;
 		float bottom;
-		float width;
-		float height;
+
 		public UISprite canvas1;
 		public UILabel GraphTitle;
 		Camera cam;
@@ -48,8 +47,7 @@ public class GraphControl : MonoBehaviour
 		
 				Vector3 worldBottomLeft = canvas1.worldCorners [0];
 				Vector3 worldTopRight = canvas1.worldCorners [2];
-				width = canvas1.width;
-				height = canvas1.height;
+		
 				
 				
 				//NOTE: LISTS ARE PASS BY REF SO FIND MAX BEFORE PASSING TO TOOLS.MAP

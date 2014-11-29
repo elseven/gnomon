@@ -73,7 +73,7 @@ public class MatchesTeamEditControl : MonoBehaviour
 				theUser = Main.world.TheUser;
 		
 				
-				float width = ETScrollArea.GetComponent<UIPanel> ().width - 20f;
+				//float width = ETScrollArea.GetComponent<UIPanel> ().width - 20f;
 		
 		
 		

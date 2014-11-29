@@ -5,8 +5,6 @@ public class ColorPicker
 {
 		ColorWrapper[] ColorArray = new ColorWrapper[10];
 
-		private Color color0 = Color.green;
-		private Color color1 = Color.blue;
 		public ColorPicker ()
 		{
 		

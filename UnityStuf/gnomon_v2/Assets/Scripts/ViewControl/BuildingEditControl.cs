@@ -98,7 +98,7 @@ public class BuildingEditControl : MonoBehaviour
 				
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
-				float width = EBScrollArea.GetComponent<UIPanel> ().width - 20f;
+				//float width = EBScrollArea.GetComponent<UIPanel> ().width - 20f;
 				
 				
 				

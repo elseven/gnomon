@@ -26,7 +26,7 @@ public class TeamSelectControl : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				Refresh ();
+				//Refresh ();
 		}
 	
 		// Update is called once per frame

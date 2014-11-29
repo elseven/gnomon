@@ -59,7 +59,7 @@ public class RoomEditControl : MonoBehaviour
 								theTeam.RoomList.Add (rsc.AttachedRoom);
 						}
 				}
-				theTeam.RoomList.Sort ();
+				//theTeam.RoomList.Sort ();
 				
 				
 				return theTeam;
@@ -106,7 +106,7 @@ public class RoomEditControl : MonoBehaviour
 				schools = Main.world.schools;
 				theUser = Main.world.TheUser;
 				//StartCoroutine ("ImplRefreshMain");
-				float width = ERScrollArea.GetComponent<UIPanel> ().width - 20f;
+				//float width = ERScrollArea.GetComponent<UIPanel> ().width - 20f;
 		
 		
 		
@@ -123,7 +123,7 @@ public class RoomEditControl : MonoBehaviour
 						GameObject schoolContainer = NGUITools.AddChild (ParentOfSC, PrefabSchoolContainer);
 			
 			
-						schools [i].Buildings.Sort ();
+						//schools [i].Buildings.Sort ();
 						//ADD ALL BUILDINGS TO SCHOOL CONTAINER
 						RoomSchoolEditControl rsec = schoolContainer.GetComponent<RoomSchoolEditControl> ();
 						rsec.HeaderContainer.leftAnchor.target = ERScrollArea.transform;
