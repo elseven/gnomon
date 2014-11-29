@@ -82,6 +82,7 @@ public class RoomEditControl : MonoBehaviour
 		
 				//yield return null;
 				RefreshMain ();
+				yield return null;
 				//yield return new WaitForEndOfFrame ();
 				
 				ShowEditPanels ();
@@ -89,7 +90,6 @@ public class RoomEditControl : MonoBehaviour
 				ERScrollView.ResetPosition ();
 				yield return null;
 				AllSchoolsTable.Reposition ();
-				//HeaderAndSchoolsTable.Reposition ();
 				
 		
 		}
