@@ -157,6 +157,7 @@ public class Main : MonoBehaviour
 	
 		private void ActivateAck ()
 		{
+				showAck = false;
 				StartCoroutine ("ImplActivateAck");
 		}
 
@@ -182,16 +183,16 @@ public class Main : MonoBehaviour
 				yield return null;
 				for (int i=0; i<30; i++) {
 						AckContainer.alpha += 0.03f;
-						yield return new WaitForSeconds (0.01f);
+						yield return new WaitForSeconds (0.005f);
 				}
 			
-				yield return new WaitForSeconds (0.7f);
+				yield return new WaitForSeconds (0.5f);
 				for (int j=0; j<30; j++) {
 						AckContainer.alpha -= 0.03f;
-						yield return new WaitForSeconds (0.01f);
+						yield return new WaitForSeconds (0.005f);
 				}
 				AckPanel.SetActive (false);
-				showAck = false;
+				
 			
 			
 		}

@@ -15,9 +15,7 @@ public class RoomSchoolEditControl : MonoBehaviour
 		public School theSchool;
 		public Team theTeam;
 		private Transform parent;
-		private bool needsRefresh = false;
-	
-	
+		
 		public void RefreshSchoolContainer (Team team, School school)
 		{
 		

@@ -54,6 +54,10 @@ public class RoomEditControl : MonoBehaviour
 				return theTeam;
 		}
 	
+		public void ImplCancel ()
+		{
+				//DO NOTHING
+		}
 	
 	
 	

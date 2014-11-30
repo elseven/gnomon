@@ -44,6 +44,10 @@ public class MatchesTeamEditControl : MonoBehaviour
 				return theMatch;
 		}
 	
+		public void ImplCancel ()
+		{
+				//DO NOTHING
+		}
 	
 		public void Init (Match match)
 		{

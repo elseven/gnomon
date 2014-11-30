@@ -51,7 +51,10 @@ public class BuildingEditControl : MonoBehaviour
 		}
 	
 	
-	
+		public void ImplCancel ()
+		{
+				//DO NOTHING
+		}
 	
 		public void Init (Team team)
 		{

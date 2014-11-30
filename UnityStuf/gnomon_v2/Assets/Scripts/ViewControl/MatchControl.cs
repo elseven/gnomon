@@ -142,8 +142,8 @@ public class MatchControl : MonoBehaviour
 		}
 		public void DoneMatch ()
 		{
-		
-				UpdateMatch ();
+				HandleDoneMatch ();
+				
 		
 				InitValues ();
 				HideEditPanels ();
@@ -154,7 +154,7 @@ public class MatchControl : MonoBehaviour
 		public void CancelMatch ()
 		{
 				//CHECK: CANCEL match NOT CHECKED
-				matchesNameEditControl.ImplCancel ();
+				HandleCancelMatch ();
 				InitValues ();
 				HideEditPanels ();
 				MatchEditTop.SetActive (true);
@@ -293,7 +293,7 @@ public class MatchControl : MonoBehaviour
 
 		}
 	
-		private void UpdateMatch ()
+		private void HandleDoneMatch ()
 		{
 		
 		
@@ -310,6 +310,30 @@ public class MatchControl : MonoBehaviour
 				}
 				Main.world.TheUser.UpdateMatch (SelectedMatch);
 				Main.ackMessage = "Match updated";
+				Main.showAck = true;
+		
+		}
+	
+	
+		private void HandleCancelMatch ()
+		{
+		
+		
+				switch (ActiveMEM) {
+				case MatchEditMode.EMPTY:
+						Debug.LogError ("WHY IS THIS EMPTY???");
+						break;
+				case MatchEditMode.TEAM:
+						matchesTeamEditControl.ImplCancel ();
+						break;
+				case MatchEditMode.NAME:
+						matchesNameEditControl.ImplCancel ();
+						break;
+				}
+				
+				
+				//Main.world.TheUser.UpdateMatch (SelectedMatch);
+				Main.ackMessage = "No changes made";
 				Main.showAck = true;
 		
 		}

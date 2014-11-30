@@ -362,7 +362,7 @@ public class TeamControl : MonoBehaviour
 		public void DoneTeam ()
 		{
 	
-				UpdateTeam ();
+				HandleDoneTeam ();
 							
 				InitValues ();
 				HideEditPanels ();
@@ -372,8 +372,7 @@ public class TeamControl : MonoBehaviour
 		}
 		public void CancelTeam ()
 		{
-				//CHECK: CANCEL TEAM NOT CHECKED
-				teamNameEditControl.ImplCancel ();
+				HandleCancelTeam ();
 				InitValues ();
 				HideEditPanels ();
 				
@@ -386,8 +385,6 @@ public class TeamControl : MonoBehaviour
 				
 				
 				
-				//Main.world.TheUser.DeleteTeam (SelectedTeam);
-				//Main.world.TheUser.myTeams.Add (SelectedTeam);
 				Main.world.TheUser.UpdateTeam (SelectedTeam);
 				HideEditPanels ();
 				HideDetailPanels ();
@@ -400,7 +397,7 @@ public class TeamControl : MonoBehaviour
 		
 		
 	
-		private void UpdateTeam ()
+		private void HandleDoneTeam ()
 		{
 		
 			
@@ -430,6 +427,35 @@ public class TeamControl : MonoBehaviour
 				Main.ackMessage = "Team updated";
 				Main.showAck = true;
 				
+		}
+		
+		private void HandleCancelTeam ()
+		{
+				switch (ActiveTEM) {
+				case TeamEditMode.EMPTY:
+						Debug.LogError ("WHY IS THIS EMPTY???");
+						break;
+				case TeamEditMode.SCHOOL:
+						schoolEditControl.ImplCancel ();
+						break;
+				case TeamEditMode.BUILDING:
+			
+						buildingEditControl.ImplCancel ();
+						break;
+				case TeamEditMode.ROOM:
+						roomEditControl.ImplCancel ();
+						break;
+				case TeamEditMode.NAME:
+			
+						teamNameEditControl.ImplCancel ();
+						break;
+				}
+		
+		
+		
+				//Main.world.TheUser.UpdateTeam (SelectedTeam);			
+				Main.ackMessage = "No changes made";
+				Main.showAck = true;
 		}
 	
 	

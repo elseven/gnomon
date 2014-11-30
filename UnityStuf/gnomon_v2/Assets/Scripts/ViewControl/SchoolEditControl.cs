@@ -46,7 +46,10 @@ public class SchoolEditControl : MonoBehaviour
 			
 				return theTeam;
 		}
-		
+		public void ImplCancel ()
+		{
+				//DO NOTHING
+		}
 		
 		public void Init (Team team)
 		{
