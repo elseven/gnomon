@@ -41,7 +41,17 @@ public class Match : IComparable<Match>
 				id = count;
 				count++;
 		}
-	
+
+		public Match (Match other)
+		{
+				this.Name = other.name;
+		
+				foreach (Team t in other.TeamList) {
+						this.TeamList.Add (t);
+				}
+				this.id = count;
+				count++;
+		}
 		public Match (string name, List<Team> teams)
 		{
 				this.Name = name;
@@ -50,7 +60,7 @@ public class Match : IComparable<Match>
 				count++;
 		}
 	
-	#region IComparable implementation
+		#region IComparable implementation
 		public int CompareTo (Match other)
 		{
 		
@@ -59,7 +69,7 @@ public class Match : IComparable<Match>
 		}
 	
 	
-	#endregion
+		#endregion
 
 	
 		public int GetLineCount ()

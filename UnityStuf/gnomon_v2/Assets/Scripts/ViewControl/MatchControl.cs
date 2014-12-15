@@ -126,7 +126,10 @@ public class MatchControl : MonoBehaviour
 		}
 		void InitValuesCopy ()
 		{
-				throw new System.NotImplementedException ();
+				copyMatch = new Match (SelectedMatch);
+				copyMatch.Name = copyMatch.Name + "_COPY";
+				SelectedMatch = copyMatch;
+				InitValues ();
 		}
 	
 		#endregion

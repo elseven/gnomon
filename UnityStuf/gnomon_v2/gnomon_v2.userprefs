@@ -1,38 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ViewControl/MatchesTeamEditControl.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Model/Match.cs">
     <Files>
-      <File FileName="Assets/Scripts/ViewControl/RoomBuildingEditControl.cs" Line="33" Column="3" />
-      <File FileName="Assets/Scripts/ViewControl/RoomEditControl.cs" Line="60" Column="4" />
-      <File FileName="Assets/Scripts/ViewControl/RoomSelectControl.cs" Line="62" Column="1" />
-      <File FileName="Assets/Scripts/ViewControl/RoomSchoolEditControl.cs" Line="18" Column="3" />
-      <File FileName="Assets/Scripts/ViewControl/TeamNameEditControl.cs" Line="67" Column="3" />
-      <File FileName="Assets/Scripts/ViewControl/TeamControl.cs" Line="456" Column="7" />
-      <File FileName="Assets/Scripts/ViewControl/SchoolEditControl.cs" Line="49" Column="3" />
-      <File FileName="Assets/Scripts/ViewControl/Main.cs" Line="158" Column="27" />
-      <File FileName="Assets/Scripts/ViewControl/MatchControl.cs" Line="52" Column="32" />
+      <File FileName="Assets/Scripts/ViewControl/TeamControl.cs" Line="232" Column="3" />
+      <File FileName="Assets/Scripts/ViewControl/SchoolEditControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ViewControl/Main.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ViewControl/MatchControl.cs" Line="129" Column="17" />
       <File FileName="Assets/Scripts/ViewControl/MatchesTeamEditControl.cs" Line="49" Column="17" />
+      <File FileName="Assets/Scripts/Model/Match.cs" Line="63" Column="3" />
+      <File FileName="Assets/Scripts/Model/Team.cs" Line="86" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="Graphing" expanded="True" />
-              <Node name="Model" expanded="True" />
-              <Node name="ViewControl" expanded="True">
-                <Node name="MatchesTeamEditControl.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-          <Node name="Assembly-CSharp-Editor" expanded="True">
-            <Node name="NGUI" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Editor" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />
